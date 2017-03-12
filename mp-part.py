@@ -1,40 +1,37 @@
-import argparse
+from networkx import Graph
+import networkx as nx
 
-
-###
-# graphs will be dictionaries with lists of vertices
-#     graph = {'A': ['B', 'C'],
-#             'B': ['C', 'D'],
-#             'C': ['D'],
-#             'D': ['C'],
-#             'E': ['F'],
-#             'F': ['C']}
-###
-
-def forbidden_graphs(vertices):
+def forbidden_graphs(input_graph):
     #this will be an answer to the question:
     #does my neighbor have a neighbor?
+    G = input_graph
+    output_list = []
+    #loop through all the nodes
+    for node in nx.nodes_iter(G): #not sure I need an iter here
+        for nbr in G.neighbors(node):
+            if len(G.neighbors(nbr)) > 1:
+                output_list.append(node)
+                output_list.append(nbr)
+                output_list.append(G.neighbors(nbr)[1])
+        break
+    #check if each node has a neighbor that has a neighbor
+    # if that's true, grab all three and return them in a list
+    return output_list
 
-    #we have to iterate through each vertex in the lists
-    #but fuck, if this is just a list we can't do real partitions
-    #because there's no decomposition of the actual graph
-    #we might need a more intelligent structure here fuck
-
-
-def monopolar_partition(graph, k):
+def monopolar_partition(input_graph, k):
     #initialization
-    A_init = []
-    B_init = graph.keys
+    A_init = Graph() #an empty graph
+    B_init = input_graph
     Q = [[A_init,B_init],] # deliberately double-depth Q to manage 'branches'
     #loop body
     for branch in Q:
         A = branch.popleft()
         B = branch.pop()
-        if len(A) > k:
+        if number_of_nodes(A) > k:
             continue #reject branch
 
         p3s = forbidden_graphs(B)
-        if p3s == []:
+        if p3s == []: #this needs to change
             return 'yes'
             break
         else:
@@ -50,12 +47,10 @@ def monopolar_partition(graph, k):
     return 'no'
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(graph)
-    parser.add_argument(k)
-    args = parser.parse_args()
-
-    monopolar_partition(args.graph)
+    G = Graph()
+    G.add_nodes_from([1,2,3,4])
+    G.add_edges_from([(1,2),(2,3),(1,4)])
+    print forbidden_graphs(G)
 
 if __name__ == '__main__':
     main()
