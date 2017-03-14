@@ -10,8 +10,8 @@ def reduction_rule_5_1(input_graph, constraint, k):
     or if G[BCP] is not an edgeless graph,
     then reject the current constraint.
     '''
-    #if DEBUG == True:
-    print "Called reduction_rule_5_1"
+    if DEBUG == True:
+        print "Called reduction_rule_5_1"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -70,8 +70,8 @@ def reduction_rule_5_2(input_graph, constraint):
     then set ACP to ACP.union(u) and BC_star to BC_star.remove(u);
     ie: replace C with (AC_star, ACP.union(u), BC_star.remove(u), BCP)
     '''
-    #if DEBUG == True:
-    print "Called reduction_rule_5_2"
+    if DEBUG == True:
+        print "Called reduction_rule_5_2"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -106,8 +106,8 @@ def reduction_rule_5_3(input_graph, constraint):
     such that G[{u, w, x}] is a P3, set AC_star to AC_star.remove(u)
     and BCP to BCP.union(u).
     '''
-    #if DEBUG == True:
-    print "Called reduction_rule_5_3"
+    if DEBUG == True:
+        print "Called reduction_rule_5_3"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -141,7 +141,7 @@ def reduction_rule_5_3(input_graph, constraint):
     return False
 
 def branching_rule_5_1(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -170,22 +170,40 @@ def branching_rule_5_1(input_graph, constraint):
     G = input_graph
     for u in AC_star:
         u_neighbors = G.neighbors(u)
+        if DEBUG == True:
+            print "u " + str(u)
+            print "u_neighbors " + str(u_neighbors)
         for w in u_neighbors:
             if w in AC_star: #? wrap in a Graph? THIS WON'T WORK
                 w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
+                if DEBUG == True:
+                    print "w " + str(w)
+                    print "w_neighbors " + str(w_neighbors)
                 for x in w_neighbors:
                     if x in ACP: #? wrap in a Graph? THIS WON'T WORK
                         x_neighbors = G.neighbors(x)
                         x_neighbors.remove(w) #remove bactrack
+                        if DEBUG == True:
+                            print "x " + str(x)
+                            print "x_neighbors " + str(x_neighbors)
                         if u not in x_neighbors:
                             AC_star_1 = list(AC_star)
+                            AC_star_1.remove(u)
                             AC_star_2 = list(AC_star)
+                            AC_star_2.remove(w)
                             BCP_1 = list(BCP)
+                            BCP_1.append(u)
                             BCP_2 = list(BCP)
+                            BCP_2.append(w)
+                            if DEBUG == True:
+                                print str([
+                                        [AC_star_1,ACP,BC_star,BCP_1],
+                                        [AC_star_2,ACP,BC_star,BCP_2],
+                                        ])
                             return [
-                                    [AC_star_1.remove(u),ACP,BC_star,BCP_1.append(u)],
-                                    [AC_star_2.remove(w),ACP,BC_star,BCP_2.append(w)],
+                                    [AC_star_1,ACP,BC_star,BCP_1],
+                                    [AC_star_2,ACP,BC_star,BCP_2],
                                     ]
     return False
 
@@ -220,6 +238,9 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     #this... might not work
     for u in AC_star:
         u_prime_neighbors = G.subgraph(A_prime).neighbors(u) #A_prime probably has to become a graph first
+        if DEBUG == True:
+            print "u: " + str(u)
+            print u_prime_neighbors
         if len(u_prime_neighbors) > 1:
             AC_star_no_u = list(AC_star)
             AC_star_no_u.remove(u)
@@ -227,6 +248,11 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
             ACP_u.append(u)
             BCP_u = list(BCP)
             BCP_u.append(u)
+            if DEBUG == True:
+                print   str([
+                        [AC_star_no_u,ACP_u,BC_star,BCP],
+                        [AC_star_no_u,ACP,BC_star,BCP_u],
+                        ])
             return  [
                     [AC_star_no_u,ACP_u,BC_star,BCP],
                     [AC_star_no_u,ACP,BC_star,BCP_u],
@@ -276,13 +302,7 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     print Q
     end_game = False
     for branch in Q:
-        #if reduction rule 5.1 returns reject, we toss this branch
-        #otherwise we try 5.2 then 5.3
-        #if a reduction rule succeeds, we jump back to 1
-        #if none of the reduction rules apply, we try the branching rule
 
-        #branching rules return a tuple of constraints to be added to the Q
-        #or an indicator that the branching rule doesn't apply: False
         if DEBUG == True:
             print "branch: " + str(branch)
 
@@ -294,17 +314,17 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
             b_rule_1 = branching_rule_5_1(G,constraint)
             if b_rule_1 != False:
                 for new_branch in b_rule_1:
-                    Q.insert(0, new_branch)
-            b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
-            if b_rule_2 != False:
-                for new_branch in b_rule_2:
-                    Q.insert(0, new_branch)
-            if b_rule_2 == False:
-                print Q
-                end_game = constraint
-                print end_game
+                    Q.append(new_branch)
+            else:
+                b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
+                if b_rule_2 != False:
+                    for new_branch in b_rule_2:
+                        Q.append(new_branch)
+                if b_rule_2 == False:
+                    print Q
+                    end_game = constraint
+                    print end_game
             continue
-
     #every branch is rejected
     #could make this more explicit by calling out an empty Q
     if end_game != False:
