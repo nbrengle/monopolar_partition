@@ -1,7 +1,47 @@
 from networkx import Graph
 import networkx as nx
 
-def reduction_rule_5_1(constraint):
+def detect_p3():
+    '''
+    There's a p3 if:
+        my neighbor(1) has a neighbor(2) that is not me
+        neighbor(2) has a neighbor(3) that is not me
+    '''
+    DEBUG = True
+    output_list = []
+    G = input_graph
+    for n_0 in nx.nodes_iter(G):
+        neighbors_1 = G.neighbors(n_0)
+
+        if DEBUG==True:
+            print "n_0 " + str(n_0)
+            print "neighbors_1" + str(neighbors_1)
+
+        for n_1 in neighbors_1:
+            neighbors_2 = G.neighbors(n_1)
+            neighbors_2.remove(n_0) #remove bactrack
+
+            if DEBUG==True:
+                print "n_1 " + str(n_1)
+                print "neighbors_2" + str(neighbors_2)
+
+            for n_2 in neighbors_2:
+                neighbors_3 = G.neighbors(n_2)
+                neighbors_3.remove(n_1) #remove bactrack
+                if DEBUG==True:
+                    print "n_2 " + str(n_2)
+                    print "neighbors_3_mod" + str(neighbors_3)
+
+                if n_0 not in neighbors_3:
+                    output_list.append(n_0)
+                    output_list.append(n_1)
+                    output_list.append(n_2)
+                    if DEBUG==True:
+                        print output_list
+                    return output_list
+    return output_list
+
+def reduction_rule_5_1(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -9,15 +49,26 @@ def reduction_rule_5_1(constraint):
     or if G[BCP] is not an edgeless graph,
     then reject the current constraint.
     '''
-    pass     # Wow fuck I have no idea how to do this one
     if len(constraint) != 4:
-        raise ValueError("A constraint is a 4-tuple")
+        raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
+    G = input_graph
     AC_star = constraint[0]
     ACP = constraint[1]
-    BC_star = constraint [2]
+    BC_star = constraint[2]
     BCP = constraint[3]
 
-def reduction_rule_5_2(constraint):
+    reject_switch = 0
+
+    #still need to manage the check on ACP somehow...
+
+    for vertex in BCP:
+        if G.neighbors(vertex) != []:
+            reject_switch = 1
+
+    if reject_switch = 1:
+        return 'reject'
+
+def reduction_rule_5_2(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -25,15 +76,24 @@ def reduction_rule_5_2(constraint):
     then set ACP to ACP.union(u) and BC_star to BC_star.remove(u);
     ie: replace C with (AC_star, ACP.union(u), BC_star.remove(u), BCP)
     '''
-    pass
     if len(constraint) != 4:
-        raise ValueError("A constraint is a 4-tuple")
+        raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
+    G = input_graph
     AC_star = constraint[0]
     ACP = constraint[1]
-    BC_star = constraint [2]
+    BC_star = constraint[2]
     BCP = constraint[3]
 
-def reduction_rule_5_3(constraint):
+    for u in BC_star:
+        for vertex in BCP:
+            if u in G.neighbors(vertex):
+                ACP.append(u) # as ACP is a list
+                BC_star.remove(u) # as BC_star is a list
+
+    return [AC_star,ACP,BC_star,BCP]
+
+
+def reduction_rule_5_3(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -43,13 +103,14 @@ def reduction_rule_5_3(constraint):
     '''
     pass
     if len(constraint) != 4:
-        raise ValueError("A constraint is a 4-tuple")
+        raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
+    G = input_graph
     AC_star = constraint[0]
     ACP = constraint[1]
-    BC_star = constraint [2]
+    BC_star = constraint[2]
     BCP = constraint[3]
 
-def branching_rule_5_1(constraint):
+def branching_rule_5_1(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -60,13 +121,14 @@ def branching_rule_5_1(constraint):
     '''
     pass
     if len(constraint) != 4:
-        raise ValueError("A constraint is a 4-tuple")
+        raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
+    G = input_graph
     AC_star = constraint[0]
     ACP = constraint[1]
-    BC_star = constraint [2]
+    BC_star = constraint[2]
     BCP = constraint[3]
 
-def branching_rule_5_2(constraint):
+def branching_rule_5_2(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -77,7 +139,8 @@ def branching_rule_5_2(constraint):
     '''
     pass
     if len(constraint) != 4:
-        raise ValueError("A constraint is a 4-tuple")
+        raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
+    G = input_graph
     AC_star = constraint[0]
     ACP = constraint[1]
     BC_star = constraint [2]
@@ -91,8 +154,8 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     A_prime = monopolar_partition.pop(0) #set A
     B_prime = monopolar_partition.pop() #set B
 
-    init_constraint_A = [A_prime, v, B_prime, []]
-    init_constraint_B = [A_prime, [], B_prime, v]
+    init_constraint_A = [A_prime, [v,], B_prime, []]
+    init_constraint_B = [A_prime, [], B_prime, [v,]]
     #reduction_rule_5_1
     #reduction_rule_5_2
     #reduction_rule_5_3
@@ -106,7 +169,7 @@ def main():
     tri3.add_edge(2,3)
     mp = [[0,1,3,4,5],[2]]
     k = 2
-    v = 2
+    v = 3
     print inductive_recognition(tri3,v,mp,k)
 
 if __name__ == '__main__':
