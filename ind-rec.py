@@ -9,6 +9,11 @@ def reduction_rule_5_1(input_graph, constraint, k):
     If G[ACP] is not a cluster graph with at most k clusters,
     or if G[BCP] is not an edgeless graph,
     then reject the current constraint.
+
+    the graphs in A cannot contain an edgeless graph of order k + 1 as subgraph.
+    In other words, every graph in A that has order at least k + 1 contains at
+    least one edge.
+
     '''
     if DEBUG == True:
         print "Called reduction_rule_5_1"
@@ -52,6 +57,14 @@ def reduction_rule_5_1(input_graph, constraint, k):
                 if u not in x_neighbors:
                     reject_switch = 1
                     break
+
+    edgeless = []
+    for v in ACP + AC_star:
+        v_neighbors = nx.union(G.subgraph(ACP),G.subgraph(AC_star)).neighbors(v)
+        if v_neighbors == []:
+            edgeless.append(v)
+    if len(edgeless) > k + 1:
+        reject_switch = 1
 
     for vertex in BCP:
         if G.neighbors(vertex) != []:
@@ -287,7 +300,8 @@ def reduction_rule_loop(G, branch, k):
     while goto == True:
         rule_1 = reduction_rule_5_1(G,constraint,k)
         if rule_1 == "reject":
-            print "Reject Branch"
+            if DEBUG == True:
+                print "Reject Branch"
             break
         rule_2 = reduction_rule_5_2(G,constraint)
         if rule_2 != False:
@@ -359,7 +373,12 @@ def main():
     k_tri3 = 2
     v_tri3 = 3
     print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
-    #print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
+    print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
+
+    '''
+    FUCK this is where parameter K is necessary...
+    'cause everything else seems to be dandy.
+    '''
 
 if __name__ == '__main__':
     main()
