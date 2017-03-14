@@ -1,7 +1,7 @@
 from networkx import Graph
 import networkx as nx
 
-def detect_p3():
+def detect_p3(input_graph,vertex_set1,vertex_set2):
     '''
     There's a p3 if:
         my neighbor(1) has a neighbor(2) that is not me
@@ -101,7 +101,6 @@ def reduction_rule_5_3(input_graph, constraint):
     such that G[{u, w, x}] is a P3, set AC_star to AC_star.remove(u)
     and BCP to BCP.union(u).
     '''
-    pass
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
     G = input_graph
@@ -109,6 +108,25 @@ def reduction_rule_5_3(input_graph, constraint):
     ACP = constraint[1]
     BC_star = constraint[2]
     BCP = constraint[3]
+
+    output_list = []
+    G = input_graph
+    for u in AC_star:
+        u_neighbors = G.neighbors(u)
+        for w in u_neighbors:
+            if w in ACP: #? wrap in a Graph?
+                w_neighbors = G.neighbors(x)
+                w_neighbors.remove(u) #remove bactrack
+                for x in w_neighbors:
+                    if x in ACP: #? wrap in a Graph?
+                        x_neighbors = G.neighbors(x)
+                        x_neighbors.remove(w) #remove bactrack
+                        if u not in x_neighbors:
+                            AC_star.remove(u) #is list
+                            BCP.append(u) #is list
+                            return [AC_star,ACP,BC_star,BCP]
+    return [AC_star,ACP,BC_star,BCP]
+
 
 def branching_rule_5_1(input_graph, constraint):
     '''
