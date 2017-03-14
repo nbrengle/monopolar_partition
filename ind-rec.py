@@ -63,8 +63,8 @@ def reduction_rule_5_2(input_graph, constraint):
             if u in G.neighbors(vertex):
                 ACP.append(u) # as ACP is a list
                 BC_star.remove(u) # as BC_star is a list
-
-    return [AC_star,ACP,BC_star,BCP]
+                return [AC_star,ACP,BC_star,BCP]
+    return False
 
 def reduction_rule_5_3(input_graph, constraint):
     '''
@@ -98,7 +98,7 @@ def reduction_rule_5_3(input_graph, constraint):
                             AC_star.remove(u) #is list
                             BCP.append(u) #is list
                             return [AC_star,ACP,BC_star,BCP]
-    return [AC_star,ACP,BC_star,BCP]
+    return False
 
 def branching_rule_5_1(input_graph, constraint):
     '''
@@ -137,7 +137,7 @@ def branching_rule_5_1(input_graph, constraint):
                                     [AC_star_1.remove(u),ACP,BC_star,BCP_1.append(u)],
                                     [AC_star_2.remove(w),ACP,BC_star,BCP_2.append(w)],
                                     ]
-    return [AC_star,ACP,BC_star,BCP] # is this a return I want? likely no
+    return False
 
 def branching_rule_5_2(input_graph, constraint, A_prime):
     '''
@@ -167,11 +167,11 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
             ACP_u.append(u)
             BCP_u = list(BCP)
             BCP_u.append(u)
-            return [
+            return  [
                     [AC_star_no_u,ACP_u,BC_star,BCP],
                     [AC_star_no_u,ACP,BC_star,BCP_u],
                     ]
-    return [AC_star,ACP,BC_star,BCP] #this return value is wonky, probably not worth it
+    return False
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     if len(monopolar_partition) != 2:
@@ -189,20 +189,49 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     Q=[init_constraint_A,init_constraint_B]
 
     for branch in Q:
-        #if branching rule 5.1 returns accept, we stop and win
-        #if reduction rule 5.1 returns reject, we try 5.2 then 5.3
+        #if reduction rule 5.1 returns reject, we toss this branch
+        #otherwise we try 5.2 then 5.3
         #if a reduction rule succeeds, we jump back to 1
         #if none of the reduction rules apply, we try the branching rule
-        yay_or_nay = reduction_rule_5_1(G,init_constraint_A,k)
-        if yay_or_nay == "accept":
-            return "yes"
-        reduction_rule_5_2(G,init_constraint_A)
-        reduction_rule_5_3(G,init_constraint_A)
 
         #branching rules return a tuple of constraints to be added to the Q
         #or an indicator that the branching rule doesn't apply: just None?
-        branching_rule_5_1(G,init_constraint_A)
-        branching_rule_5_2(G,init_constraint_A,A_prime)
+
+        constraint = branch
+        goto = True;
+        b_goto = True;
+        while goto = True:
+            yay_or_nay = reduction_rule_5_1(G,constraint,k)
+            if rule == "reject"
+                break
+            rule_2 = reduction_rule_5_2(G,constraint)
+            if rule_2 != False:
+                constraint = rule_2
+                continue
+            rule_3 = reduction_rule_5_3(G,constraint)
+            if rule_3 != False:
+                constraint = rule_3
+                continue
+            if rule_3 == False: #I think this works, it's a bit weird
+                goto = False
+        else: #else on For
+            # executed if the loop ended normally (no break)
+            #pretty sure this while loop is properly erroneous, oh well
+            while b_goto = True:
+                b_rule_1 = branching_rule_5_1(G,constraint)
+                if b_rule_1 != False:
+                    for new_branch in b_rule_1:
+                        Q.append(new_branch)
+                        continue
+                b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
+                if b_rule_2 != False:
+                    for new_branch in b_rule_2:
+                        Q.append(new_branch)
+                        continue
+                if b_rule_2 == False:
+                    b_goto == False
+        break  # executed if 'reject' caused the first while to break
+        #motherfuckign motherfucking loops
 
 def main():
     tri1 = nx.complete_graph(3)
