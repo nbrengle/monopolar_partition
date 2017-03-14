@@ -2,7 +2,7 @@ from networkx import Graph
 import networkx as nx
 
 def reduction_rule_5_1(input_graph, constraint, k):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -10,8 +10,8 @@ def reduction_rule_5_1(input_graph, constraint, k):
     or if G[BCP] is not an edgeless graph,
     then reject the current constraint.
     '''
-    if DEBUG == True:
-        print "Called reduction_rule_5_1"
+    #if DEBUG == True:
+    print "Called reduction_rule_5_1"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -33,13 +33,22 @@ def reduction_rule_5_1(input_graph, constraint, k):
     #the number of clusters is not addressed
     G = input_graph
     for u in ACP:
-        u_neighbors = G.neighbors(u)
+        u_neighbors = G.subgraph(ACP).neighbors(u)
+        if DEBUG == True:
+            print "u " + str(u)
+            print u_neighbors
         for w in u_neighbors:
             w_neighbors = G.neighbors(w)
             w_neighbors.remove(u) #remove bactrack
+            if DEBUG == True:
+                print "w " + str(w)
+                print w_neighbors
             for x in w_neighbors:
                 x_neighbors = G.neighbors(x)
                 x_neighbors.remove(w) #remove bactrack
+                if DEBUG == True:
+                    print "x " + str(x)
+                    print x_neighbors
                 if u not in x_neighbors:
                     reject_switch = 1
                     break
@@ -53,7 +62,7 @@ def reduction_rule_5_1(input_graph, constraint, k):
         return 'reject'
 
 def reduction_rule_5_2(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -61,8 +70,8 @@ def reduction_rule_5_2(input_graph, constraint):
     then set ACP to ACP.union(u) and BC_star to BC_star.remove(u);
     ie: replace C with (AC_star, ACP.union(u), BC_star.remove(u), BCP)
     '''
-    if DEBUG == True:
-        print "Called reduction_rule_5_2"
+    #if DEBUG == True:
+    print "Called reduction_rule_5_2"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -83,11 +92,13 @@ def reduction_rule_5_2(input_graph, constraint):
             if u in G.neighbors(vertex):
                 ACP.append(u) # as ACP is a list
                 BC_star.remove(u) # as BC_star is a list
+                if DEBUG == True:
+                    print [AC_star,ACP,BC_star,BCP]
                 return [AC_star,ACP,BC_star,BCP]
     return False
 
 def reduction_rule_5_3(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -95,8 +106,8 @@ def reduction_rule_5_3(input_graph, constraint):
     such that G[{u, w, x}] is a P3, set AC_star to AC_star.remove(u)
     and BCP to BCP.union(u).
     '''
-    if DEBUG == True:
-        print "Called reduction_rule_5_3"
+    #if DEBUG == True:
+    print "Called reduction_rule_5_3"
 
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
@@ -222,6 +233,27 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
                     ]
     return False
 
+def reduction_rule_loop(G, branch, k):
+    constraint = branch
+    goto = True
+    while goto == True:
+        rule_1 = reduction_rule_5_1(G,constraint,k)
+        if rule_1 == "reject":
+            print "About to break"
+            break
+        rule_2 = reduction_rule_5_2(G,constraint)
+        if rule_2 != False:
+            constraint = rule_2
+            continue
+        rule_3 = reduction_rule_5_3(G,constraint)
+        if rule_3 != False:
+            constraint = rule_3
+            continue
+        if rule_3 == False: #I think this works, it's a bit weird
+            return constraint
+            goto = False
+    return False
+
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     DEBUG = True
 
@@ -241,6 +273,7 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
 
     #Going to use a Queue here instead of a formal tree, sufficient w/o parallel
     Q = [init_constraint_A,init_constraint_B]
+    print Q
     end_game = False
     for branch in Q:
         #if reduction rule 5.1 returns reject, we toss this branch
@@ -251,42 +284,27 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
         #branching rules return a tuple of constraints to be added to the Q
         #or an indicator that the branching rule doesn't apply: False
         if DEBUG == True:
-            print branch
-        constraint = branch
-        goto = True;
-        b_goto = True;
-        while goto == True:
-            rule_1 = reduction_rule_5_1(G,constraint,k)
-            if rule_1 == "reject":
-                break
-            rule_2 = reduction_rule_5_2(G,constraint)
-            if rule_2 != False:
-                constraint = rule_2
-                continue
-            rule_3 = reduction_rule_5_3(G,constraint)
-            if rule_3 != False:
-                constraint = rule_3
-                continue
-            if rule_3 == False: #I think this works, it's a bit weird
-                goto = False
-        else: #else on For
-            # executed if the loop ended normally (no break)
-            #pretty sure this while loop is properly erroneous, oh well
-            while b_goto == True:
-                b_rule_1 = branching_rule_5_1(G,constraint)
-                if b_rule_1 != False:
-                    for new_branch in b_rule_1:
-                        Q.append(new_branch)
-                        continue
-                b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
-                if b_rule_2 != False:
-                    for new_branch in b_rule_2:
-                        Q.append(new_branch)
-                        continue
-                if b_rule_2 == False:
-                    b_goto == False
-                    end_game = constraint
-        break  # executed if 'reject' caused the first while to break
+            print "branch: " + str(branch)
+
+        reduction_loop = reduction_rule_loop(G, branch, k)
+        if reduction_loop == False:
+            continue
+        else:
+            constraint = reduction_loop
+            b_rule_1 = branching_rule_5_1(G,constraint)
+            if b_rule_1 != False:
+                for new_branch in b_rule_1:
+                    Q.insert(0, new_branch)
+            b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
+            if b_rule_2 != False:
+                for new_branch in b_rule_2:
+                    Q.insert(0, new_branch)
+            if b_rule_2 == False:
+                print Q
+                end_game = constraint
+                print end_game
+            continue
+
     #every branch is rejected
     #could make this more explicit by calling out an empty Q
     if end_game != False:
