@@ -34,8 +34,11 @@ def reduction_rule_5_1(input_graph, constraint, k):
 
     reject_switch = 0
 
+    Pi_B = BC_star + BCP
+    if len(Pi_B) > k:
+        reject_switch = 1
+
     #This is only ensuring ACP is P3-free
-    #the number of clusters is not addressed
     G = input_graph
     for u in ACP:
         u_neighbors = G.subgraph(ACP).neighbors(u)
@@ -63,7 +66,7 @@ def reduction_rule_5_1(input_graph, constraint, k):
         v_neighbors = nx.union(G.subgraph(ACP),G.subgraph(AC_star)).neighbors(v)
         if v_neighbors == []:
             edgeless.append(v)
-    if len(edgeless) > k + 1:
+    if len(edgeless) > k:
         reject_switch = 1
 
     for vertex in BCP:
@@ -374,11 +377,6 @@ def main():
     v_tri3 = 3
     print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
     print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
-
-    '''
-    FUCK this is where parameter K is necessary...
-    'cause everything else seems to be dandy.
-    '''
 
 if __name__ == '__main__':
     main()
