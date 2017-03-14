@@ -25,8 +25,10 @@ def reduction_rule_5_1(input_graph, constraint, k):
         if G.neighbors(vertex) != []:
             reject_switch = 1
 
-    if reject_switch = 1:
+    if reject_switch == 1:
         return 'reject'
+
+    return 'accept'
 
 def reduction_rule_5_2(input_graph, constraint):
     '''
@@ -73,7 +75,7 @@ def reduction_rule_5_3(input_graph, constraint):
         u_neighbors = G.neighbors(u)
         for w in u_neighbors:
             if w in ACP: #? wrap in a Graph?
-                w_neighbors = G.neighbors(x)
+                w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
                 for x in w_neighbors:
                     if x in ACP: #? wrap in a Graph?
@@ -107,7 +109,7 @@ def branching_rule_5_1(input_graph, constraint):
         u_neighbors = G.neighbors(u)
         for w in u_neighbors:
             if w in AC_star: #? wrap in a Graph?
-                w_neighbors = G.neighbors(x)
+                w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
                 for x in w_neighbors:
                     if x in ACP: #? wrap in a Graph?
@@ -133,7 +135,6 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     constraint (AC_star.remove(u), ACP.union(u), BC_star, BCP),
     and the second is with (AC_star.remove(u), ACP, BC_star, BCP.union(u)).
     '''
-    pass
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
     G = input_graph
@@ -145,7 +146,7 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     #if u has only 1 edge, it's likely a singleton cluster
     #this... might not work
     for u in AC_star:
-        u_prime_neighbors = A_prime.neighbors(u) #A_prime probably has to become a graph first
+        u_prime_neighbors = G.subgraph(A_prime).neighbors(u) #A_prime probably has to become a graph first
         if len(u_prime_neighbors) > 1:
             AC_star_no_u = list(AC_star)
             AC_star_no_u.remove(u)
@@ -164,16 +165,17 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
         raise ValueError("monopolar_partition must be of the form [A,B]")
     v = vertex
     k = parameter
+    G = input_graph
     A_prime = monopolar_partition.pop(0) #set A
     B_prime = monopolar_partition.pop() #set B
 
     init_constraint_A = [A_prime, [v,], B_prime, []]
     init_constraint_B = [A_prime, [], B_prime, [v,]]
-    #reduction_rule_5_1
-    #reduction_rule_5_2
-    #reduction_rule_5_3
-    #branching_rule_5_1
-    #branching_rule_5_2
+    reduction_rule_5_1(G,init_constraint_A,k)
+    reduction_rule_5_2(G,init_constraint_A)
+    reduction_rule_5_3(G,init_constraint_A)
+    branching_rule_5_1(G,init_constraint_A)
+    branching_rule_5_2(G,init_constraint_A,A_prime)
 
 def main():
     tri1 = nx.complete_graph(3)
