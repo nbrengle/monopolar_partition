@@ -19,16 +19,28 @@ def reduction_rule_5_1(input_graph, constraint, k):
 
     reject_switch = 0
 
-    #still need to manage the check on ACP somehow...
+    #This is only ensuring ACP is P3-free
+    #the number of clusters is not addressed
+    G = input_graph
+    for u in ACP:
+        u_neighbors = G.neighbors(u)
+        for w in u_neighbors:
+            w_neighbors = G.neighbors(w)
+            w_neighbors.remove(u) #remove bactrack
+            for x in w_neighbors:
+                x_neighbors = G.neighbors(x)
+                x_neighbors.remove(w) #remove bactrack
+                if u not in x_neighbors:
+                    reject_switch = 1
+                    break
 
     for vertex in BCP:
         if G.neighbors(vertex) != []:
             reject_switch = 1
+            break
 
     if reject_switch == 1:
         return 'reject'
-
-    return 'accept'
 
 def reduction_rule_5_2(input_graph, constraint):
     '''
@@ -70,15 +82,16 @@ def reduction_rule_5_3(input_graph, constraint):
     BC_star = constraint[2]
     BCP = constraint[3]
 
+
     G = input_graph
     for u in AC_star:
         u_neighbors = G.neighbors(u)
         for w in u_neighbors:
-            if w in ACP: #? wrap in a Graph?
+            if w in ACP: #? wrap in a Graph? THIS WON'T WORK
                 w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
                 for x in w_neighbors:
-                    if x in ACP: #? wrap in a Graph?
+                    if x in ACP: #? wrap in a Graph? THIS WON'T WORK
                         x_neighbors = G.neighbors(x)
                         x_neighbors.remove(w) #remove bactrack
                         if u not in x_neighbors:
@@ -108,11 +121,11 @@ def branching_rule_5_1(input_graph, constraint):
     for u in AC_star:
         u_neighbors = G.neighbors(u)
         for w in u_neighbors:
-            if w in AC_star: #? wrap in a Graph?
+            if w in AC_star: #? wrap in a Graph? THIS WON'T WORK
                 w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
                 for x in w_neighbors:
-                    if x in ACP: #? wrap in a Graph?
+                    if x in ACP: #? wrap in a Graph? THIS WON'T WORK
                         x_neighbors = G.neighbors(x)
                         x_neighbors.remove(w) #remove bactrack
                         if u not in x_neighbors:
@@ -171,11 +184,25 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
 
     init_constraint_A = [A_prime, [v,], B_prime, []]
     init_constraint_B = [A_prime, [], B_prime, [v,]]
-    reduction_rule_5_1(G,init_constraint_A,k)
-    reduction_rule_5_2(G,init_constraint_A)
-    reduction_rule_5_3(G,init_constraint_A)
-    branching_rule_5_1(G,init_constraint_A)
-    branching_rule_5_2(G,init_constraint_A,A_prime)
+
+    #Going to use a Queue here instead of a formal tree, sufficient w/o parallel
+    Q=[init_constraint_A,init_constraint_B]
+
+    for branch in Q:
+        #if branching rule 5.1 returns accept, we stop and win
+        #if reduction rule 5.1 returns reject, we try 5.2 then 5.3
+        #if a reduction rule succeeds, we jump back to 1
+        #if none of the reduction rules apply, we try the branching rule
+        yay_or_nay = reduction_rule_5_1(G,init_constraint_A,k)
+        if yay_or_nay == "accept":
+            return "yes"
+        reduction_rule_5_2(G,init_constraint_A)
+        reduction_rule_5_3(G,init_constraint_A)
+
+        #branching rules return a tuple of constraints to be added to the Q
+        #or an indicator that the branching rule doesn't apply: just None?
+        branching_rule_5_1(G,init_constraint_A)
+        branching_rule_5_2(G,init_constraint_A,A_prime)
 
 def main():
     tri1 = nx.complete_graph(3)
