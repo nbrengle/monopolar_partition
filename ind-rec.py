@@ -3,55 +3,85 @@ import networkx as nx
 
 def reduction_rule_5_1(constraint):
     '''
+    Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
+
     If G[ACP] is not a cluster graph with at most k clusters,
     or if G[BCP] is not an edgeless graph,
     then reject the current constraint.
     '''
-    pass
+    pass     # Wow fuck I have no idea how to do this one
     if len(constraint) != 4:
         raise ValueError("A constraint is a 4-tuple")
+    AC_star = constraint[0]
+    ACP = constraint[1]
+    BC_star = constraint [2]
+    BCP = constraint[3]
 
 def reduction_rule_5_2(constraint):
     '''
-    If there is a vertex u ∈ BC∗ that has a neighbor in BCP,
-    then set ACP ← ACP ∪ {u} and BC∗ ← BC∗ \ {u};
-    ie: replace C with the constraint (AC∗, ACP ∪ {u}, BC∗ \ {u}, BCP)
+    Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
+
+    If there is a vertex u ∈ BC_star that has a neighbor in BCP,
+    then set ACP ← ACP ∪ {u} and BC_star ← BC_star \ {u};
+    ie: replace C with the constraint (AC_star, ACP ∪ {u}, BC_star \ {u}, BCP)
     '''
     pass
     if len(constraint) != 4:
         raise ValueError("A constraint is a 4-tuple")
+    AC_star = constraint[0]
+    ACP = constraint[1]
+    BC_star = constraint [2]
+    BCP = constraint[3]
 
 def reduction_rule_5_3(constraint):
     '''
-    If there is a vertex u ∈ AC∗ and two vertices w, x ∈ ACP
-    such that G[{u, w, x}] is a P3, set AC∗ ← AC∗ \ {u}
+    Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
+
+    If there is a vertex u ∈ AC_star and two vertices w, x ∈ ACP
+    such that G[{u, w, x}] is a P3, set AC_star ← AC_star \ {u}
     and BCP ← BCP ∪ {u}.
     '''
     pass
     if len(constraint) != 4:
         raise ValueError("A constraint is a 4-tuple")
+    AC_star = constraint[0]
+    ACP = constraint[1]
+    BC_star = constraint [2]
+    BCP = constraint[3]
 
 def branching_rule_5_1(constraint):
     '''
-    If there are two vertices u, w ∈ AC∗ and a vertex x ∈ ACP
+    Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
+
+    If there are two vertices u, w ∈ AC_star and a vertex x ∈ ACP
     such that G[{u, w, x}] is a P3, then branch into two branches:
-    one associatedwith the constraint (AC∗ \ {u}, ACP, BC∗, BCP ∪ {u})
-    and one associated with (AC∗ \ {w}, ACP, BC∗, BCP ∪ {w}).
+    one associatedwith the constraint (AC_star \ {u}, ACP, BC_star, BCP ∪ {u})
+    and one associated with (AC_star \ {w}, ACP, BC_star, BCP ∪ {w}).
     '''
     pass
     if len(constraint) != 4:
         raise ValueError("A constraint is a 4-tuple")
+    AC_star = constraint[0]
+    ACP = constraint[1]
+    BC_star = constraint [2]
+    BCP = constraint[3]
 
 def branching_rule_5_2(constraint):
     '''
-    If there is a vertex u ∈ AC∗such that {u} is a clusterin G[A'],
+    Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
+
+    If there is a vertex u ∈ AC_starsuch that {u} is a clusterin G[A'],
     then branch into two branches: the first is associated with the
-    constraint (AC∗ \ {u}, ACP ∪ {u}, BC∗, BCP),
-    and the second is associated with (AC∗ \ {u}, ACP, BC∗, BCP ∪ {u}).
+    constraint (AC_star \ {u}, ACP ∪ {u}, BC_star, BCP),
+    and the second is associated with (AC_star \ {u}, ACP, BC_star, BCP ∪ {u}).
     '''
     pass
     if len(constraint) != 4:
         raise ValueError("A constraint is a 4-tuple")
+    AC_star = constraint[0]
+    ACP = constraint[1]
+    BC_star = constraint [2]
+    BCP = constraint[3]
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     if len(monopolar_partition) != 2:
