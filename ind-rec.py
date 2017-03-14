@@ -21,9 +21,9 @@ def reduction_rule_5_2(constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
-    If there is a vertex u ∈ BC_star that has a neighbor in BCP,
-    then set ACP ← ACP ∪ {u} and BC_star ← BC_star \ {u};
-    ie: replace C with the constraint (AC_star, ACP ∪ {u}, BC_star \ {u}, BCP)
+    If there is a vertex u in BC_star that has a neighbor in BCP,
+    then set ACP to ACP.union(u) and BC_star to BC_star.remove(u);
+    ie: replace C with (AC_star, ACP.union(u), BC_star.remove(u), BCP)
     '''
     pass
     if len(constraint) != 4:
@@ -37,9 +37,9 @@ def reduction_rule_5_3(constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
-    If there is a vertex u ∈ AC_star and two vertices w, x ∈ ACP
-    such that G[{u, w, x}] is a P3, set AC_star ← AC_star \ {u}
-    and BCP ← BCP ∪ {u}.
+    If there is a vertex u in AC_star and two vertices w, x in ACP
+    such that G[{u, w, x}] is a P3, set AC_star to AC_star.remove(u)
+    and BCP to BCP.union(u).
     '''
     pass
     if len(constraint) != 4:
@@ -53,10 +53,10 @@ def branching_rule_5_1(constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
-    If there are two vertices u, w ∈ AC_star and a vertex x ∈ ACP
+    If there are two vertices u, w in AC_star and a vertex x in ACP
     such that G[{u, w, x}] is a P3, then branch into two branches:
-    one associatedwith the constraint (AC_star \ {u}, ACP, BC_star, BCP ∪ {u})
-    and one associated with (AC_star \ {w}, ACP, BC_star, BCP ∪ {w}).
+    one with the constraint (AC_star.remove(u), ACP, BC_star, BCP.union(u))
+    and one associated with (AC_star.remove(w), ACP, BC_star, BCP.union(w)).
     '''
     pass
     if len(constraint) != 4:
@@ -70,10 +70,10 @@ def branching_rule_5_2(constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
-    If there is a vertex u ∈ AC_starsuch that {u} is a clusterin G[A'],
+    If there is a vertex u in AC_star such that u is a cluster in G[A_prime],
     then branch into two branches: the first is associated with the
-    constraint (AC_star \ {u}, ACP ∪ {u}, BC_star, BCP),
-    and the second is associated with (AC_star \ {u}, ACP, BC_star, BCP ∪ {u}).
+    constraint (AC_star.remove(u), ACP.union(u), BC_star, BCP),
+    and the second is with (AC_star.remove(u), ACP, BC_star, BCP.union(u)).
     '''
     pass
     if len(constraint) != 4:
