@@ -78,7 +78,6 @@ def monopolar_partition(input_graph, k):
     return 'no'
 
 def main():
-
     G = Graph()
     G.add_nodes_from([1,2,3,5,6,7])
     G.add_edges_from([(1,2),(2,3),(3,5),(3,6),(6,7),(1,3)])
@@ -93,8 +92,8 @@ def main():
     tri2 = nx.complete_graph(3)
     tri3 = nx.disjoint_union(tri1,tri2)
     tri3.add_edge(2,3)
-    print tri3.nodes()
-    print tri3.edges()
+    #print tri3.nodes()
+    #print tri3.edges()
     print "bowtie:1 " + monopolar_partition(tri3,1)
     #print "bowtie:2 " + monopolar_partition(tri3,2)
 
