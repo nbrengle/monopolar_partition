@@ -109,7 +109,6 @@ def reduction_rule_5_3(input_graph, constraint):
     BC_star = constraint[2]
     BCP = constraint[3]
 
-    output_list = []
     G = input_graph
     for u in AC_star:
         u_neighbors = G.neighbors(u)
@@ -137,7 +136,6 @@ def branching_rule_5_1(input_graph, constraint):
     one with the constraint (AC_star.remove(u), ACP, BC_star, BCP.union(u))
     and one associated with (AC_star.remove(w), ACP, BC_star, BCP.union(w)).
     '''
-    pass
     if len(constraint) != 4:
         raise ValueError("A constraint must be a 4-tuple (AC_star, ACP, BC_star, BCP)")
     G = input_graph
@@ -145,6 +143,28 @@ def branching_rule_5_1(input_graph, constraint):
     ACP = constraint[1]
     BC_star = constraint[2]
     BCP = constraint[3]
+
+    G = input_graph
+    for u in AC_star:
+        u_neighbors = G.neighbors(u)
+        for w in u_neighbors:
+            if w in AC_star: #? wrap in a Graph?
+                w_neighbors = G.neighbors(x)
+                w_neighbors.remove(u) #remove bactrack
+                for x in w_neighbors:
+                    if x in ACP: #? wrap in a Graph?
+                        x_neighbors = G.neighbors(x)
+                        x_neighbors.remove(w) #remove bactrack
+                        if u not in x_neighbors:
+                            AC_star_1 = list(AC_star)
+                            AC_star_2 = list(AC_star)
+                            BCP_1 = list(BCP)
+                            BCP_2 = list(BCP)
+                            return [
+                                    [AC_star_1.remove(u),ACP,BC_star,BCP_1.append(u)],
+                                    [AC_star_2.remove(w),ACP,BC_star,BCP_2.append(w)],
+                                    ]
+    return [AC_star,ACP,BC_star,BCP] # is this a return I want? likely no
 
 def branching_rule_5_2(input_graph, constraint):
     '''
