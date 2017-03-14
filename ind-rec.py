@@ -1,47 +1,7 @@
 from networkx import Graph
 import networkx as nx
 
-def detect_p3(input_graph,vertex_set1,vertex_set2):
-    '''
-    There's a p3 if:
-        my neighbor(1) has a neighbor(2) that is not me
-        neighbor(2) has a neighbor(3) that is not me
-    '''
-    DEBUG = True
-    output_list = []
-    G = input_graph
-    for n_0 in nx.nodes_iter(G):
-        neighbors_1 = G.neighbors(n_0)
-
-        if DEBUG==True:
-            print "n_0 " + str(n_0)
-            print "neighbors_1" + str(neighbors_1)
-
-        for n_1 in neighbors_1:
-            neighbors_2 = G.neighbors(n_1)
-            neighbors_2.remove(n_0) #remove bactrack
-
-            if DEBUG==True:
-                print "n_1 " + str(n_1)
-                print "neighbors_2" + str(neighbors_2)
-
-            for n_2 in neighbors_2:
-                neighbors_3 = G.neighbors(n_2)
-                neighbors_3.remove(n_1) #remove bactrack
-                if DEBUG==True:
-                    print "n_2 " + str(n_2)
-                    print "neighbors_3_mod" + str(neighbors_3)
-
-                if n_0 not in neighbors_3:
-                    output_list.append(n_0)
-                    output_list.append(n_1)
-                    output_list.append(n_2)
-                    if DEBUG==True:
-                        print output_list
-                    return output_list
-    return output_list
-
-def reduction_rule_5_1(input_graph, constraint):
+def reduction_rule_5_1(input_graph, constraint, k):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -92,7 +52,6 @@ def reduction_rule_5_2(input_graph, constraint):
 
     return [AC_star,ACP,BC_star,BCP]
 
-
 def reduction_rule_5_3(input_graph, constraint):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
@@ -125,7 +84,6 @@ def reduction_rule_5_3(input_graph, constraint):
                             BCP.append(u) #is list
                             return [AC_star,ACP,BC_star,BCP]
     return [AC_star,ACP,BC_star,BCP]
-
 
 def branching_rule_5_1(input_graph, constraint):
     '''
@@ -166,7 +124,7 @@ def branching_rule_5_1(input_graph, constraint):
                                     ]
     return [AC_star,ACP,BC_star,BCP] # is this a return I want? likely no
 
-def branching_rule_5_2(input_graph, constraint):
+def branching_rule_5_2(input_graph, constraint, A_prime):
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -183,6 +141,23 @@ def branching_rule_5_2(input_graph, constraint):
     ACP = constraint[1]
     BC_star = constraint [2]
     BCP = constraint[3]
+
+    #if u has only 1 edge, it's likely a singleton cluster
+    #this... might not work
+    for u in AC_star:
+        u_prime_neighbors = A_prime.neighbors(u) #A_prime probably has to become a graph first
+        if len(u_prime_neighbors) > 1:
+            AC_star_no_u = list(AC_star)
+            AC_star_no_u.remove(u)
+            ACP_u = list(ACP)
+            ACP_u.append(u)
+            BCP_u = list(BCP)
+            BCP_u.append(u)
+            return [
+                    [AC_star_no_u,ACP_u,BC_star,BCP],
+                    [AC_star_no_u,ACP,BC_star,BCP_u],
+                    ]
+    return [AC_star,ACP,BC_star,BCP] #this return value is wonky, probably not worth it
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     if len(monopolar_partition) != 2:
