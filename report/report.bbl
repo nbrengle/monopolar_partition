@@ -1,0 +1,14 @@
+@techreport{ref1,
+url = {https://arxiv.org/pdf/1702.04322},
+title = {{Parameterized Algorithms for Recognizing Monopolar and 2-Subcolorable Graphs}},
+author = {I. Kanj and
+          C. Komusiewicz and
+          M. Sorge and
+          E. Jan van Leeuwen},
+language = {English},
+institution = {arXiv.org},
+number = {arXiv:1702.04322},
+year = {2017},
+month = February,
+pdf = {https://arxiv.org/pdf/1702.04322.pdf},
+}
