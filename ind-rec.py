@@ -3,6 +3,51 @@ from networkx import Graph
 import networkx as nx
 import time
 
+def cluster_size(input_graph):
+    '''
+    This relies on the well known fact that
+    "Every maximal independent set in a cluster graph chooses a single vertex
+    from each cluster, so the size of such a set
+    always equals the number of clusters" -- Wikipedia
+    '''
+    #calculate maximal IS
+    #Initialize I to an empty set.
+    G = input_graph
+    I = []
+    #While V is not empty:
+    #Choose a node v in V;
+    for v in G.nodes():
+        #Add v to the set I;
+        I.append(v)
+        G.remove_node(v)#Remove from V the node v and all its neighbours.
+    #Return I.
+    return len(I)
+
+def p3_free(input_graph):
+    DEBUG = False
+    G = input_graph
+    for u in nx.nodes_iter(G):
+        u_neighbors = G.neighbors(u)
+        if DEBUG == True:
+            print "u " + str(u)
+            print u_neighbors
+        for w in u_neighbors:
+            w_neighbors = G.neighbors(w)
+            w_neighbors.remove(u) #remove bactrack
+            if DEBUG == True:
+                print "w " + str(w)
+                print w_neighbors
+            for x in w_neighbors:
+                x_neighbors = G.neighbors(x)
+                x_neighbors.remove(w) #remove bactrack
+                if DEBUG == True:
+                    print "x " + str(x)
+                    print x_neighbors
+                if u not in x_neighbors:
+                    return False
+                    break
+    return True
+
 def reduction_rule_5_1(input_graph, constraint, k):
     DEBUG = False
     '''
@@ -35,30 +80,12 @@ def reduction_rule_5_1(input_graph, constraint, k):
         print "BCP: " + str(BCP)
 
     reject_switch = 0
-
-    #This is only ensuring ACP is P3-free
     G = input_graph
     G_acp = G.subgraph(ACP)
-    for u in ACP:
-        u_neighbors = G_acp.neighbors(u)
-        if DEBUG == True:
-            print "u " + str(u)
-            print u_neighbors
-        for w in u_neighbors:
-            w_neighbors = G_acp.neighbors(w)
-            w_neighbors.remove(u) #remove bactrack
-            if DEBUG == True:
-                print "w " + str(w)
-                print w_neighbors
-            for x in w_neighbors:
-                x_neighbors = G_acp.neighbors(x)
-                x_neighbors.remove(w) #remove bactrack
-                if DEBUG == True:
-                    print "x " + str(x)
-                    print x_neighbors
-                if u not in x_neighbors:
-                    reject_switch = 1
-                    break
+    if not p3_free(G_acp):
+        reject_switch = 1
+    if not cluster_size(G_acp) < k:
+        reject_switch = 1
 
     if G.subgraph(BCP).edges() != []:
         if DEBUG == True:
@@ -360,14 +387,14 @@ def case_bowtie(desired_runs,repetitions):
     tri3 = nx.disjoint_union(tri1,tri2)
     tri3.add_edge(2,3)
     mp_tri3 = [[0,1,4,5],[2]]
-    k_tri3 = 2
+    k_tri3 = 1
     v_tri3 = 3
 
     average_times = []
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3)
+            print inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -387,7 +414,7 @@ def case_k3_plus_claw(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(G,v_G,mp_G,k_G)
+            print inductive_recognition(G,v_G,mp_G,k_G) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -407,7 +434,7 @@ def case_k5_plus_claw(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(k5,v_k5,mp_k5,k_k5)
+            print inductive_recognition(k5,v_k5,mp_k5,k_k5) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -427,7 +454,7 @@ def case_from_3_1(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(G,v,mp,k)
+            print inductive_recognition(G,v,mp,k) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -450,7 +477,7 @@ def case_on_20(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(G,v,mp,k)
+            print inductive_recognition(G,v,mp,k) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -460,10 +487,10 @@ def case_on_20(desired_runs,repetitions):
 
 def main():
     #cProfile.run('case_bowtie()')
-    print "case_bowtie " + str(case_bowtie(10000,3))
-    print "case_k3_plus_claw " + str(case_k3_plus_claw(10000,3))
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(10000,3))
-    print "case_from_3_1 " + str(case_from_3_1(10000,3))
+    print "case_bowtie " + str(case_bowtie(1,1))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(1,1))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(1,1))
+    print "case_from_3_1 " + str(case_from_3_1(1,1))
     print "case_on_20 " + str(case_on_20(1,1))
 
 if __name__ == '__main__':
