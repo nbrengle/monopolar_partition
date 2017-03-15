@@ -34,25 +34,22 @@ def reduction_rule_5_1(input_graph, constraint, k):
 
     reject_switch = 0
 
-    Pi_B = BC_star + BCP
-    if len(Pi_B) > k:
-        reject_switch = 1
-
     #This is only ensuring ACP is P3-free
     G = input_graph
+    G_acp = G.subgraph(ACP)
     for u in ACP:
-        u_neighbors = G.subgraph(ACP).neighbors(u)
+        u_neighbors = G_acp.neighbors(u)
         if DEBUG == True:
             print "u " + str(u)
             print u_neighbors
         for w in u_neighbors:
-            w_neighbors = G.neighbors(w)
+            w_neighbors = G_acp.neighbors(w)
             w_neighbors.remove(u) #remove bactrack
             if DEBUG == True:
                 print "w " + str(w)
                 print w_neighbors
             for x in w_neighbors:
-                x_neighbors = G.neighbors(x)
+                x_neighbors = G_acp.neighbors(x)
                 x_neighbors.remove(w) #remove bactrack
                 if DEBUG == True:
                     print "x " + str(x)
@@ -61,18 +58,11 @@ def reduction_rule_5_1(input_graph, constraint, k):
                     reject_switch = 1
                     break
 
-    edgeless = []
-    for v in ACP + AC_star:
-        v_neighbors = nx.union(G.subgraph(ACP),G.subgraph(AC_star)).neighbors(v)
-        if v_neighbors == []:
-            edgeless.append(v)
-    if len(edgeless) > k:
-        reject_switch = 1
-
     for vertex in BCP:
-        if G.neighbors(vertex) != []:
+        if G.subgraph(BCP).edges() > 0:
+            if DEBUG == True:
+                print "BCP had edges" + str(G.subgraph(BCP).edges())
             reject_switch = 1
-            break
 
     if reject_switch == 1:
         return 'reject'
@@ -377,6 +367,22 @@ def main():
     v_tri3 = 3
     print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
     print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
+
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6])
+    G.add_edges_from([(1,2),(2,3),(3,4),(3,5),(3,6),(1,3)])
+    mp_G = [[1,2],[4,5,6]]
+    k_G = 1
+    v_G = 3
+    print "G:1 " + str(inductive_recognition(G,v_G,mp_G,k_G))
+
+    k5 = nx.complete_graph(5)
+    k5.add_nodes_from([5,6,7])
+    k5.add_edges_from([(4,5),(4,6),(4,7)])
+    mp_k5 = [[0,1,2,3,],[5,6,7]]
+    k_k5 = 1
+    v_k5 = 4
+    print "k5:1 "+ str(inductive_recognition(k5,v_k5,mp_k5,k_k5))
 
 if __name__ == '__main__':
     main()
