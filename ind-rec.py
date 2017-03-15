@@ -2,7 +2,7 @@ from networkx import Graph
 import networkx as nx
 
 def reduction_rule_5_1(input_graph, constraint, k):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -58,17 +58,16 @@ def reduction_rule_5_1(input_graph, constraint, k):
                     reject_switch = 1
                     break
 
-    for vertex in BCP:
-        if G.subgraph(BCP).edges() > 0:
-            if DEBUG == True:
-                print "BCP had edges" + str(G.subgraph(BCP).edges())
-            reject_switch = 1
+    if G.subgraph(BCP).edges() != []:
+        if DEBUG == True:
+            print "BCP had edges" + str(G.subgraph(BCP).edges())
+        reject_switch = 1
 
     if reject_switch == 1:
         return 'reject'
 
 def reduction_rule_5_2(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -110,7 +109,7 @@ def reduction_rule_5_2(input_graph, constraint):
     return False
 
 def reduction_rule_5_3(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -164,7 +163,7 @@ def reduction_rule_5_3(input_graph, constraint):
     return False
 
 def branching_rule_5_1(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -233,7 +232,7 @@ def branching_rule_5_1(input_graph, constraint):
     return False
 
 def branching_rule_5_2(input_graph, constraint, A_prime):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -287,7 +286,7 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     return False
 
 def reduction_rule_loop(G, branch, k):
-    DEBUG = False
+    DEBUG = True
     constraint = branch
     goto = True
     while goto == True:
@@ -314,7 +313,7 @@ def reduction_rule_loop(G, branch, k):
     return False
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
-    DEBUG = False
+    DEBUG = True
 
     if len(monopolar_partition) != 2:
         raise ValueError("monopolar_partition must be of the form [A,B]")
@@ -362,10 +361,10 @@ def main():
     tri2 = nx.complete_graph(3)
     tri3 = nx.disjoint_union(tri1,tri2)
     tri3.add_edge(2,3)
-    mp_tri3 = [[0,1,2],[4,5]]
+    mp_tri3 = [[0,1,4,5],[2]]
     k_tri3 = 2
     v_tri3 = 3
-    print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
+    #print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
     print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
 
     G = Graph()
@@ -374,7 +373,7 @@ def main():
     mp_G = [[1,2],[4,5,6]]
     k_G = 1
     v_G = 3
-    print "G:1 " + str(inductive_recognition(G,v_G,mp_G,k_G))
+    #print "G:1 " + str(inductive_recognition(G,v_G,mp_G,k_G))
 
     k5 = nx.complete_graph(5)
     k5.add_nodes_from([5,6,7])
@@ -382,7 +381,7 @@ def main():
     mp_k5 = [[0,1,2,3,],[5,6,7]]
     k_k5 = 1
     v_k5 = 4
-    print "k5:1 "+ str(inductive_recognition(k5,v_k5,mp_k5,k_k5))
+    #print "k5:1 "+ str(inductive_recognition(k5,v_k5,mp_k5,k_k5))
 
 if __name__ == '__main__':
     main()
