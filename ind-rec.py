@@ -1,8 +1,10 @@
+import cProfile
 from networkx import Graph
 import networkx as nx
+import time
 
 def reduction_rule_5_1(input_graph, constraint, k):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -67,7 +69,7 @@ def reduction_rule_5_1(input_graph, constraint, k):
         return 'reject'
 
 def reduction_rule_5_2(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -109,7 +111,7 @@ def reduction_rule_5_2(input_graph, constraint):
     return False
 
 def reduction_rule_5_3(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -163,7 +165,7 @@ def reduction_rule_5_3(input_graph, constraint):
     return False
 
 def branching_rule_5_1(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -232,7 +234,7 @@ def branching_rule_5_1(input_graph, constraint):
     return False
 
 def branching_rule_5_2(input_graph, constraint, A_prime):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -286,7 +288,7 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     return False
 
 def reduction_rule_loop(G, branch, k):
-    DEBUG = True
+    DEBUG = False
     constraint = branch
     goto = True
     while goto == True:
@@ -298,8 +300,8 @@ def reduction_rule_loop(G, branch, k):
         rule_2 = reduction_rule_5_2(G,constraint)
         if rule_2 != False:
             constraint = rule_2
-            #if DEBUG == True:
-            print "rule_2: " + str(rule_2)
+            if DEBUG == True:
+                print "rule_2: " + str(rule_2)
             continue
         rule_3 = reduction_rule_5_3(G,constraint)
         if rule_3 != False:
@@ -313,7 +315,7 @@ def reduction_rule_loop(G, branch, k):
     return False
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
-    DEBUG = True
+    DEBUG = False
 
     if len(monopolar_partition) != 2:
         raise ValueError("monopolar_partition must be of the form [A,B]")
@@ -346,17 +348,13 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
             if b_rule_2 != False:
                 for new_branch in b_rule_2:
                     Q.append(new_branch)
-            end_game = constraint
+            end_game = True
             continue
     #every branch is rejected
     #could make this more explicit by calling out an empty Q
-    if end_game != False:
-        return "Yes"
-    else:
-        return "No"
+    return end_game
 
-def main():
-    #case1
+def case_bowtie(desired_runs,repetitions):
     tri1 = nx.complete_graph(3)
     tri2 = nx.complete_graph(3)
     tri3 = nx.disjoint_union(tri1,tri2)
@@ -364,24 +362,109 @@ def main():
     mp_tri3 = [[0,1,4,5],[2]]
     k_tri3 = 2
     v_tri3 = 3
-    #print "tri3:2 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3))
-    print "tri3:1 " + str(inductive_recognition(tri3,v_tri3,mp_tri3,1))
 
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_k3_plus_claw(desired_runs,repetitions):
     G = Graph()
     G.add_nodes_from([1,2,3,4,5,6])
     G.add_edges_from([(1,2),(2,3),(3,4),(3,5),(3,6),(1,3)])
     mp_G = [[1,2],[4,5,6]]
-    k_G = 1
+    k_G = 2
     v_G = 3
-    #print "G:1 " + str(inductive_recognition(G,v_G,mp_G,k_G))
 
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            inductive_recognition(G,v_G,mp_G,k_G)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_k5_plus_claw(desired_runs,repetitions):
     k5 = nx.complete_graph(5)
     k5.add_nodes_from([5,6,7])
     k5.add_edges_from([(4,5),(4,6),(4,7)])
     mp_k5 = [[0,1,2,3,],[5,6,7]]
-    k_k5 = 1
+    k_k5 = 2
     v_k5 = 4
-    #print "k5:1 "+ str(inductive_recognition(k5,v_k5,mp_k5,k_k5))
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            inductive_recognition(k5,v_k5,mp_k5,k_k5)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_from_3_1(desired_runs,repetitions):
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6,7,8,9,10])
+    G.add_edges_from([(1,2),(2,3),(2,4),(2,5),(3,5),(3,4),(4,6),(6,7),(7,10),(7,9),(7,8),(8,9),(9,10)])
+    mp = [[2,3,5,6,9,10],[1,4,8]]
+    k = 2
+    v = 7
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            inductive_recognition(G,v,mp,k)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_on_20(desired_runs,repetitions):
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+    G.add_edges_from([(1,6),(1,4),(2,7),(3,8),(3,9),(3,4),(3,13),(4,14),(4,5),(5,10),
+                      (6,12),(7,8),(8,9),(8,13),(9,13),(9,14),(10,14),(11,5),(11,15),
+                      (10,15),(10,11),(5,15),(14,18),(14,19),(15,19),(15,20),(17,18),
+                      (12,17),(12,18),(19,20)])
+    mp = [[1,2,3,5,8,9,10,11,12,13,17,18,19,20],[4,6,7,15,16]]
+    k = 6
+    v = 14
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            inductive_recognition(G,v,mp,k)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def main():
+    #cProfile.run('case_bowtie()')
+    print "case_bowtie " + str(case_bowtie(10000,3))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(10000,3))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(10000,3))
+    print "case_from_3_1 " + str(case_from_3_1(10000,3))
+    print "case_on_20 " + str(case_on_20(1,1))
 
 if __name__ == '__main__':
     main()
