@@ -150,6 +150,8 @@ A set of five graphs of orders ranging from six to 20 were used as benchmarks fo
 
 Additionally results from the Python profiling module \inlinecode{cProfile} are included for the execution on one graph-parameter combination per graph to demonstrate the relative time consumed on a per caller basis. The \inlinecode{cProfile} time results have only hundredths-of-a-second resolution making them undescriptive for single executions of the algorithms. The results obtained are instead for a full set of 300 executions per graph. Rather than average these values, we include them raw as their primary benefit is for the demonstration of the relative computational intensity of the different steps rather than substatively indicative of the performance of the algorithm as a whole. The \inlinecode{cProfile} results have been cleaned, removing system callers from the call list as the profiling data is illustrative rather than substantive. The raw results are available with the source code.
 
+%\listoftables
+
 \section{Preliminaries}
 \label{sec:prelim}
 We follow standard notation for graph-theory. Let \textit{G} be a graph; its set of vertices is denoted \textit{V(G)} and its set of edges \textit{E(G)}. The \textit{order} of a graph is $\mid\textit{V(G)}\mid$ and represented throughout by \textit{n}. $\mid\textit{E(G)}\mid$ is denoted throughout by \textit{m}. A subgraph induced in \textit{G} by $\textit{X}\subseteq\textit{V(G)}$ is denoted \textit{G[X]}. For any set \textit{S} of verticies in \textit{G} we denote the subgraph of \textit{G} obtained by deleting all the vertices in \textit{S} and their incident edges as \textit{G \em S}. For a vertex $\textit{v}\in{V(G)}$ we use \textit{G \em v} for \textit{G \em \{v\}}. We denote a simple path on 3 vertices with \textit{$P_3$}.
@@ -158,7 +160,8 @@ We follow standard notation for graph-theory. Let \textit{G} be a graph; its set
 
 \section{Graphs Employed}
 \label{subsec:graphs}
-
+The 5 graphs as described in \ref{fig:graphs} were used as the source data to benchmark the algorithms. Rather than rely on 
+\begin{table}[h]\label{fig:graphs}
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[c] X[c] X[c] X[c] | }
 \hline
@@ -182,13 +185,17 @@ Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), 
 [0.3ex]
 \hline
 \end{tabu}
+\caption{Graphs used to benchmark the algorithms}
 \end{center}
+\end{table}
 
-\section{Benchmarks for \textsc{Inductive Monopolar Recognition}}
+\section{Execution Results}
 \label{subsec:structural}
 
-\subsection{}
-\label{subsec:results} %duplicate be careful
+\subsection{Benchmarks for \textsc{Inductive Monopolar Recognition}}
+\label{subsec:irresults} %duplicate be careful
+
+\begin{table}[h]\label{fig:irresults}
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
 \hline
@@ -226,144 +233,19 @@ Twenty & 0.0853665113449 & 3 & False \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{Benchmarks for \textsc{Inductive Monopolar Recognition}}
 \end{center}
+\end{table}
 
-\subsection{}
-\label{subsec:results} %duplicate be careful
-
-Bowtie : 528677 function calls (528676 primitive calls) in 0.377 seconds
-
+\subsection{Benchmarks for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}\label{subsec:mpresults}
+\begin{table}[h]\label{fig:mpresults}
 \begin{center}
-\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
 \hline
-ncalls & tottime & percall & cumtime & percall & function \\
+Graph & Time (Sec) & K & Result \\
 [0.5ex]
 \hline
 \hline
-5419  &  0.012  &  0.000  &  0.241  &  0.000 & reduction rule 5.1 \\
-2409  &  0.002  &  0.000  &  0.002  &  0.000 & reduction rule 5.2 \\
-2408  &  0.007  &  0.000  &  0.012  &  0.000 & reduction rule 5.3 \\
-2408  &  0.011  &  0.000  &  0.019  &  0.000 & branching rule 5.1 \\
-2408  &  0.010  &  0.000  &  0.082  &  0.000 & branching rule 5.2 \\
-5418  &  0.007  &  0.000  &  0.262  &  0.000 & reduction rule loop \\
-301  &  0.011  &  0.000  &  0.374  &  0.001 & inductive recognition \\
-7827  &  0.019  &  0.000  &  0.042  &  0.000 & $P_3$ free \\
-5419  &  0.017  &  0.000  &  0.118  &  0.000 & cluster size \\
-5419  &  0.008  &  0.000  &  0.144  &  0.000 & valid cluster graph \\
-[0.3ex]
-\hline
-\end{tabu}
-\end{center}
-
-$K_3$ and Claw : 469094 function calls in 0.329 seconds
-
-\begin{center}
-\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
-\hline
-ncalls & tottime & percall & cumtime & percall & function \\
-[0.5ex]
-\hline
-\hline
-3609  &  0.009  &  0.000  &  0.184  &  0.000  & reduction rule 5.1 \\
-2707  &  0.002  &  0.000  &  0.002  &  0.000  & reduction rule 5.2 \\
-2704  &  0.005  &  0.000  &  0.008  &  0.000  & reduction rule 5.3 \\
-2704  &  0.005  &  0.000  &  0.008  &  0.000  & branching rule 5.1 \\
-2704  &  0.007  &  0.000  &  0.050  &  0.000  & branching rule 5.2 \\
-3606  &  0.006  &  0.000  &  0.200  &  0.000  & reduction rule loop \\
-301  &  0.012  &  0.000  &  0.328  &  0.001  & inductive recognition \\
-6313  &  0.014  &  0.000  &  0.029  &  0.000  & $P_3$ free \\
-4811  &  0.013  &  0.000  &  0.106  &  0.000  & cluster size \\
-4811  &  0.007  &  0.000  &  0.133  &  0.000  & valid cluster graph \\
-[0.3ex]
-\hline
-\end{tabu}
-\end{center}
-
-$K_5$ and Claw : 2017852 function calls in 1.322 seconds
-
-\begin{center}
-\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
-\hline
-ncalls & tottime & percall & cumtime & percall & function \\
-[0.5ex]
-\hline
-\hline
-9019  &  0.025  &  0.000  &  0.743  &  0.000 & reduction rule 5.1 \\
-6014  &  0.005  &  0.000  &  0.005  &  0.000 & reduction rule 5.2 \\
-6011  &  0.036  &  0.000  &  0.062  &  0.000 & reduction rule 5.3 \\
-6011  &  0.031  &  0.000  &  0.053  &  0.000 & branching rule 5.1 \\
-6011  &  0.020  &  0.000  &  0.321  &  0.000 & branching rule 5.2 \\
-9016  &  0.016  &  0.000  &  0.827  &  0.000 & reduction rule loop \\
-301  &  0.028  &  0.000  &  1.319  &  0.004  & inductive recognition \\
-15030  &  0.181  &  0.000  &  0.364  &  0.000 & $P_3$ free \\
-10823  &  0.036  &  0.000  &  0.363  &  0.000 & cluster size \\
-10823  &  0.020  &  0.000  &  0.562  &  0.000 & valid cluster graph \\
-[0.3ex]
-\hline
-\end{tabu}
-\end{center}
-
-From 3.1 : 2636229 function calls in 1.845 seconds
-
-\begin{center}
-\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
-\hline
-ncalls & tottime & percall & cumtime & percall & function \\
-[0.5ex]
-\hline
-\hline
-17427  &  0.047  &  0.000  &  1.145  &  0.000 & reduction rule 5.1 \\
-10820  &  0.008  &  0.000  &  0.009  &  0.000 & reduction rule 5.2 \\
-10817  &  0.043  &  0.000  &  0.072  &  0.000 & reduction rule 5.3 \\
-8411   & 0.043  &  0.000  &  0.071  &  0.000  & branching rule 5.1 \\
-8410   & 0.032  &  0.000  &  0.405  &  0.000  & branching rule 5.2 \\
-15018  &  0.030  &  0.000  &  1.256  &  0.000 & reduction rule loop \\
-301  &  0.045  &  0.000  &  1.839  &  0.006  & inductive recognition \\
-25837  &  0.154  &  0.000  &  0.312  &  0.000 & $P_3$ free \\
-18630  &  0.073  &  0.000  &  0.576  &  0.000 & cluster size \\
-18630  &  0.033  &  0.000  &  0.754  &  0.000 & valid cluster graph \\
-[0.3ex]
-\hline
-\end{tabu}
-\end{center}
-
-Twenty : 179986081 function calls in 117.746 seconds
-
-\begin{center}
-\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
-\hline
-ncalls & tottime & percall & cumtime & percall & function \\
-[0.5ex]
-\hline
-\hline
-491430  &  1.509  &  0.000  & 67.697  &  0.000 & reduction rule 5.1 \\
-333916  &  1.076  &  0.000  &  1.796  &  0.000 & reduction rule 5.2 \\
-333912  &  1.514  &  0.000  &  2.336  &  0.000 & reduction rule 5.3 \\
-333912  &  1.768  &  0.000  &  2.805  &  0.000 & branching rule 5.1 \\
-331200  &  1.224  &  0.000 &  34.610  &  0.000 & branching rule 5.2 \\
-491426  &  1.110  &  0.000  & 72.938  &  0.000 & reduction rule loop \\
-301  &  2.008  &  0.007 & 117.582  &  0.391  & inductive recognition \\
-822630  & 17.871  &  0.000  & 35.732  &  0.000 & $P_3$ free \\
-579930  &  3.718  &  0.000  & 33.562  &  0.000 & cluster size \\
-579930  &  1.431  &  0.000  & 51.005  &  0.000 & valid cluster graph \\
-[0.3ex]
-\hline
-\end{tabu}
-\end{center}
-
-\section{Benchmarks for \textsc{\textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}}
-\label{subsec:structural} %duplicate be careful
-
-\subsection{}
-\label{subsec:results} %duplicate be careful
-
-\begin{center}
-    \begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
-        \hline
-        Graph & Time (Sec) & K & Result \\
-        [0.5ex]
-        \hline
-        \hline
 Bowtie & 0.00061182975769 & 3 & False \\
 [0.3ex]
  & 0.00116783857346 & 2 & False \\
@@ -401,12 +283,140 @@ Twenty & 0.0135761094093 & 5 & False \\
  \hline
 \end{tabu}
 \end{center}
+\caption{Benchmarks for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}
+\end{table}
 
-\subsection{}
-\label{subsec:results} %duplicate be careful
+\subsection{cProfile Results for \textsc{Inductive Monopolar Recognition}}
+\label{subsec:ircpresults} %duplicate be careful
+\begin{table}[h]
+\begin{center}
+\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+5419  &  0.012  &  0.000  &  0.241  &  0.000 & reduction rule 5.1 \\
+2409  &  0.002  &  0.000  &  0.002  &  0.000 & reduction rule 5.2 \\
+2408  &  0.007  &  0.000  &  0.012  &  0.000 & reduction rule 5.3 \\
+2408  &  0.011  &  0.000  &  0.019  &  0.000 & branching rule 5.1 \\
+2408  &  0.010  &  0.000  &  0.082  &  0.000 & branching rule 5.2 \\
+5418  &  0.007  &  0.000  &  0.262  &  0.000 & reduction rule loop \\
+301  &  0.011  &  0.000  &  0.374  &  0.001 & inductive recognition \\
+7827  &  0.019  &  0.000  &  0.042  &  0.000 & $P_3$ free \\
+5419  &  0.017  &  0.000  &  0.118  &  0.000 & cluster size \\
+5419  &  0.008  &  0.000  &  0.144  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\caption{Bowtie : 528677 function calls (528676 primitive calls) in 0.377 seconds}
+\end{center}
+\end{table}
 
-Bowtie : 287776 function calls (287775 primitive calls) in 0.142 seconds
+\begin{table}[h]
+\begin{center}
+\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+3609  &  0.009  &  0.000  &  0.184  &  0.000  & reduction rule 5.1 \\
+2707  &  0.002  &  0.000  &  0.002  &  0.000  & reduction rule 5.2 \\
+2704  &  0.005  &  0.000  &  0.008  &  0.000  & reduction rule 5.3 \\
+2704  &  0.005  &  0.000  &  0.008  &  0.000  & branching rule 5.1 \\
+2704  &  0.007  &  0.000  &  0.050  &  0.000  & branching rule 5.2 \\
+3606  &  0.006  &  0.000  &  0.200  &  0.000  & reduction rule loop \\
+301  &  0.012  &  0.000  &  0.328  &  0.001  & inductive recognition \\
+6313  &  0.014  &  0.000  &  0.029  &  0.000  & $P_3$ free \\
+4811  &  0.013  &  0.000  &  0.106  &  0.000  & cluster size \\
+4811  &  0.007  &  0.000  &  0.133  &  0.000  & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\caption{$K_3$ and Claw : 469094 function calls in 0.329 seconds}
+\end{center}
+\end{table}
 
+\begin{table}[h]
+\begin{center}
+\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+9019  &  0.025  &  0.000  &  0.743  &  0.000 & reduction rule 5.1 \\
+6014  &  0.005  &  0.000  &  0.005  &  0.000 & reduction rule 5.2 \\
+6011  &  0.036  &  0.000  &  0.062  &  0.000 & reduction rule 5.3 \\
+6011  &  0.031  &  0.000  &  0.053  &  0.000 & branching rule 5.1 \\
+6011  &  0.020  &  0.000  &  0.321  &  0.000 & branching rule 5.2 \\
+9016  &  0.016  &  0.000  &  0.827  &  0.000 & reduction rule loop \\
+301  &  0.028  &  0.000  &  1.319  &  0.004  & inductive recognition \\
+15030  &  0.181  &  0.000  &  0.364  &  0.000 & $P_3$ free \\
+10823  &  0.036  &  0.000  &  0.363  &  0.000 & cluster size \\
+10823  &  0.020  &  0.000  &  0.562  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\caption{$K_5$ and Claw : 2017852 function calls in 1.322 seconds}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+17427  &  0.047  &  0.000  &  1.145  &  0.000 & reduction rule 5.1 \\
+10820  &  0.008  &  0.000  &  0.009  &  0.000 & reduction rule 5.2 \\
+10817  &  0.043  &  0.000  &  0.072  &  0.000 & reduction rule 5.3 \\
+8411   & 0.043  &  0.000  &  0.071  &  0.000  & branching rule 5.1 \\
+8410   & 0.032  &  0.000  &  0.405  &  0.000  & branching rule 5.2 \\
+15018  &  0.030  &  0.000  &  1.256  &  0.000 & reduction rule loop \\
+301  &  0.045  &  0.000  &  1.839  &  0.006  & inductive recognition \\
+25837  &  0.154  &  0.000  &  0.312  &  0.000 & $P_3$ free \\
+18630  &  0.073  &  0.000  &  0.576  &  0.000 & cluster size \\
+18630  &  0.033  &  0.000  &  0.754  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\caption{From 3.1 : 2636229 function calls in 1.845 seconds}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+491430  &  1.509  &  0.000  & 67.697  &  0.000 & reduction rule 5.1 \\
+333916  &  1.076  &  0.000  &  1.796  &  0.000 & reduction rule 5.2 \\
+333912  &  1.514  &  0.000  &  2.336  &  0.000 & reduction rule 5.3 \\
+333912  &  1.768  &  0.000  &  2.805  &  0.000 & branching rule 5.1 \\
+331200  &  1.224  &  0.000 &  34.610  &  0.000 & branching rule 5.2 \\
+491426  &  1.110  &  0.000  & 72.938  &  0.000 & reduction rule loop \\
+301  &  2.008  &  0.007 & 117.582  &  0.391  & inductive recognition \\
+822630  & 17.871  &  0.000  & 35.732  &  0.000 & $P_3$ free \\
+579930  &  3.718  &  0.000  & 33.562  &  0.000 & cluster size \\
+579930  &  1.431  &  0.000  & 51.005  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\caption{Twenty : 179986081 function calls in 117.746 seconds}
+\end{center}
+\end{table}
+
+\subsection{cProfile Results for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}
+\label{subsec:mpcpresults} %duplicate be careful
+
+\begin{table}[h]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -419,10 +429,11 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{Bowtie : 287776 function calls (287775 primitive calls) in 0.142 seconds}
 \end{center}
+\end{table}
 
-$K_3$ and Claw : 268543 function calls in 0.146 seconds
-
+\begin{table}[h]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -435,10 +446,11 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{$K_3$ and Claw : 268543 function calls in 0.146 seconds}
 \end{center}
+\end{table}
 
-$K_3$ and Claw : 390487 function calls in 0.185 seconds
-
+\begin{table}[h]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -451,10 +463,11 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{$K_5$ and Claw : 390487 function calls in 0.185 seconds}
 \end{center}
+\end{table}
 
-From 3.1 : 895859 function calls in 0.434 seconds
-
+\begin{table}[h]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -467,10 +480,11 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{From 3.1 : 895859 function calls in 0.434 seconds}
 \end{center}
+\end{table}
 
-Twenty : 24745973 function calls in 13.509 seconds
-
+\begin{table}[h]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -483,7 +497,9 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
+\caption{Twenty : 24745973 function calls in 13.509 seconds}
 \end{center}
+\end{table}
 
 \section{Concluding remarks}
 \label{sec:conclusion}
