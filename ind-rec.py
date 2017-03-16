@@ -418,13 +418,13 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     #every branch is rejected
     return end_game
 
-def case_bowtie(desired_runs,repetitions):
+def case_bowtie(desired_runs,repetitions,k):
     tri1 = nx.complete_graph(3)
     tri2 = nx.complete_graph(3)
     tri3 = nx.disjoint_union(tri1,tri2)
     tri3.add_edge(2,3)
     mp_tri3 = [[0,1,4,5],[2]]
-    k_tri3 = 1
+    k_tri3 = k
     v_tri3 = 3
 
     average_times = []
@@ -439,12 +439,12 @@ def case_bowtie(desired_runs,repetitions):
 
     return min(average_times)
 
-def case_k3_plus_claw(desired_runs,repetitions):
+def case_k3_plus_claw(desired_runs,repetitions,k):
     G = Graph()
     G.add_nodes_from([1,2,3,4,5,6])
     G.add_edges_from([(1,2),(2,3),(3,4),(3,5),(3,6),(1,3)])
     mp_G = [[1,2],[4,5,6]]
-    k_G = 1
+    k_G = k
     v_G = 3
 
     average_times = []
@@ -459,12 +459,12 @@ def case_k3_plus_claw(desired_runs,repetitions):
 
     return min(average_times)
 
-def case_k5_plus_claw(desired_runs,repetitions):
+def case_k5_plus_claw(desired_runs,repetitions,k):
     k5 = nx.complete_graph(5)
     k5.add_nodes_from([5,6,7])
     k5.add_edges_from([(4,5),(4,6),(4,7)])
     mp_k5 = [[0,1,2,3,],[5,6,7]]
-    k_k5 = 1
+    k_k5 = k
     v_k5 = 4
 
     average_times = []
@@ -479,12 +479,12 @@ def case_k5_plus_claw(desired_runs,repetitions):
 
     return min(average_times)
 
-def case_from_3_1(desired_runs,repetitions):
+def case_from_3_1(desired_runs,repetitions,k):
     G = Graph()
     G.add_nodes_from([1,2,3,4,5,6,7,8,9,10])
     G.add_edges_from([(1,2),(2,3),(2,4),(2,5),(3,5),(3,4),(4,6),(6,7),(7,10),(7,9),(7,8),(8,9),(9,10)])
     mp = [[2,3,5,6,9,10],[1,4,8]]
-    k = 2
+    k = k
     v = 7
 
     average_times = []
@@ -499,7 +499,7 @@ def case_from_3_1(desired_runs,repetitions):
 
     return min(average_times)
 
-def case_on_20(desired_runs,repetitions):
+def case_on_20(desired_runs,repetitions,k):
     G = Graph()
     G.add_nodes_from([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
     G.add_edges_from([(1,6),(1,4),(2,7),(3,8),(3,9),(3,4),(3,13),(4,14),(4,5),(5,10),
@@ -507,7 +507,7 @@ def case_on_20(desired_runs,repetitions):
                       (10,15),(10,11),(5,15),(14,18),(14,19),(15,19),(15,20),(17,18),
                       (12,17),(12,18),(19,20)])
     mp = [[1,2,3,5,8,9,10,11,12,13,17,18,19,20],[4,6,7,15,16]]
-    k = 6
+    k = k
     v = 14
 
     average_times = []
@@ -523,12 +523,16 @@ def case_on_20(desired_runs,repetitions):
     return min(average_times)
 
 def main():
-    #cProfile.run('case_bowtie()')
-    print "case_bowtie " + str(case_bowtie(100,3))
-    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3))
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3))
-    print "case_from_3_1 " + str(case_from_3_1(100,3))
-    print "case_on_20 " + str(case_on_20(100,3))
+    cProfile.run('case_bowtie(100,3)')
+    print "case_bowtie " + str(case_bowtie(100,3,1))
+    cProfile.run('case_k3_plus_claw(100,3,1)')
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,1))
+    cProfile.run('case_k5_plus_claw(100,3,1)')
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,1))
+    cProfile.run('case_from_3_1(100,3,1)')
+    print "case_from_3_1 " + str(case_from_3_1(100,3,2))
+    cProfile.run('case_on_20(100,3,1)')
+    print "case_on_20 " + str(case_on_20(100,3,6))
 
 if __name__ == '__main__':
     main()
