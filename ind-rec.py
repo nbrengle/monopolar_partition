@@ -24,7 +24,7 @@ def cluster_size(input_graph):
     return len(I)
 
 def p3_free(input_graph):
-    DEBUG = False
+    DEBUG = True
     G = input_graph
     for u in nx.nodes_iter(G):
         u_neighbors = G.neighbors(u)
@@ -48,8 +48,16 @@ def p3_free(input_graph):
                     break
     return True
 
+def valid_cluster_graph(input_graph, k):
+    G = input_graph
+
+    if not p3_free(G) or not cluster_size(G) <= k:
+        return False
+    else:
+        return True
+
 def reduction_rule_5_1(input_graph, constraint, k):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -82,21 +90,18 @@ def reduction_rule_5_1(input_graph, constraint, k):
     reject_switch = 0
     G = input_graph
     G_acp = G.subgraph(ACP)
-    if not p3_free(G_acp):
-        reject_switch = 1
-    if not cluster_size(G_acp) < k:
-        reject_switch = 1
+    if not valid_cluster_graph(G_acp, k):
+        return False
 
     if G.subgraph(BCP).edges() != []:
         if DEBUG == True:
             print "BCP had edges" + str(G.subgraph(BCP).edges())
-        reject_switch = 1
+        return False
 
-    if reject_switch == 1:
-        return 'reject'
+    return True
 
 def reduction_rule_5_2(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -138,7 +143,7 @@ def reduction_rule_5_2(input_graph, constraint):
     return False
 
 def reduction_rule_5_3(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -192,7 +197,7 @@ def reduction_rule_5_3(input_graph, constraint):
     return False
 
 def branching_rule_5_1(input_graph, constraint):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -225,14 +230,14 @@ def branching_rule_5_1(input_graph, constraint):
             print "u " + str(u)
             print "u_neighbors " + str(u_neighbors)
         for w in u_neighbors:
-            if w in AC_star: #? wrap in a Graph? THIS WON'T WORK
+            if w in AC_star:
                 w_neighbors = G.neighbors(w)
                 w_neighbors.remove(u) #remove bactrack
                 if DEBUG == True:
                     print "w " + str(w)
                     print "w_neighbors " + str(w_neighbors)
                 for x in w_neighbors:
-                    if x in ACP: #? wrap in a Graph? THIS WON'T WORK
+                    if x in ACP:
                         x_neighbors = G.neighbors(x)
                         x_neighbors.remove(w) #remove bactrack
                         if DEBUG == True:
@@ -261,7 +266,7 @@ def branching_rule_5_1(input_graph, constraint):
     return False
 
 def branching_rule_5_2(input_graph, constraint, A_prime):
-    DEBUG = False
+    DEBUG = True
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -290,7 +295,7 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     #if u has only 1 edge, it's likely a singleton cluster
     #this... might not work
     for u in AC_star:
-        u_prime_neighbors = G.subgraph(A_prime).neighbors(u) #A_prime probably has to become a graph first
+        u_prime_neighbors = G.subgraph(A_prime).neighbors(u)
         if DEBUG == True:
             print "u: " + str(u)
             print u_prime_neighbors
@@ -315,12 +320,12 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     return False
 
 def reduction_rule_loop(G, branch, k):
-    DEBUG = False
+    DEBUG = True
     constraint = branch
     goto = True
     while goto == True:
         rule_1 = reduction_rule_5_1(G,constraint,k)
-        if rule_1 == "reject":
+        if not rule_1:
             if DEBUG == True:
                 print "Reject Branch"
             break
@@ -342,7 +347,7 @@ def reduction_rule_loop(G, branch, k):
     return False
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
-    DEBUG = False
+    DEBUG = True
 
     if len(monopolar_partition) != 2:
         raise ValueError("monopolar_partition must be of the form [A,B]")
@@ -363,7 +368,7 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
         if DEBUG == True:
             print "branch: " + str(branch)
         reduction_loop = reduction_rule_loop(G, branch, k)
-        if reduction_loop == False:
+        if not reduction_loop:
             continue
         else:
             constraint = reduction_loop
@@ -375,7 +380,8 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
             if b_rule_2 != False:
                 for new_branch in b_rule_2:
                     Q.append(new_branch)
-            end_game = True
+            A = nx.union(G.subgraph(constraint[0]),G.subgraph(constraint[2]))
+            end_game = valid_cluster_graph(A, k)
             continue
     #every branch is rejected
     #could make this more explicit by calling out an empty Q
@@ -407,7 +413,7 @@ def case_k3_plus_claw(desired_runs,repetitions):
     G.add_nodes_from([1,2,3,4,5,6])
     G.add_edges_from([(1,2),(2,3),(3,4),(3,5),(3,6),(1,3)])
     mp_G = [[1,2],[4,5,6]]
-    k_G = 2
+    k_G = 1
     v_G = 3
 
     average_times = []
@@ -427,7 +433,7 @@ def case_k5_plus_claw(desired_runs,repetitions):
     k5.add_nodes_from([5,6,7])
     k5.add_edges_from([(4,5),(4,6),(4,7)])
     mp_k5 = [[0,1,2,3,],[5,6,7]]
-    k_k5 = 2
+    k_k5 = 1
     v_k5 = 4
 
     average_times = []
@@ -487,11 +493,11 @@ def case_on_20(desired_runs,repetitions):
 
 def main():
     #cProfile.run('case_bowtie()')
-    print "case_bowtie " + str(case_bowtie(1,1))
+    #print "case_bowtie " + str(case_bowtie(1,1))
     print "case_k3_plus_claw " + str(case_k3_plus_claw(1,1))
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(1,1))
-    print "case_from_3_1 " + str(case_from_3_1(1,1))
-    print "case_on_20 " + str(case_on_20(1,1))
+    #print "case_k5_plus_claw " + str(case_k5_plus_claw(1,1))
+    #print "case_from_3_1 " + str(case_from_3_1(1,1))
+    #print "case_on_20 " + str(case_on_20(1,1))
 
 if __name__ == '__main__':
     main()
