@@ -160,28 +160,28 @@ We follow standard notation for graph-theory. Let \textit{G} be a graph; its set
 \label{subsec:graphs}
 
 \begin{center}
-    \begin{tabu} to 0.8\textwidth { | X[l] X[c] X[c] X[c] X[c] | }
-        \hline
-        Nick-Name & $\mid\textit{V(G)}\mid$ & Edges & Monopolar Partition & Vertex \\
-        [0.5ex]
-        \hline
-        \hline
-        Bowtie & 6 & (1, 2), (2, 3), (3, 1), (3, 4), (4, 5), (5, 6), (6, 4) & [1, 2, 5, 6], [3] & 4 \\
-        [0.3ex]
-        \hline
-        $K_3$ and Claw & 6 & (1, 2), (2, 3), (3, 4), (3, 5), (3, 6), (1, 3) & [1, 2], [4, 5, 6] & 3 \\
-        [0.3ex]
-        \hline
-        $K_5$ and Claw & 8 & (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5), (5, 6), (5, 7), (5, 8) & [0, 1, 2, 3], [5, 6, 7] & 4 \\
-        [0.3ex]
-        \hline
-        From 3.1 & 10 & (1, 2), (2, 3), (2, 4), (2, 5), (3, 5), (3, 4), (4, 6), (6, 7), (7, 10), (7, 9), (7, 8), (8, 9), (9, 10) & [2, 3, 5, 6,9, 10], [1, 4, 8] & 7 \\
-        [0.3ex]
-        \hline
-        Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), (4, 5), (5, 10), (6, 12), (7, 8), (8, 9), (8, 13), (9, 13), (9, 14), (10, 14), (11, 5), (11, 15), (10, 15), (10, 11), (5, 15), (14, 18), (14, 19), (15, 19), (15, 20), (17, 18), (12, 17), (12, 18), (19, 20) & [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20], [4, 6, 7, 15, 16] & 14 \\
-        [0.3ex]
-        \hline
-    \end{tabu}
+\begin{tabu} to 0.8\textwidth { | X[l] X[c] X[c] X[c] X[c] | }
+\hline
+Nick-Name & $\mid\textit{V(G)}\mid$ & Edges & Monopolar Partition & Vertex \\
+[0.5ex]
+\hline
+\hline
+Bowtie & 6 & (1, 2), (2, 3), (3, 1), (3, 4), (4, 5), (5, 6), (6, 4) & [1, 2, 5, 6], [3] & 4 \\
+[0.3ex]
+\hline
+$K_3$ and Claw & 6 & (1, 2), (2, 3), (3, 4), (3, 5), (3, 6), (1, 3) & [1, 2], [4, 5, 6] & 3 \\
+[0.3ex]
+\hline
+$K_5$ and Claw & 8 & (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5), (5, 6), (5, 7), (5, 8) & [0, 1, 2, 3], [5, 6, 7] & 4 \\
+[0.3ex]
+\hline
+From 3.1 & 10 & (1, 2), (2, 3), (2, 4), (2, 5), (3, 5), (3, 4), (4, 6), (6, 7), (7, 10), (7, 9), (7, 8), (8, 9), (9, 10) & [2, 3, 5, 6,9, 10], [1, 4, 8] & 7 \\
+[0.3ex]
+\hline
+Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), (4, 5), (5, 10), (6, 12), (7, 8), (8, 9), (8, 13), (9, 13), (9, 14), (10, 14), (11, 5), (11, 15), (10, 15), (10, 11), (5, 15), (14, 18), (14, 19), (15, 19), (15, 20), (17, 18), (12, 17), (12, 18), (19, 20) & [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20], [4, 6, 7, 15, 16] & 14 \\
+[0.3ex]
+\hline
+\end{tabu}
 \end{center}
 
 \section{Benchmarks for \textsc{Inductive Monopolar Recognition}}
@@ -190,12 +190,12 @@ We follow standard notation for graph-theory. Let \textit{G} be a graph; its set
 \subsection{}
 \label{subsec:results} %duplicate be careful
 \begin{center}
-    \begin{tabu} to 0.8\textwidth { | X[l] X[l] X[c] X[c] | }
-        \hline
-        Graph & Time (Sec) & K & Result \\
-        [0.5ex]
-        \hline
-        \hline
+\begin{tabu} to 0.8\textwidth { | X[l] X[l] X[c] X[c] | }
+\hline
+Graph & Time (Sec) & K & Result \\
+[0.5ex]
+\hline
+\hline
 Bowtie & 0.000813608169556 & 1 & False \\
 [0.3ex]
   & 0.00289664983749 & 2 & True \\
@@ -232,92 +232,134 @@ Twenty & 0.0853665113449 & 3 & False \\
 \label{subsec:results} %duplicate be careful
 
 ==== Case Bowtie ====
-    528677 function calls (528676 primitive calls) in 0.377 seconds
+528677 function calls (528676 primitive calls) in 0.377 seconds
 
-   Ordered by: standard name
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+5419  &  0.012  &  0.000  &  0.241  &  0.000 & reduction rule 5.1 \\
+2409  &  0.002  &  0.000  &  0.002  &  0.000 & reduction rule 5.2 \\
+2408  &  0.007  &  0.000  &  0.012  &  0.000 & reduction rule 5.3 \\
+2408  &  0.011  &  0.000  &  0.019  &  0.000 & branching rule 5.1 \\
+2408  &  0.010  &  0.000  &  0.082  &  0.000 & branching rule 5.2 \\
+5418  &  0.007  &  0.000  &  0.262  &  0.000 & reduction rule loop \\
+301  &  0.011  &  0.000  &  0.374  &  0.001 & inductive recognition \\
+7827  &  0.019  &  0.000  &  0.042  &  0.000 & $P_3$ free \\
+5419  &  0.017  &  0.000  &  0.118  &  0.000 & cluster size \\
+5419  &  0.008  &  0.000  &  0.144  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-     2409    0.002    0.000    0.002    0.000 ind-rec.py:124(reduction_rule_5_2)
-     2408    0.007    0.000    0.012    0.000 ind-rec.py:166(reduction_rule_5_3)
-     2408    0.011    0.000    0.019    0.000 ind-rec.py:220(branching_rule_5_1)
-     2408    0.010    0.000    0.082    0.000 ind-rec.py:289(branching_rule_5_2)
-     5418    0.007    0.000    0.262    0.000 ind-rec.py:347(reduction_rule_loop)
-      301    0.011    0.000    0.374    0.001 ind-rec.py:374(inductive_recognition)
-     7827    0.019    0.000    0.042    0.000 ind-rec.py:40(p3_free)
-        1    0.002    0.002    0.377    0.377 ind-rec.py:421(case_bowtie)
-     5419    0.017    0.000    0.118    0.000 ind-rec.py:6(cluster_size)
-     5419    0.008    0.000    0.144    0.000 ind-rec.py:67(valid_cluster_graph)
-     5419    0.012    0.000    0.241    0.000 ind-rec.py:79(reduction_rule_5_1)
+==== Case k3 + Claw ====
+469094 function calls in 0.329 seconds
 
-     ==== Case k3 + Claw ====
-              469094 function calls in 0.329 seconds
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+3609  &  0.009  &  0.000  &  0.184  &  0.000  & reduction rule 5.1 \\
+2707  &  0.002  &  0.000  &  0.002  &  0.000  & reduction rule 5.2 \\
+2704  &  0.005  &  0.000  &  0.008  &  0.000  & reduction rule 5.3 \\
+2704  &  0.005  &  0.000  &  0.008  &  0.000  & branching rule 5.1 \\
+2704  &  0.007  &  0.000  &  0.050  &  0.000  & branching rule 5.2 \\
+3606  &  0.006  &  0.000  &  0.200  &  0.000  & reduction rule loop \\
+301  &  0.012  &  0.000  &  0.328  &  0.001  & inductive recognition \\
+6313  &  0.014  &  0.000  &  0.029  &  0.000  & $P_3$ free \\
+4811  &  0.013  &  0.000  &  0.106  &  0.000  & cluster size \\
+4811  &  0.007  &  0.000  &  0.133  &  0.000  & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-        Ordered by: standard name
+==== Case k5 + Claw ====
+2017852 function calls in 1.322 seconds
 
-        ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-          2707    0.002    0.000    0.002    0.000 ind-rec.py:124(reduction_rule_5_2)
-          2704    0.005    0.000    0.008    0.000 ind-rec.py:166(reduction_rule_5_3)
-          2704    0.005    0.000    0.008    0.000 ind-rec.py:220(branching_rule_5_1)
-          2704    0.007    0.000    0.050    0.000 ind-rec.py:289(branching_rule_5_2)
-          3606    0.006    0.000    0.200    0.000 ind-rec.py:347(reduction_rule_loop)
-           301    0.012    0.000    0.328    0.001 ind-rec.py:374(inductive_recognition)
-          6313    0.014    0.000    0.029    0.000 ind-rec.py:40(p3_free)
-             1    0.001    0.001    0.329    0.329 ind-rec.py:443(case_k3_plus_claw)
-          4811    0.013    0.000    0.106    0.000 ind-rec.py:6(cluster_size)
-          4811    0.007    0.000    0.133    0.000 ind-rec.py:67(valid_cluster_graph)
-          3609    0.009    0.000    0.184    0.000 ind-rec.py:79(reduction_rule_5_1)
-          ==== Case k5 + Claw ====
-                   2017852 function calls in 1.322 seconds
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+9019  &  0.025  &  0.000  &  0.743  &  0.000 & reduction rule 5.1 \\
+6014  &  0.005  &  0.000  &  0.005  &  0.000 & reduction rule 5.2 \\
+6011  &  0.036  &  0.000  &  0.062  &  0.000 & reduction rule 5.3 \\
+6011  &  0.031  &  0.000  &  0.053  &  0.000 & branching rule 5.1 \\
+6011  &  0.020  &  0.000  &  0.321  &  0.000 & branching rule 5.2 \\
+9016  &  0.016  &  0.000  &  0.827  &  0.000 & reduction rule loop \\
+301  &  0.028  &  0.000  &  1.319  &  0.004  & inductive recognition \\
+15030  &  0.181  &  0.000  &  0.364  &  0.000 & $P_3$ free \\
+10823  &  0.036  &  0.000  &  0.363  &  0.000 & cluster size \\
+10823  &  0.020  &  0.000  &  0.562  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-             Ordered by: standard name
+==== Case From 3.1 ====
+2636229 function calls in 1.845 seconds
 
-             ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-               6014    0.005    0.000    0.005    0.000 ind-rec.py:124(reduction_rule_5_2)
-               6011    0.036    0.000    0.062    0.000 ind-rec.py:166(reduction_rule_5_3)
-               6011    0.031    0.000    0.053    0.000 ind-rec.py:220(branching_rule_5_1)
-               6011    0.020    0.000    0.321    0.000 ind-rec.py:289(branching_rule_5_2)
-               9016    0.016    0.000    0.827    0.000 ind-rec.py:347(reduction_rule_loop)
-                301    0.028    0.000    1.319    0.004 ind-rec.py:374(inductive_recognition)
-              15030    0.181    0.000    0.364    0.000 ind-rec.py:40(p3_free)
-                  1    0.003    0.003    1.322    1.322 ind-rec.py:464(case_k5_plus_claw)
-              10823    0.036    0.000    0.363    0.000 ind-rec.py:6(cluster_size)
-              10823    0.020    0.000    0.562    0.000 ind-rec.py:67(valid_cluster_graph)
-               9019    0.025    0.000    0.743    0.000 ind-rec.py:79(reduction_rule_5_1)
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+17427  &  0.047  &  0.000  &  1.145  &  0.000 & reduction rule 5.1 \\
+10820  &  0.008  &  0.000  &  0.009  &  0.000 & reduction rule 5.2 \\
+10817  &  0.043  &  0.000  &  0.072  &  0.000 & reduction rule 5.3 \\
+8411   & 0.043  &  0.000  &  0.071  &  0.000  & branching rule 5.1 \\
+8410   & 0.032  &  0.000  &  0.405  &  0.000  & branching rule 5.2 \\
+15018  &  0.030  &  0.000  &  1.256  &  0.000 & reduction rule loop \\
+301  &  0.045  &  0.000  &  1.839  &  0.006  & inductive recognition \\
+25837  &  0.154  &  0.000  &  0.312  &  0.000 & $P_3$ free \\
+18630  &  0.073  &  0.000  &  0.576  &  0.000 & cluster size \\
+18630  &  0.033  &  0.000  &  0.754  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-               ==== Case From 3.1 ====
-                        2636229 function calls in 1.845 seconds
+==== Case 20 ====
+179986081 function calls in 117.746 seconds
 
-                  Ordered by: standard name
-
-                  ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-                   10820    0.008    0.000    0.009    0.000 ind-rec.py:124(reduction_rule_5_2)
-                   10817    0.043    0.000    0.072    0.000 ind-rec.py:166(reduction_rule_5_3)
-                    8411    0.043    0.000    0.071    0.000 ind-rec.py:220(branching_rule_5_1)
-                    8410    0.032    0.000    0.405    0.000 ind-rec.py:289(branching_rule_5_2)
-                   15018    0.030    0.000    1.256    0.000 ind-rec.py:347(reduction_rule_loop)
-                     301    0.045    0.000    1.839    0.006 ind-rec.py:374(inductive_recognition)
-                   25837    0.154    0.000    0.312    0.000 ind-rec.py:40(p3_free)
-                       1    0.005    0.005    1.845    1.845 ind-rec.py:485(case_from_3_1)
-                   18630    0.073    0.000    0.576    0.000 ind-rec.py:6(cluster_size)
-                   18630    0.033    0.000    0.754    0.000 ind-rec.py:67(valid_cluster_graph)
-                   17427    0.047    0.000    1.145    0.000 ind-rec.py:79(reduction_rule_5_1)
-                   ==== Case 20 ====
-                            179986081 function calls in 117.746 seconds
-
-                      Ordered by: standard name
-
-                      ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-                      333916    1.076    0.000    1.796    0.000 ind-rec.py:124(reduction_rule_5_2)
-                      333912    1.514    0.000    2.336    0.000 ind-rec.py:166(reduction_rule_5_3)
-                      333912    1.768    0.000    2.805    0.000 ind-rec.py:220(branching_rule_5_1)
-                      331200    1.224    0.000   34.610    0.000 ind-rec.py:289(branching_rule_5_2)
-                      491426    1.110    0.000   72.938    0.000 ind-rec.py:347(reduction_rule_loop)
-                         301    2.008    0.007  117.582    0.391 ind-rec.py:374(inductive_recognition)
-                      822630   17.871    0.000   35.732    0.000 ind-rec.py:40(p3_free)
-                           1    0.164    0.164  117.746  117.746 ind-rec.py:506(case_on_20)
-                      579930    3.718    0.000   33.562    0.000 ind-rec.py:6(cluster_size)
-                      579930    1.431    0.000   51.005    0.000 ind-rec.py:67(valid_cluster_graph)
-                      491430    1.509    0.000   67.697    0.000 ind-rec.py:79(reduction_rule_5_1)
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+491430  &  1.509  &  0.000  & 67.697  &  0.000 & reduction rule 5.1 \\
+333916  &  1.076  &  0.000  &  1.796  &  0.000 & reduction rule 5.2 \\
+333912  &  1.514  &  0.000  &  2.336  &  0.000 & reduction rule 5.3 \\
+333912  &  1.768  &  0.000  &  2.805  &  0.000 & branching rule 5.1 \\
+331200  &  1.224  &  0.000 &  34.610  &  0.000 & branching rule 5.2 \\
+491426  &  1.110  &  0.000  & 72.938  &  0.000 & reduction rule loop \\
+301  &  2.008  &  0.007 & 117.582  &  0.391  & inductive recognition \\
+822630  & 17.871  &  0.000  & 35.732  &  0.000 & $P_3$ free \\
+579930  &  3.718  &  0.000  & 33.562  &  0.000 & cluster size \\
+579930  &  1.431  &  0.000  & 51.005  &  0.000 & valid cluster graph \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
 \section{Benchmarks for \textsc{\textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}}
 \label{subsec:structural} %duplicate be careful
@@ -348,7 +390,6 @@ $K_3$ and Claw & 0.000331211090088 & 2 & True \\
  \hline
 $K_5$ and Claw & 0.000755069255829 & 2 & False \\
 [0.3ex]
-\hline
  & 0.00162389993668 & 4 & True \\
  [0.3ex]
  & 0.00161329984665 & 6 & True \\
@@ -375,54 +416,94 @@ Twenty & 0.0135761094093 & 5 & False \\
 \label{subsec:results} %duplicate be careful
 
 === Case Bowtie ===
-         287776 function calls (287775 primitive calls) in 0.142 seconds
+287776 function calls (287775 primitive calls) in 0.142 seconds
 
-   Ordered by: standard name
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+301  &  0.006  &  0.000  &  0.140  &  0.000 & monopolar partition \\
+903  &  0.001  &  0.000  &  0.006  &  0.000 & forbidden graphs \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-      301    0.006    0.000    0.140    0.000 mp-part.py:17(monopolar_partition)
-        1    0.002    0.002    0.142    0.142 mp-part.py:55(case_bowtie)
-      903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
+=== Case k3 + claw ===
+268543 function calls in 0.146 seconds
 
-      === Case k3 + claw ===
-               268543 function calls in 0.146 seconds
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+301  &  0.007  &  0.000  &  0.144  &  0.000  & monopolar partition \\
+903  &  0.001  &  0.000  &  0.006  &  0.000  & forbidden graphs \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-         Ordered by: standard name
+=== Case k5 + claw ===
+390487 function calls in 0.185 seconds
 
-         ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-            301    0.007    0.000    0.144    0.000 mp-part.py:17(monopolar_partition)
-            903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
-              1    0.002    0.002    0.146    0.146 mp-part.py:75(case_k3_plus_claw)
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+301  &  0.007  &  0.000  &  0.182  &  0.001 & monopolar partition  \\
+903  &  0.001  &  0.000  &  0.008  &  0.000 & forbidden graphs  \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-              === Case k5 + claw ===
-                       390487 function calls in 0.185 seconds
+=== Case From 3.1 ===
+895859 function calls in 0.434 seconds
 
-                 Ordered by: standard name
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+301  &  0.016  &  0.000  &  0.428  &  0.001 & monopolar partition \\
+2107 &   0.001  &  0.000  &  0.018  &  0.000 & forbidden graphs \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
-                 ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-                    301    0.007    0.000    0.182    0.001 mp-part.py:17(monopolar_partition)
-                    903    0.001    0.000    0.008    0.000 mp-part.py:6(forbidden_graphs)
-                      1    0.003    0.003    0.185    0.185 mp-part.py:94(case_k5_plus_claw)
+=== Case on 20 ===
+24745973 function calls in 13.509 seconds
 
-                      === Case From 3.1 ===
-                               895859 function calls in 0.434 seconds
-
-                         Ordered by: standard name
-
-                         ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-                              1    0.006    0.006    0.434    0.434 mp-part.py:113(case_from_3_1)
-                            301    0.016    0.000    0.428    0.001 mp-part.py:17(monopolar_partition)
-                           2107    0.001    0.000    0.018    0.000 mp-part.py:6(forbidden_graphs)
-
-                           === Case on 20 ===
-                                    24745973 function calls in 13.509 seconds
-
-                              Ordered by: standard name
-
-                              ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-                                   1    0.312    0.312   13.509   13.509 mp-part.py:132(case_on_20)
-                                 301    0.331    0.001   13.197    0.044 mp-part.py:17(monopolar_partition)
-                               38227    0.027    0.000    0.539    0.000 mp-part.py:6(forbidden_graphs)
+Ordered by: standard name
+\begin{center}
+\begin{tabu} to 0.8\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
+\hline
+ncalls & tottime & percall & cumtime & percall & function \\
+[0.5ex]
+\hline
+\hline
+301  &  0.331  &  0.001 &  13.197  &  0.044 & monopolar partition \\
+38227  &  0.027  &  0.000  &  0.539  &  0.000 & forbidden graphs \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
 \section{Concluding remarks}
 \label{sec:conclusion}
