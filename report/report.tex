@@ -13,8 +13,8 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{verbatim}
-
- \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{pstricks,pstricks-add,xcolor}
 \usepackage{pst-node}
 \usepackage{pst-coil}
@@ -42,7 +42,7 @@
 \newcommand{\alginput}[1]{\makebox[1.5cm][l]{ {\sc Input:}} \parbox[t]{\alginputwidth}{{\it #1}}}
 \newcommand{\algoutput}[1]{\makebox[1.5cm][l]{ {\sc Output:}} \parbox[t]{\alginputwidth}{{\it #1}}}
 \newcommand{\algtitle}[1]{\underline{Algorithm \ {\bf #1}} \vspace*{1mm}\\}
-
+\newcommand{\inlinecode}{\texttt}
 \newsavebox{\algbox}
 \newsavebox{\captionbox}
 \newenvironment{algorithm}[2]%
@@ -123,7 +123,7 @@
 \maketitle
 
 \begin{abstract}
-Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{Inductive Monopolar Recognition} and a compare its performance to a general \textsc{$\Pi_A,$$\Pi_B$-Recognition} branching algorithm also described by Kanj \textit{et al.}. The two algorithms have the same runtime, $2^{\mathcal{O}(k)}n^{\mathcal{O}(1)}$. Given that the two algorithms each solve the probem of \textsc{Monopolar Recognition} in the same runtime, a benchmark comparison of the two algorithms is a pertinent investigation of their practicality. 
+Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{Inductive Monopolar Recognition} and a compare its performance to a general \textsc{$\Pi_A,$$\Pi_B$-Recognition} branching algorithm also described by Kanj \textit{et al.}. The two algorithms have the same runtime, $2^{\mathcal{O}(k)}n^{\mathcal{O}(1)}$. Given that the two algorithms each solve the probem of \textsc{Monopolar Recognition} in the same runtime, a benchmark comparison of the two algorithms is a pertinent investigation of their practicality.
 
 \end{abstract}
 
@@ -132,7 +132,7 @@ Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{In
 
 
 \section{Introduction} \label{sec:intro}
-Introduce the problem(s) you study.
+
 
 \subsection{Motivation and related work}
 \label{subsec:motive}
@@ -140,7 +140,13 @@ Motivate your work, and review the related work in the literature.
 
 \subsection{Results and techniques}
 \label{subsec:results}
-Summarize your results and techniques.
+The algorithms were implemented in Python 2.7.13 as its a widely used language with a simple type structure strong language-native analysis tools. The executions were benchmarked on a MacBook Pro(Mid 2015) with a 2.8 GHz Intl Core i7 processor and 16 GB 1600 MHz DDR3 Memory. Rather than embrace fully idiomatic Python, several "non-Pythonic" implementations were made for readability. The full source code is available: \url{https://github.com/nbrengle/monopolar_partition/} and pull requests are welcome.
+
+Rather than re-invent the wheel for graph processing, an established scientific graph-theory library was used to handle the graph data structure(s): \inlinecode{NetworkX} v1.11. NetworkX uses dictionaries-of-dictionaries as the underlying structure of graphs, allowing for constant-time retrieval, as well as trivial iteration and introspection. Though \inlinecode{NetworkX} allows for arbitary node values, sequential integer values are used throughout for simplicity.
+
+A set of five graphs of orders ranging from six to 20 were used as benchmarks for the correctness as well as the benchmark. Varying values for \textit{k} were employed on each graph to allow for both intra-graph and inter-graph execution comparison. The \inlinecode{time.time()} module was employed to measure the execution time. This module is the canonical methodology for measuring processor time in Python 2.7.13 on Unix-based architectures. Each combination of graph and parameter value was executed in sets of 3 consisting of 100 executions. The lowest average time of the 3 sets was used as the benchmark for that particular graph-parameter combination.
+
+Additionally results from the Python profiling module \inlinecode{cProfile} are included for the execution on one graph-parameter combination per graph to demonstrate the relative time consumed on a per caller basis. The \inlinecode{cProfile} time results have only hundredths-of-a-second resolution making them undescriptive for single executions of the algorithms. The results obtained are instead for a full set of 300 executions per graph. Rather than average these values, we include them raw as their primary benefit is for the demonstration of the relative computational intensity of the different steps rather than substatively indicative of the performance of the algorithm as a whole. The \inlinecode{cProfile} results have been cleaned, removing system callers from the call list as the profiling data is illustrative rather than substantive. The raw results are available with the source code.
 
 \section{Preliminaries}
 \label{sec:prelim}
