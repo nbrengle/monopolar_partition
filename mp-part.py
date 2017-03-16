@@ -39,7 +39,7 @@ def monopolar_partition(input_graph, k):
             print "p2s "
             print p2s
         if p2s == []:
-            return 'yes'
+            return True
             break
         else:
             p2s = p2s[0]
@@ -50,7 +50,7 @@ def monopolar_partition(input_graph, k):
                 Q.append([A_new,B_new])
 
         #all else fails
-    return 'no'
+    return False
 
 def case_bowtie(desired_runs,repetitions,k):
     tri1 = nx.complete_graph(3)
@@ -69,6 +69,7 @@ def case_bowtie(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print monopolar_partition(tri3,k_tri3)
     return min(average_times)
 
 def case_k3_plus_claw(desired_runs,repetitions,k):
@@ -87,7 +88,7 @@ def case_k3_plus_claw(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
-    monopolar_partition(G,k_G)
+    print monopolar_partition(G,k_G)
     return min(average_times)
 
 def case_k5_plus_claw(desired_runs,repetitions,k):
@@ -106,7 +107,7 @@ def case_k5_plus_claw(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
-    monopolar_partition(k5,k_k5)
+    print monopolar_partition(k5,k_k5)
     return min(average_times)
 
 def case_from_3_1(desired_runs,repetitions,k):
@@ -125,7 +126,7 @@ def case_from_3_1(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
-    monopolar_partition(G,k)
+    print monopolar_partition(G,k)
     return min(average_times)
 
 def case_on_20(desired_runs,repetitions,k):
@@ -156,8 +157,8 @@ def main():
     print "case_bowtie " + str(case_bowtie(100,3,5))
     cProfile.run('case_k3_plus_claw(100,3,1)')
     print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,2))
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,3))
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,5))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,3))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,5))
     cProfile.run('case_k5_plus_claw(100,3,1)')
     print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,2))
     print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,4))
