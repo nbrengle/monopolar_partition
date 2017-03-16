@@ -523,7 +523,7 @@ def case_on_20(desired_runs,repetitions,k):
     return min(average_times)
 
 def main():
-    cProfile.run('case_bowtie(100,3)')
+    cProfile.run('case_bowtie(100,3,1)')
     print "case_bowtie " + str(case_bowtie(100,3,1))
     cProfile.run('case_k3_plus_claw(100,3,1)')
     print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,1))

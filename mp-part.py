@@ -1,74 +1,50 @@
+import cProfile
 from networkx import Graph
 import networkx as nx
+import time
 
 def forbidden_graphs(input_graph):
+    DEBUG = False
     '''
-    There's a p3 if:
-        my neighbor(1) has a neighbor(2) that is not me
-        neighbor(2) has a neighbor(3) that is not me
+    B should be an Independent Set and have no edges
     '''
-    DEBUG = True
-    output_list = []
     G = input_graph
-    for n_0 in nx.nodes_iter(G):
-        neighbors_1 = G.neighbors(n_0)
-
-        if DEBUG==True:
-            print "n_0 " + str(n_0)
-            print "neighbors_1" + str(neighbors_1)
-
-        for n_1 in neighbors_1:
-            neighbors_2 = G.neighbors(n_1)
-            neighbors_2.remove(n_0) #remove bactrack
-
-            if DEBUG==True:
-                print "n_1 " + str(n_1)
-                print "neighbors_2" + str(neighbors_2)
-
-            for n_2 in neighbors_2:
-                neighbors_3 = G.neighbors(n_2)
-                neighbors_3.remove(n_1) #remove bactrack
-                if DEBUG==True:
-                    print "n_2 " + str(n_2)
-                    print "neighbors_3_mod" + str(neighbors_3)
-
-                if n_0 not in neighbors_3:
-                    output_list.append(n_0)
-                    output_list.append(n_1)
-                    output_list.append(n_2)
-                    if DEBUG==True:
-                        print output_list
-                    return output_list
-    return output_list
+    if DEBUG==True:
+        print "Edges in B "
+        print G.edges()
+    return G.edges()
 
 def monopolar_partition(input_graph, k):
-    DEBUG = True
+    # This is not trying all possible As as the root node...
+    DEBUG = False
     #initialization
+    G = input_graph
     A_init = Graph() #an empty graph
     B_init = input_graph
     Q = [[A_init,B_init],] # deliberately double-depth Q to manage 'branches'
     #loop body
     for branch in Q:
-        A = branch.pop(0)
-        if DEBUG==True:
+        A = branch[0]
+        if DEBUG == True:
             print "A "
             print A.nodes()
-        B = branch.pop()
-        if DEBUG==True:
+        B = branch[1]
+        if DEBUG == True:
             print "B "
             print B.nodes()
         if nx.number_of_nodes(A) > k:
             continue #reject branch
 
-        p3s = forbidden_graphs(B)
-        if DEBUG==True:
-            print "p3s "
-            print p3s
-        if p3s == []:
+        p2s = forbidden_graphs(B)
+        if DEBUG == True:
+            print "p2s "
+            print p2s
+        if p2s == []:
             return 'yes'
             break
         else:
-            for vertex in p3s:
+            p2s = p2s[0]
+            for vertex in p2s:
                 A_new = nx.union(A,nx.subgraph(input_graph,vertex))
                 B_new = Graph(B)
                 B_new.remove_node(vertex)
@@ -77,25 +53,111 @@ def monopolar_partition(input_graph, k):
         #all else fails
     return 'no'
 
-def main():
-    G = Graph()
-    G.add_nodes_from([1,2,3,5,6,7])
-    G.add_edges_from([(1,2),(2,3),(3,5),(3,6),(6,7),(1,3)])
-    #print "G:1 " + monopolar_partition(G,1)
-
-    k5 = nx.complete_graph(5)
-    G.add_nodes_from([5,6,7])
-    G.add_edges_from([(4,5),(4,6),(4,7)])
-    #print "k5:1 "+ monopolar_partition(k5,1)
-
+def case_bowtie(desired_runs,repetitions,k):
     tri1 = nx.complete_graph(3)
     tri2 = nx.complete_graph(3)
     tri3 = nx.disjoint_union(tri1,tri2)
     tri3.add_edge(2,3)
-    #print tri3.nodes()
-    #print tri3.edges()
-    print "bowtie:1 " + monopolar_partition(tri3,1)
-    #print "bowtie:2 " + monopolar_partition(tri3,2)
+    k_tri3 = k
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            monopolar_partition(tri3,k_tri3)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_k3_plus_claw(desired_runs,repetitions,k):
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6])
+    G.add_edges_from([(1,2),(2,3),(3,4),(3,5),(3,6),(1,3)])
+    k_G = k
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            monopolar_partition(G,k_G)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_k5_plus_claw(desired_runs,repetitions,k):
+    k5 = nx.complete_graph(5)
+    k5.add_nodes_from([5,6,7])
+    k5.add_edges_from([(4,5),(4,6),(4,7)])
+    k_k5 = k
+
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            monopolar_partition(k5,k_k5)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_from_3_1(desired_runs,repetitions,k):
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6,7,8,9,10])
+    G.add_edges_from([(1,2),(2,3),(2,4),(2,5),(3,5),(3,4),(4,6),(6,7),
+                      (7,10),(7,9),(7,8),(8,9),(9,10)])
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            monopolar_partition(G,k)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def case_on_20(desired_runs,repetitions,k):
+    G = Graph()
+    G.add_nodes_from([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+    G.add_edges_from([(1,6),(1,4),(2,7),(3,8),(3,9),(3,4),(3,13),(4,14),(4,5),
+                      (5,10),(6,12),(7,8),(8,9),(8,13),(9,13),(9,14),(10,14),
+                      (11,5),(11,15),(10,15),(10,11),(5,15),(14,18),(14,19),
+                      (15,19),(15,20),(17,18),(12,17),(12,18),(19,20)])
+
+    average_times = []
+    for x in range(0, repetitions):
+        start_time = time.time()
+        for n in range(0, desired_runs):
+            monopolar_partition(G,k)
+        elapsed_time = time.time() - start_time
+
+        average_time = elapsed_time / desired_runs
+        average_times.append(average_time)
+
+    return min(average_times)
+
+def main():
+    cProfile.run('case_bowtie(100,3,1)')
+    print "case_bowtie " + str(case_bowtie(100,3,1))
+    cProfile.run('case_k3_plus_claw(100,3,1)')
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,1))
+    cProfile.run('case_k5_plus_claw(100,3,1)')
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,1))
+    cProfile.run('case_from_3_1(100,3,1)')
+    print "case_from_3_1 " + str(case_from_3_1(100,3,2))
+    cProfile.run('case_on_20(100,3,1)')
+    print "case_on_20 " + str(case_on_20(100,3,6))
 
 
 if __name__ == '__main__':
