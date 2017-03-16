@@ -1,0 +1,70 @@
+=== Case Bowtie ===
+         287776 function calls (287775 primitive calls) in 0.142 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      301    0.006    0.000    0.140    0.000 mp-part.py:17(monopolar_partition)
+        1    0.002    0.002    0.142    0.142 mp-part.py:55(case_bowtie)
+      903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
+
+
+case_bowtie 0.00061182975769 k:3 False
+case_bowtie 0.00116783857346 k:2 False
+case_bowtie 0.00140007019043 k:5 True
+
+=== Case k3 + claw ===
+         268543 function calls in 0.146 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      301    0.007    0.000    0.144    0.000 mp-part.py:17(monopolar_partition)
+      903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
+        1    0.002    0.002    0.146    0.146 mp-part.py:75(case_k3_plus_claw)
+
+case_k3_plus_claw 0.000331211090088 k:2 True
+case_k3_plus_claw 0.000331621170044 k:3 True
+case_k3_plus_claw 0.000334539413452 k:5 True
+
+=== Case k5 + claw ===
+         390487 function calls in 0.185 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      301    0.007    0.000    0.182    0.001 mp-part.py:17(monopolar_partition)
+      903    0.001    0.000    0.008    0.000 mp-part.py:6(forbidden_graphs)
+        1    0.003    0.003    0.185    0.185 mp-part.py:94(case_k5_plus_claw)
+
+case_k5_plus_claw 0.000755069255829 k:2 False
+case_k5_plus_claw 0.00162389993668 k:4 True
+case_k5_plus_claw 0.00161329984665 k:6 True
+
+=== Case From 3.1 ===
+         895859 function calls in 0.434 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.006    0.006    0.434    0.434 mp-part.py:113(case_from_3_1)
+      301    0.016    0.000    0.428    0.001 mp-part.py:17(monopolar_partition)
+     2107    0.001    0.000    0.018    0.000 mp-part.py:6(forbidden_graphs)
+
+case_from_3_1 0.000818741321564 k:2 False
+case_from_3_1 0.00517585039139 k:5 True
+case_from_3_1 0.00514071941376 k:7 True
+
+=== Case on 20 ===
+         24745973 function calls in 13.509 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.312    0.312   13.509   13.509 mp-part.py:132(case_on_20)
+      301    0.331    0.001   13.197    0.044 mp-part.py:17(monopolar_partition)
+    38227    0.027    0.000    0.539    0.000 mp-part.py:6(forbidden_graphs)
+
+case_on_20 0.0135761094093 k:5 False
+case_on_20 0.40817595005 k:10 False
+case_on_20 0.834017539024 k:15 True

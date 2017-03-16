@@ -1,0 +1,303 @@
+False
+         287776 function calls (287775 primitive calls) in 0.142 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.142    0.142 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 binary.py:108(disjoint_union)
+     1807    0.014    0.000    0.034    0.000 binary.py:19(union)
+     3614    0.001    0.000    0.001    0.000 binary.py:66(add_prefix)
+        2    0.000    0.000    0.000    0.000 classic.py:184(complete_graph)
+        2    0.000    0.000    0.000    0.000 classic.py:311(empty_graph)
+     1806    0.003    0.000    0.061    0.000 convert.py:286(from_dict_of_dicts)
+     1806    0.001    0.000    0.004    0.000 convert.py:34(_prep_create_using)
+    22274    0.007    0.000    0.008    0.000 convert.py:360(<genexpr>)
+     1806    0.008    0.000    0.075    0.000 convert.py:50(to_networkx_graph)
+    11438    0.003    0.000    0.004    0.000 convert.py:95(<genexpr>)
+     1806    0.001    0.000    0.011    0.000 function.py:220(subgraph)
+     2107    0.001    0.000    0.001    0.000 function.py:69(number_of_nodes)
+      903    0.002    0.000    0.005    0.000 graph.py:1086(edges)
+     9648    0.006    0.000    0.007    0.000 graph.py:1139(edges_iter)
+     1806    0.002    0.000    0.003    0.000 graph.py:1403(clear)
+    10842    0.001    0.000    0.001    0.000 graph.py:1450(is_multigraph)
+        2    0.000    0.000    0.000    0.000 graph.py:1454(is_directed)
+     1806    0.005    0.000    0.010    0.000 graph.py:1548(subgraph)
+     1806    0.002    0.000    0.002    0.000 graph.py:1858(nbunch_iter)
+     5724    0.008    0.000    0.084    0.000 graph.py:258(__init__)
+     3620    0.001    0.000    0.002    0.000 graph.py:306(name)
+     3622    0.001    0.000    0.001    0.000 graph.py:310(name)
+     7230    0.002    0.000    0.003    0.000 graph.py:330(__iter__)
+     1806    0.000    0.000    0.000    0.000 graph.py:345(__contains__)
+        1    0.000    0.000    0.000    0.000 graph.py:361(__len__)
+     5424    0.009    0.000    0.011    0.000 graph.py:466(add_nodes_from)
+     1806    0.002    0.000    0.003    0.000 graph.py:533(remove_node)
+        2    0.000    0.000    0.000    0.000 graph.py:610(nodes_iter)
+        2    0.000    0.000    0.000    0.000 graph.py:645(nodes)
+     2109    0.001    0.000    0.001    0.000 graph.py:672(number_of_nodes)
+        1    0.000    0.000    0.000    0.000 graph.py:733(add_edge)
+     5424    0.031    0.000    0.053    0.000 graph.py:803(add_edges_from)
+      301    0.006    0.000    0.140    0.000 mp-part.py:17(monopolar_partition)
+        1    0.002    0.002    0.142    0.142 mp-part.py:55(case_bowtie)
+      903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
+        2    0.000    0.000    0.000    0.000 relabel.py:13(relabel_nodes)
+        2    0.000    0.000    0.000    0.000 relabel.py:134(_relabel_copy)
+        8    0.000    0.000    0.000    0.000 relabel.py:141(<genexpr>)
+        8    0.000    0.000    0.000    0.000 relabel.py:144(<genexpr>)
+        8    0.000    0.000    0.000    0.000 relabel.py:145(<genexpr>)
+        2    0.000    0.000    0.000    0.000 relabel.py:151(convert_node_labels_to_integers)
+     5420    0.001    0.000    0.001    0.000 {hasattr}
+     3612    0.000    0.000    0.000    0.000 {isinstance}
+     9038    0.001    0.000    0.001    0.000 {iter}
+22597/22596    0.002    0.000    0.002    0.000 {len}
+     1809    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+     5418    0.001    0.000    0.001    0.000 {method 'clear' of 'dict' objects}
+    24106    0.002    0.000    0.002    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    24131    0.002    0.000    0.002    0.000 {method 'get' of 'dict' objects}
+    22593    0.004    0.000    0.004    0.000 {method 'items' of 'dict' objects}
+     1806    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+    53937    0.009    0.000    0.009    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+       10    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+        2    0.000    0.000    0.000    0.000 {zip}
+
+
+False
+case_bowtie 0.00061182975769
+False
+case_bowtie 0.00116783857346
+True
+case_bowtie 0.00140007019043
+False
+         268543 function calls in 0.146 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.146    0.146 <string>:1(<module>)
+     1806    0.015    0.000    0.036    0.000 binary.py:19(union)
+     3612    0.001    0.000    0.001    0.000 binary.py:66(add_prefix)
+     1806    0.003    0.000    0.059    0.000 convert.py:286(from_dict_of_dicts)
+     1806    0.001    0.000    0.004    0.000 convert.py:34(_prep_create_using)
+    18662    0.007    0.000    0.008    0.000 convert.py:360(<genexpr>)
+     1806    0.009    0.000    0.074    0.000 convert.py:50(to_networkx_graph)
+    11438    0.004    0.000    0.004    0.000 convert.py:95(<genexpr>)
+     1806    0.001    0.000    0.011    0.000 function.py:220(subgraph)
+     2107    0.001    0.000    0.002    0.000 function.py:69(number_of_nodes)
+      903    0.002    0.000    0.005    0.000 graph.py:1086(edges)
+     8729    0.006    0.000    0.007    0.000 graph.py:1139(edges_iter)
+     1806    0.002    0.000    0.003    0.000 graph.py:1403(clear)
+    10836    0.001    0.000    0.001    0.000 graph.py:1450(is_multigraph)
+     1806    0.005    0.000    0.011    0.000 graph.py:1548(subgraph)
+     1806    0.002    0.000    0.002    0.000 graph.py:1858(nbunch_iter)
+     5720    0.008    0.000    0.084    0.000 graph.py:258(__init__)
+     3612    0.001    0.000    0.002    0.000 graph.py:306(name)
+     3612    0.001    0.000    0.001    0.000 graph.py:310(name)
+     7224    0.002    0.000    0.003    0.000 graph.py:330(__iter__)
+     1806    0.000    0.000    0.000    0.000 graph.py:345(__contains__)
+     5419    0.009    0.000    0.012    0.000 graph.py:466(add_nodes_from)
+     1806    0.003    0.000    0.003    0.000 graph.py:533(remove_node)
+     2107    0.001    0.000    0.001    0.000 graph.py:672(number_of_nodes)
+     5419    0.028    0.000    0.050    0.000 graph.py:803(add_edges_from)
+      301    0.007    0.000    0.144    0.000 mp-part.py:17(monopolar_partition)
+      903    0.001    0.000    0.006    0.000 mp-part.py:6(forbidden_graphs)
+        1    0.002    0.002    0.146    0.146 mp-part.py:75(case_k3_plus_claw)
+     5418    0.001    0.000    0.001    0.000 {hasattr}
+     3612    0.000    0.000    0.000    0.000 {isinstance}
+     9030    0.001    0.000    0.001    0.000 {iter}
+    18969    0.002    0.000    0.002    0.000 {len}
+     1809    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+     5418    0.001    0.000    0.001    0.000 {method 'clear' of 'dict' objects}
+    24086    0.002    0.000    0.002    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    20474    0.003    0.000    0.003    0.000 {method 'get' of 'dict' objects}
+    22575    0.004    0.000    0.004    0.000 {method 'items' of 'dict' objects}
+     1806    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+    46668    0.009    0.000    0.009    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+True
+case_k3_plus_claw 0.000331211090088
+True
+case_k3_plus_claw 0.000331621170044
+True
+case_k3_plus_claw 0.000334539413452
+False
+         390487 function calls in 0.185 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.185    0.185 <string>:1(<module>)
+     1806    0.014    0.000    0.034    0.000 binary.py:19(union)
+     3612    0.001    0.000    0.001    0.000 binary.py:66(add_prefix)
+        1    0.000    0.000    0.000    0.000 classic.py:184(complete_graph)
+        1    0.000    0.000    0.000    0.000 classic.py:311(empty_graph)
+     1806    0.003    0.000    0.097    0.000 convert.py:286(from_dict_of_dicts)
+     1806    0.001    0.000    0.004    0.000 convert.py:34(_prep_create_using)
+    39130    0.010    0.000    0.013    0.000 convert.py:360(<genexpr>)
+     1806    0.010    0.000    0.114    0.000 convert.py:50(to_networkx_graph)
+    15050    0.004    0.000    0.005    0.000 convert.py:95(<genexpr>)
+     1806    0.001    0.000    0.011    0.000 function.py:220(subgraph)
+     2107    0.001    0.000    0.002    0.000 function.py:69(number_of_nodes)
+      903    0.003    0.000    0.007    0.000 graph.py:1086(edges)
+    13846    0.007    0.000    0.008    0.000 graph.py:1139(edges_iter)
+     1806    0.002    0.000    0.003    0.000 graph.py:1403(clear)
+    10836    0.001    0.000    0.001    0.000 graph.py:1450(is_multigraph)
+        1    0.000    0.000    0.000    0.000 graph.py:1454(is_directed)
+     1806    0.005    0.000    0.010    0.000 graph.py:1548(subgraph)
+     1806    0.002    0.000    0.002    0.000 graph.py:1858(nbunch_iter)
+     5720    0.008    0.000    0.123    0.000 graph.py:258(__init__)
+     3612    0.001    0.000    0.002    0.000 graph.py:306(name)
+     3614    0.001    0.000    0.001    0.000 graph.py:310(name)
+     7224    0.002    0.000    0.003    0.000 graph.py:330(__iter__)
+     1806    0.000    0.000    0.000    0.000 graph.py:345(__contains__)
+     5420    0.011    0.000    0.013    0.000 graph.py:466(add_nodes_from)
+     1806    0.003    0.000    0.003    0.000 graph.py:533(remove_node)
+     2107    0.001    0.000    0.001    0.000 graph.py:672(number_of_nodes)
+     5420    0.053    0.000    0.087    0.000 graph.py:803(add_edges_from)
+      301    0.007    0.000    0.182    0.001 mp-part.py:17(monopolar_partition)
+      903    0.001    0.000    0.008    0.000 mp-part.py:6(forbidden_graphs)
+        1    0.003    0.003    0.185    0.185 mp-part.py:94(case_k5_plus_claw)
+     5418    0.001    0.000    0.001    0.000 {hasattr}
+     3612    0.000    0.000    0.000    0.000 {isinstance}
+     9030    0.001    0.000    0.001    0.000 {iter}
+    39444    0.003    0.000    0.003    0.000 {len}
+     1809    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+     5418    0.001    0.000    0.001    0.000 {method 'clear' of 'dict' objects}
+    31312    0.002    0.000    0.002    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    40949    0.004    0.000    0.004    0.000 {method 'get' of 'dict' objects}
+    26187    0.005    0.000    0.005    0.000 {method 'items' of 'dict' objects}
+     1806    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+    87618    0.014    0.000    0.014    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        6    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+False
+case_k5_plus_claw 0.000755069255829
+True
+case_k5_plus_claw 0.00162389993668
+True
+case_k5_plus_claw 0.00161329984665
+False
+         895859 function calls in 0.434 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.434    0.434 <string>:1(<module>)
+     4214    0.035    0.000    0.085    0.000 binary.py:19(union)
+     8428    0.001    0.000    0.001    0.000 binary.py:66(add_prefix)
+     4214    0.007    0.000    0.221    0.000 convert.py:286(from_dict_of_dicts)
+     4214    0.002    0.000    0.009    0.000 convert.py:34(_prep_create_using)
+    83678    0.024    0.000    0.031    0.000 convert.py:360(<genexpr>)
+     4214    0.023    0.000    0.263    0.000 convert.py:50(to_networkx_graph)
+    40334    0.011    0.000    0.014    0.000 convert.py:95(<genexpr>)
+     4214    0.002    0.000    0.026    0.000 function.py:220(subgraph)
+     4515    0.002    0.000    0.003    0.000 function.py:69(number_of_nodes)
+     2107    0.006    0.000    0.017    0.000 graph.py:1086(edges)
+    30401    0.018    0.000    0.021    0.000 graph.py:1139(edges_iter)
+     4214    0.005    0.000    0.007    0.000 graph.py:1403(clear)
+    25284    0.003    0.000    0.003    0.000 graph.py:1450(is_multigraph)
+     4214    0.011    0.000    0.024    0.000 graph.py:1548(subgraph)
+     4214    0.004    0.000    0.005    0.000 graph.py:1858(nbunch_iter)
+    12944    0.019    0.000    0.285    0.000 graph.py:258(__init__)
+     8428    0.003    0.000    0.004    0.000 graph.py:306(name)
+     8428    0.002    0.000    0.002    0.000 graph.py:310(name)
+    16856    0.005    0.000    0.007    0.000 graph.py:330(__iter__)
+     4214    0.001    0.000    0.001    0.000 graph.py:345(__contains__)
+    12643    0.029    0.000    0.036    0.000 graph.py:466(add_nodes_from)
+     4214    0.006    0.000    0.007    0.000 graph.py:533(remove_node)
+     4515    0.001    0.000    0.002    0.000 graph.py:672(number_of_nodes)
+    12643    0.117    0.000    0.196    0.000 graph.py:803(add_edges_from)
+        1    0.006    0.006    0.434    0.434 mp-part.py:113(case_from_3_1)
+      301    0.016    0.000    0.428    0.001 mp-part.py:17(monopolar_partition)
+     2107    0.001    0.000    0.018    0.000 mp-part.py:6(forbidden_graphs)
+    12642    0.002    0.000    0.002    0.000 {hasattr}
+     8428    0.001    0.000    0.001    0.000 {isinstance}
+    21070    0.003    0.000    0.003    0.000 {iter}
+    83992    0.006    0.000    0.006    0.000 {len}
+     4217    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+    12642    0.001    0.000    0.001    0.000 {method 'clear' of 'dict' objects}
+    86698    0.006    0.000    0.006    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    87905    0.009    0.000    0.009    0.000 {method 'get' of 'dict' objects}
+    69531    0.013    0.000    0.013    0.000 {method 'items' of 'dict' objects}
+     4214    0.001    0.000    0.001    0.000 {method 'keys' of 'dict' objects}
+   188754    0.031    0.000    0.031    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+False
+case_from_3_1 0.000818741321564
+True
+case_from_3_1 0.00517585039139
+True
+case_from_3_1 0.00514071941376
+False
+         24745973 function calls in 13.509 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   13.509   13.509 <string>:1(<module>)
+    76454    0.786    0.000    2.372    0.000 binary.py:19(union)
+   152908    0.024    0.000    0.024    0.000 binary.py:66(add_prefix)
+    76454    0.159    0.000    7.895    0.000 convert.py:286(from_dict_of_dicts)
+    76454    0.041    0.000    0.178    0.000 convert.py:34(_prep_create_using)
+  2665054    0.805    0.000    1.033    0.000 convert.py:360(<genexpr>)
+    76454    0.563    0.000    8.999    0.000 convert.py:50(to_networkx_graph)
+  1219050    0.343    0.000    0.432    0.000 convert.py:95(<genexpr>)
+    76454    0.040    0.000    0.550    0.000 function.py:220(subgraph)
+    76755    0.031    0.000    0.064    0.000 function.py:69(number_of_nodes)
+    38227    0.162    0.000    0.512    0.000 graph.py:1086(edges)
+   838285    0.583    0.000    0.699    0.000 graph.py:1139(edges_iter)
+    76454    0.093    0.000    0.137    0.000 graph.py:1403(clear)
+   458724    0.057    0.000    0.057    0.000 graph.py:1450(is_multigraph)
+    76454    0.242    0.000    0.510    0.000 graph.py:1548(subgraph)
+    76454    0.080    0.000    0.114    0.000 graph.py:1858(nbunch_iter)
+   229664    0.390    0.000    9.435    0.000 graph.py:258(__init__)
+   152908    0.059    0.000    0.080    0.000 graph.py:306(name)
+   152908    0.037    0.000    0.037    0.000 graph.py:310(name)
+   305816    0.096    0.000    0.173    0.000 graph.py:330(__iter__)
+    76454    0.021    0.000    0.021    0.000 graph.py:345(__contains__)
+   229363    1.356    0.000    1.579    0.000 graph.py:466(add_nodes_from)
+    76454    0.137    0.000    0.155    0.000 graph.py:533(remove_node)
+    76755    0.026    0.000    0.033    0.000 graph.py:672(number_of_nodes)
+   229363    4.410    0.000    7.077    0.000 graph.py:803(add_edges_from)
+        1    0.312    0.312   13.509   13.509 mp-part.py:132(case_on_20)
+      301    0.331    0.001   13.197    0.044 mp-part.py:17(monopolar_partition)
+    38227    0.027    0.000    0.539    0.000 mp-part.py:6(forbidden_graphs)
+   229362    0.040    0.000    0.040    0.000 {hasattr}
+   152908    0.019    0.000    0.019    0.000 {isinstance}
+   382270    0.089    0.000    0.089    0.000 {iter}
+  2665385    0.185    0.000    0.185    0.000 {len}
+    76457    0.011    0.000    0.011    0.000 {method 'append' of 'list' objects}
+   229362    0.026    0.000    0.026    0.000 {method 'clear' of 'dict' objects}
+  2824604    0.217    0.000    0.217    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  2741538    0.287    0.000    0.287    0.000 {method 'get' of 'dict' objects}
+  2026031    0.430    0.000    0.430    0.000 {method 'items' of 'dict' objects}
+    76454    0.018    0.000    0.018    0.000 {method 'keys' of 'dict' objects}
+  5712740    0.974    0.000    0.974    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+False
+case_on_20 0.0135761094093
+False
+case_on_20 0.40817595005
+True
+case_on_20 0.834017539024
