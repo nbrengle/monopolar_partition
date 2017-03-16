@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 03:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 03:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -862,6 +862,9 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box47
 \tabu@cellskip=\skip54
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen313
+)
 \c@theorem=\count182
 \c@observation=\count183
 \c@reduction=\count184
@@ -890,20 +893,20 @@ LaTeX Warning: Label `subsec:results' multiply defined.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -940,7 +943,7 @@ LaTeX Font Info:    ... okay on input line 122.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box51
-Package hyperref Info: Link coloring OFF on input line 122.
+Package hyperref Info: Link coloring OFF on input line 123.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -949,167 +952,132 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count185
 )
-LaTeX Info: Redefining \ref on input line 122.
-LaTeX Info: Redefining \pageref on input line 122.
-LaTeX Info: Redefining \nameref on input line 122.
+LaTeX Info: Redefining \ref on input line 123.
+LaTeX Info: Redefining \pageref on input line 123.
+LaTeX Info: Redefining \nameref on input line 123.
 
 (./report.out) (./report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
 
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 125.
+LaTeX Font Info:    Try loading font information for U+msa on input line 126.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 125.
+LaTeX Font Info:    Try loading font information for U+msb on input line 126.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 125.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 126.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
 
 
-LaTeX Warning: Citation `ref1' on page 1 undefined on input line 127.
+LaTeX Warning: Citation `ref1' on page 1 undefined on input line 128.
 
 [1
 
 ]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
  [2]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 (Font)              using `OT1/cmr/bx/n' instead on input line 187.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.192 case_
-           bowtie 0.000813608169556 k:1 False
-? RQ
-OK, entering \nonstopmode...
-! Double subscript.
-l.198 case_from_3_
-                  1 0.00161388158798 k:1 True
-I treat `x_1_2' essentially like `x_1{}_2'.
 
-! Double subscript.
-l.199 case_from_3_
-                  1 0.00398640155792 k:2 True
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Double subscript.
-l.200 case_from_3_
-                  1 0.0047345495224 k:3 True
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.204 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (76.42262pt too wide) in paragraph at lines 192--204
-\OT1/cmr/m/n/10.95 case$[]\OML/cmm/m/it/10.95 owtie\OT1/cmr/m/n/10.95 0\OML/cmm
-/m/it/10.95 :\OT1/cmr/m/n/10.95 000813608169556\OML/cmm/m/it/10.95 k \OT1/cmr/m
-/n/10.95 : 1\OML/cmm/m/it/10.95 Falsecase[]owtie\OT1/cmr/m/n/10.95 0\OML/cmm/m/
-it/10.95 :\OT1/cmr/m/n/10.95 00289664983749\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/1
-0.95 : 2\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 3[]\OML/cmm/m/it/10.95
- lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0006619119
-64417\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.000813608169556| 
  []
 
 
-Overfull \hbox (141.57076pt too wide) in paragraph at lines 192--204
-\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 3[]\OML/cm
-m/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
-5 000688810348511\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 : 2\OML/cmm/m/it/10.9
-5 Truecase[]\OT1/cmr/m/n/10.95 5[]\OML/cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.9
-5 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00292824029922\OML/cmm/m/it/10.95 k 
-\OT1/cmr/m/n/10.95 : 1\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 5[]\OML/
-cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10
-.95 00294578075409\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.00289664983749| 
  []
 
 
-Overfull \hbox (80.42728pt too wide) in paragraph at lines 192--204
-\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 Truecase[]rom[][]\OT1/cmr/m/n/10.95 0\O
-ML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00161388158798\OML/cmm/m/it/10.95 k \OT1/
-cmr/m/n/10.95 : 1\OML/cmm/m/it/10.95 Truecase[]rom[][]\OT1/cmr/m/n/10.95 0\OML/
-cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00398640155792\OML/cmm/m/it/10.95 k \OT1/cmr
-/m/n/10.95 : 2\OML/cmm/m/it/10.95 Truecase[]rom[][]\OT1/cmr/m/n/10.95 0\OML/cmm
-/m/it/10.95 :\OT1/cmr/m/n/10.95 0047345495224\OML/cmm/m/it/10.95 k \OT1/cmr/m/n
-/10.95 :
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.000661911964417| 
  []
 
 
-Overfull \hbox (20.8835pt too wide) in paragraph at lines 192--204
-\OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 Truecase[]n[]\OT1/cmr/m/n/10.95 00\OML/
-cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0853665113449\OML/cmm/m/it/10.95 k \OT1/cmr/
-m/n/10.95 : 3\OML/cmm/m/it/10.95 Falsecase[]n[]\OT1/cmr/m/n/10.95 00\OML/cmm/m/
-it/10.95 :\OT1/cmr/m/n/10.95 265883820057\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.
-95 : 5\OML/cmm/m/it/10.95 Truecase[]n[]\OT1/cmr/m/n/10.95 00\OML/cmm/m/it/10.95
- :\OT1/cmr/m/n/10.95 288087880611\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.000688810348511| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.00292824029922| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.00294578075409| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.00161388158798| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 228--228
+ []\OT1/cmr/m/n/10.95 0.00398640155792| 
  []
 
 [3]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.214 ... 0.002    0.000 ind-rec.py:124(reduction_
+l.240 ... 0.002    0.000 ind-rec.py:124(reduction_
                                                   rule_5_2)
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+? RQ
+OK, entering \nonstopmode...
 ! Double subscript.
-l.214 ...   0.000 ind-rec.py:124(reduction_rule_5_
+l.240 ...   0.000 ind-rec.py:124(reduction_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.215 ...   0.000 ind-rec.py:166(reduction_rule_5_
+l.241 ...   0.000 ind-rec.py:166(reduction_rule_5_
                                                   3)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.216 ...   0.000 ind-rec.py:220(branching_rule_5_
+l.242 ...   0.000 ind-rec.py:220(branching_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.217 ...   0.000 ind-rec.py:289(branching_rule_5_
+l.243 ...   0.000 ind-rec.py:289(branching_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.224 ...    0.000 ind-rec.py:79(reduction_rule_5_
+l.250 ...    0.000 ind-rec.py:79(reduction_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.225 
+l.251 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (111.17174pt too wide) in paragraph at lines 213--225
+Overfull \hbox (111.17174pt too wide) in paragraph at lines 239--251
 \OT1/cmr/m/n/10.95 ind-rec.py:124(reduction$[]\OML/cmm/m/it/10.95 ule[][]\OT1/c
 mr/m/n/10.95 )24080\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0070\OML/cmm/m/it/10
 .95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0120\OML/cm
@@ -1122,7 +1090,7 @@ nd \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (105.30455pt too wide) in paragraph at lines 213--225
+Overfull \hbox (105.30455pt too wide) in paragraph at lines 239--251
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 220(\OML/cmm/m/it/10.95 branchi
 ng[]ule[][]\OT1/cmr/m/n/10.95 )24080\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 010
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1135,7 +1103,7 @@ t/10.95 :\OT1/cmr/m/n/10.95 2620\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 000\OML
  []
 
 
-Overfull \hbox (130.3426pt too wide) in paragraph at lines 213--225
+Overfull \hbox (130.3426pt too wide) in paragraph at lines 239--251
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 347(\OML/cmm/m/it/10.95 reducti
 on[]ule[]oop\OT1/cmr/m/n/10.95 )3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 011
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1148,7 +1116,7 @@ OML/cmm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (10.77397pt too wide) in paragraph at lines 213--225
+Overfull \hbox (10.77397pt too wide) in paragraph at lines 239--251
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 40(\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 3[]\OML/cmm/m/it/10.95 ree\OT1/cmr/m/n/10.95 )10\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 0020\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0020\OML/cmm/m
@@ -1161,7 +1129,7 @@ m/n/10.95 000\OML/cmm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (70.87189pt too wide) in paragraph at lines 213--225
+Overfull \hbox (70.87189pt too wide) in paragraph at lines 239--251
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 6(\OML/cmm/m/it/10.95 cluster[]
 ize\OT1/cmr/m/n/10.95 )54190\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0080\OML/cm
 m/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 14
@@ -1176,46 +1144,46 @@ t/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.232 ... 0.002    0.000 ind-rec.py:124(reduction_
+l.258 ... 0.002    0.000 ind-rec.py:124(reduction_
                                                   rule_5_2)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.232 ...   0.000 ind-rec.py:124(reduction_rule_5_
+l.258 ...   0.000 ind-rec.py:124(reduction_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.233 ...   0.000 ind-rec.py:166(reduction_rule_5_
+l.259 ...   0.000 ind-rec.py:166(reduction_rule_5_
                                                   3)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.234 ...   0.000 ind-rec.py:220(branching_rule_5_
+l.260 ...   0.000 ind-rec.py:220(branching_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.235 ...   0.000 ind-rec.py:289(branching_rule_5_
+l.261 ...   0.000 ind-rec.py:289(branching_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.242 ...    0.000 ind-rec.py:79(reduction_rule_5_
+l.268 ...    0.000 ind-rec.py:79(reduction_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.245 
+l.271 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (111.17174pt too wide) in paragraph at lines 231--245
+Overfull \hbox (111.17174pt too wide) in paragraph at lines 257--271
 \OT1/cmr/m/n/10.95 ind-rec.py:124(reduction$[]\OML/cmm/m/it/10.95 ule[][]\OT1/c
 mr/m/n/10.95 )27040\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0050\OML/cmm/m/it/10
 .95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0080\OML/cm
@@ -1228,7 +1196,7 @@ nd \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (105.30455pt too wide) in paragraph at lines 231--245
+Overfull \hbox (105.30455pt too wide) in paragraph at lines 257--271
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 220(\OML/cmm/m/it/10.95 branchi
 ng[]ule[][]\OT1/cmr/m/n/10.95 )27040\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 007
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1241,7 +1209,7 @@ t/10.95 :\OT1/cmr/m/n/10.95 2000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 000\OML
  []
 
 
-Overfull \hbox (130.3426pt too wide) in paragraph at lines 231--245
+Overfull \hbox (130.3426pt too wide) in paragraph at lines 257--271
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 347(\OML/cmm/m/it/10.95 reducti
 on[]ule[]oop\OT1/cmr/m/n/10.95 )3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 012
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1254,7 +1222,7 @@ OML/cmm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (32.23386pt too wide) in paragraph at lines 231--245
+Overfull \hbox (32.23386pt too wide) in paragraph at lines 257--271
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 40(\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 3[]\OML/cmm/m/it/10.95 ree\OT1/cmr/m/n/10.95 )10\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 0010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0010\OML/cmm/m
@@ -1268,7 +1236,7 @@ nd \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (70.87189pt too wide) in paragraph at lines 231--245
+Overfull \hbox (70.87189pt too wide) in paragraph at lines 257--271
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 6(\OML/cmm/m/it/10.95 cluster[]
 ize\OT1/cmr/m/n/10.95 )48110\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0070\OML/cm
 m/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 13
@@ -1283,46 +1251,46 @@ t/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.249 ... 0.005    0.000 ind-rec.py:124(reduction_
+l.275 ... 0.005    0.000 ind-rec.py:124(reduction_
                                                   rule_5_2)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.249 ...   0.000 ind-rec.py:124(reduction_rule_5_
+l.275 ...   0.000 ind-rec.py:124(reduction_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.250 ...   0.000 ind-rec.py:166(reduction_rule_5_
+l.276 ...   0.000 ind-rec.py:166(reduction_rule_5_
                                                   3)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.251 ...   0.000 ind-rec.py:220(branching_rule_5_
+l.277 ...   0.000 ind-rec.py:220(branching_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.252 ...   0.000 ind-rec.py:289(branching_rule_5_
+l.278 ...   0.000 ind-rec.py:289(branching_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.259 ...    0.000 ind-rec.py:79(reduction_rule_5_
+l.285 ...    0.000 ind-rec.py:79(reduction_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.260 
+l.286 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (111.17174pt too wide) in paragraph at lines 248--260
+Overfull \hbox (111.17174pt too wide) in paragraph at lines 274--286
 \OT1/cmr/m/n/10.95 ind-rec.py:124(reduction$[]\OML/cmm/m/it/10.95 ule[][]\OT1/c
 mr/m/n/10.95 )60110\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0360\OML/cmm/m/it/10
 .95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0620\OML/cm
@@ -1335,7 +1303,7 @@ nd \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (105.30455pt too wide) in paragraph at lines 248--260
+Overfull \hbox (105.30455pt too wide) in paragraph at lines 274--286
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 220(\OML/cmm/m/it/10.95 branchi
 ng[]ule[][]\OT1/cmr/m/n/10.95 )60110\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 020
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1348,7 +1316,7 @@ t/10.95 :\OT1/cmr/m/n/10.95 8270\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 000\OML
  []
 
 
-Overfull \hbox (135.81761pt too wide) in paragraph at lines 248--260
+Overfull \hbox (135.81761pt too wide) in paragraph at lines 274--286
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 347(\OML/cmm/m/it/10.95 reducti
 on[]ule[]oop\OT1/cmr/m/n/10.95 )3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 028
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0001\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1361,7 +1329,7 @@ cmm/m/it/10.95 inductive[]ecognition\OT1/cmr/m/n/10.95 )150300\OML/cmm/m/it/10.
  []
 
 
-Overfull \hbox (37.70886pt too wide) in paragraph at lines 248--260
+Overfull \hbox (37.70886pt too wide) in paragraph at lines 274--286
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 40(\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 3[]\OML/cmm/m/it/10.95 ree\OT1/cmr/m/n/10.95 )10\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 0030\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0031\OML/cmm/m
@@ -1375,7 +1343,7 @@ ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (76.3469pt too wide) in paragraph at lines 248--260
+Overfull \hbox (76.3469pt too wide) in paragraph at lines 274--286
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 6(\OML/cmm/m/it/10.95 cluster[]
 ize\OT1/cmr/m/n/10.95 )108230\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0200\OML/c
 mm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 5
@@ -1387,54 +1355,55 @@ r/m/n/10.95 0250\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95
 it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
+[4]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.267 ... 0.009    0.000 ind-rec.py:124(reduction_
+l.293 ... 0.009    0.000 ind-rec.py:124(reduction_
                                                   rule_5_2)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.267 ...   0.000 ind-rec.py:124(reduction_rule_5_
+l.293 ...   0.000 ind-rec.py:124(reduction_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.268 ...   0.000 ind-rec.py:166(reduction_rule_5_
+l.294 ...   0.000 ind-rec.py:166(reduction_rule_5_
                                                   3)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.269 ...   0.000 ind-rec.py:220(branching_rule_5_
+l.295 ...   0.000 ind-rec.py:220(branching_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.270 ...   0.000 ind-rec.py:289(branching_rule_5_
+l.296 ...   0.000 ind-rec.py:289(branching_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.274 ....845    1.845 ind-rec.py:485(case_from_3_
+l.300 ....845    1.845 ind-rec.py:485(case_from_3_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.277 ...    0.000 ind-rec.py:79(reduction_rule_5_
+l.303 ...    0.000 ind-rec.py:79(reduction_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.280 
+l.306 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (116.64674pt too wide) in paragraph at lines 266--280
+Overfull \hbox (116.64674pt too wide) in paragraph at lines 292--306
 \OT1/cmr/m/n/10.95 ind-rec.py:124(reduction$[]\OML/cmm/m/it/10.95 ule[][]\OT1/c
 mr/m/n/10.95 )108170\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0430\OML/cmm/m/it/1
 0.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0720\OML/c
@@ -1447,7 +1416,7 @@ ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (110.77956pt too wide) in paragraph at lines 266--280
+Overfull \hbox (110.77956pt too wide) in paragraph at lines 292--306
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 220(\OML/cmm/m/it/10.95 branchi
 ng[]ule[][]\OT1/cmr/m/n/10.95 )84100\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 032
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1460,7 +1429,7 @@ L/cmm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (135.81761pt too wide) in paragraph at lines 266--280
+Overfull \hbox (135.81761pt too wide) in paragraph at lines 292--306
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 347(\OML/cmm/m/it/10.95 reducti
 on[]ule[]oop\OT1/cmr/m/n/10.95 )3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 045
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0001\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
@@ -1473,7 +1442,7 @@ cmm/m/it/10.95 inductive[]ecognition\OT1/cmr/m/n/10.95 )258370\OML/cmm/m/it/10.
  []
 
 
-Overfull \hbox (20.9777pt too wide) in paragraph at lines 266--280
+Overfull \hbox (20.9777pt too wide) in paragraph at lines 292--306
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 40(\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 3[]\OML/cmm/m/it/10.95 ree\OT1/cmr/m/n/10.95 )10\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 0050\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0051\OML/cmm/m
@@ -1486,7 +1455,7 @@ mr/m/n/10.95 000\OML/cmm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (81.8219pt too wide) in paragraph at lines 266--280
+Overfull \hbox (81.8219pt too wide) in paragraph at lines 292--306
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 6(\OML/cmm/m/it/10.95 cluster[]
 ize\OT1/cmr/m/n/10.95 )186300\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0330\OML/c
 mm/m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 7
@@ -1501,46 +1470,46 @@ mr/m/n/10.95 0470\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0001\OML/cmm/m/it/10.9
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.284 ... 1.796    0.000 ind-rec.py:124(reduction_
+l.310 ... 1.796    0.000 ind-rec.py:124(reduction_
                                                   rule_5_2)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.284 ...   0.000 ind-rec.py:124(reduction_rule_5_
+l.310 ...   0.000 ind-rec.py:124(reduction_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.285 ...   0.000 ind-rec.py:166(reduction_rule_5_
+l.311 ...   0.000 ind-rec.py:166(reduction_rule_5_
                                                   3)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.286 ...   0.000 ind-rec.py:220(branching_rule_5_
+l.312 ...   0.000 ind-rec.py:220(branching_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.287 ...   0.000 ind-rec.py:289(branching_rule_5_
+l.313 ...   0.000 ind-rec.py:289(branching_rule_5_
                                                   2)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Double subscript.
-l.294 ...    0.000 ind-rec.py:79(reduction_rule_5_
+l.320 ...    0.000 ind-rec.py:79(reduction_rule_5_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.295 
+l.321 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (133.07176pt too wide) in paragraph at lines 283--295
+Overfull \hbox (133.07176pt too wide) in paragraph at lines 309--321
 \OT1/cmr/m/n/10.95 ind-rec.py:124(reduction$[]\OML/cmm/m/it/10.95 ule[][]\OT1/c
 mr/m/n/10.95 )3339121\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 5140\OML/cmm/m/it/
 10.95 :\OT1/cmr/m/n/10.95 0002\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 3360\OML/
@@ -1553,7 +1522,7 @@ reduction[]ule[][]\OT1/cmr/m/n/10.95 )3339121\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
  []
 
 
-Overfull \hbox (138.15459pt too wide) in paragraph at lines 283--295
+Overfull \hbox (138.15459pt too wide) in paragraph at lines 309--321
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 220(\OML/cmm/m/it/10.95 branchi
 ng[]ule[][]\OT1/cmr/m/n/10.95 )3312001\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 2
 240\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00034\OML/cmm/m/it/10.95 :\OT1/cmr/m
@@ -1566,7 +1535,7 @@ mm/m/it/10.95 :\OT1/cmr/m/n/10.95 9380\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0
  []
 
 
-Overfull \hbox (163.19264pt too wide) in paragraph at lines 283--295
+Overfull \hbox (163.19264pt too wide) in paragraph at lines 309--321
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 347(\OML/cmm/m/it/10.95 reducti
 on[]ule[]oop\OT1/cmr/m/n/10.95 )3012\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 008
 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 007117\OML/cmm/m/it/10.95 :\OT1/cmr/m/
@@ -1579,7 +1548,7 @@ L/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 7320\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
  []
 
 
-Overfull \hbox (40.10204pt too wide) in paragraph at lines 283--295
+Overfull \hbox (40.10204pt too wide) in paragraph at lines 309--321
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 40(\OML/cmm/m/it/10.95 p\OT1/cm
 r/m/n/10.95 3[]\OML/cmm/m/it/10.95 ree\OT1/cmr/m/n/10.95 )10\OML/cmm/m/it/10.95
  :\OT1/cmr/m/n/10.95 1640\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 164117\OML/cmm
@@ -1592,7 +1561,7 @@ T1/cmr/m/n/10.95 : 506(\OML/cmm/m/it/10.95 case[]n[]\OT1/cmr/m/n/10.95 0)579930
  []
 
 
-Overfull \hbox (103.72192pt too wide) in paragraph at lines 283--295
+Overfull \hbox (103.72192pt too wide) in paragraph at lines 309--321
 \OML/cmm/m/it/10.95 rec:py \OT1/cmr/m/n/10.95 : 6(\OML/cmm/m/it/10.95 cluster[]
 ize\OT1/cmr/m/n/10.95 )5799301\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 4310\OML/
 cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00051\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95
@@ -1604,130 +1573,102 @@ it/10.95 valid[]luster[]raph\OT1/cmr/m/n/10.95 )4914301\OML/cmm/m/it/10.95 :\OT
 mm/m/it/10.95 ind \OMS/cmsy/m/n/10.95 ^^@
  []
 
-[4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 296.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 296.
+(hyperref)                removing `math shift' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 296.
+(hyperref)                removing `\Pi' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 296.
+(hyperref)                removing `subscript' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 296.
+(hyperref)                removing `math shift' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 296.
+(hyperref)                removing `math shift' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 296.
+(hyperref)                removing `\Pi' on input line 322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 296.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.302 case_
-           bowtie 0.00061182975769 k:3 False
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Double subscript.
-l.311 case_from_3_
-                  1 0.000818741321564 k:2 False
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Double subscript.
-l.312 case_from_3_
-                  1 0.00517585039139 k:5 True
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Double subscript.
-l.313 case_from_3_
-                  1 0.00514071941376 k:7 True
-I treat `x_1_2' essentially like `x_1{}_2'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.317 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+(hyperref)                removing `subscript' on input line 322.
 
 
-Overfull \hbox (47.5461pt too wide) in paragraph at lines 302--317
-\OT1/cmr/m/n/10.95 case$[]\OML/cmm/m/it/10.95 owtie\OT1/cmr/m/n/10.95 0\OML/cmm
-/m/it/10.95 :\OT1/cmr/m/n/10.95 00061182975769\OML/cmm/m/it/10.95 k \OT1/cmr/m/
-n/10.95 : 3\OML/cmm/m/it/10.95 Falsecase[]owtie\OT1/cmr/m/n/10.95 0\OML/cmm/m/i
-t/10.95 :\OT1/cmr/m/n/10.95 00116783857346\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10
-.95 : 2\OML/cmm/m/it/10.95 Falsecase[]owtie\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10
-.95 :\OT1/cmr/m/n/10.95 00140007019043\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 
-:
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 322.
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00061182975769| 
  []
 
 
-Overfull \hbox (152.52077pt too wide) in paragraph at lines 302--317
-\OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 3[]\OML/cm
-m/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
-5 000331211090088\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 : 2\OML/cmm/m/it/10.9
-5 Truecase[]\OT1/cmr/m/n/10.95 3[]\OML/cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.9
-5 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 000331621170044\OML/cmm/m/it/10.95 k
- \OT1/cmr/m/n/10.95 : 3\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 3[]\OML
-/cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/1
-0.95 000334539413452\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00116783857346| 
  []
 
 
-Overfull \hbox (145.10413pt too wide) in paragraph at lines 302--317
-\OT1/cmr/m/n/10.95 5\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 5[]\OML/cm
-m/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
-5 000755069255829\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 : 2\OML/cmm/m/it/10.9
-5 Falsecase[]\OT1/cmr/m/n/10.95 5[]\OML/cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.
-95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00162389993668\OML/cmm/m/it/10.95 k
- \OT1/cmr/m/n/10.95 : 4\OML/cmm/m/it/10.95 Truecase[]\OT1/cmr/m/n/10.95 5[]\OML
-/cmm/m/it/10.95 lus[]law\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/1
-0.95 00161329984665\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00140007019043| 
  []
 
 
-Overfull \hbox (94.91066pt too wide) in paragraph at lines 302--317
-\OT1/cmr/m/n/10.95 6\OML/cmm/m/it/10.95 Truecase[]rom[][]\OT1/cmr/m/n/10.95 0\O
-ML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 000818741321564\OML/cmm/m/it/10.95 k \OT1
-/cmr/m/n/10.95 : 2\OML/cmm/m/it/10.95 Falsecase[]rom[][]\OT1/cmr/m/n/10.95 0\OM
-L/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 00517585039139\OML/cmm/m/it/10.95 k \OT1/c
-mr/m/n/10.95 : 5\OML/cmm/m/it/10.95 Truecase[]rom[][]\OT1/cmr/m/n/10.95 0\OML/c
-mm/m/it/10.95 :\OT1/cmr/m/n/10.95 00514071941376\OML/cmm/m/it/10.95 k \OT1/cmr/
-m/n/10.95 :
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.000331211090088| 
  []
 
 
-Overfull \hbox (24.41687pt too wide) in paragraph at lines 302--317
-\OT1/cmr/m/n/10.95 7\OML/cmm/m/it/10.95 Truecase[]n[]\OT1/cmr/m/n/10.95 00\OML/
-cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0135761094093\OML/cmm/m/it/10.95 k \OT1/cmr/
-m/n/10.95 : 5\OML/cmm/m/it/10.95 Falsecase[]n[]\OT1/cmr/m/n/10.95 00\OML/cmm/m/
-it/10.95 :\OT1/cmr/m/n/10.95 40817595005\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.9
-5 : 10\OML/cmm/m/it/10.95 Falsecase[]n[]\OT1/cmr/m/n/10.95 00\OML/cmm/m/it/10.9
-5 :\OT1/cmr/m/n/10.95 834017539024\OML/cmm/m/it/10.95 k \OT1/cmr/m/n/10.95 :
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.000331621170044| 
+ []
+
+
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.000334539413452| 
+ []
+
+
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.000755069255829| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00162389993668| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00161329984665| 
+ []
+
+
+Overfull \hbox (8.89041pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.000818741321564| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00517585039139| 
+ []
+
+
+Overfull \hbox (3.4154pt too wide) in paragraph at lines 371--371
+ []\OT1/cmr/m/n/10.95 0.00514071941376| 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.327 ...  0.140    0.000 mp-part.py:17(monopolar_
+l.383 ...  0.140    0.000 mp-part.py:17(monopolar_
                                                   partition)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1735,13 +1676,13 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.330 
+l.386 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (64.70457pt too wide) in paragraph at lines 326--330
+Overfull \hbox (64.70457pt too wide) in paragraph at lines 382--386
 \OT1/cmr/m/n/10.95 part.py:17(monopolar$[]\OML/cmm/m/it/10.95 artition\OT1/cmr/
 m/n/10.95 )10\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0020\OML/cmm/m/it/10.95 :\
 OT1/cmr/m/n/10.95 0020\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1420\OML/cmm/m/it
@@ -1753,10 +1694,11 @@ m/it/10.95 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0060
 /10.95 ^^@
  []
 
+[5]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.337 ...  0.144    0.000 mp-part.py:17(monopolar_
+l.393 ...  0.144    0.000 mp-part.py:17(monopolar_
                                                   partition)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1764,13 +1706,13 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.340 
+l.396 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (89.51706pt too wide) in paragraph at lines 336--340
+Overfull \hbox (89.51706pt too wide) in paragraph at lines 392--396
 \OT1/cmr/m/n/10.95 part.py:17(monopolar$[]\OML/cmm/m/it/10.95 artition\OT1/cmr/
 m/n/10.95 )9030\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0010\OML/cmm/m/it/10.95 
 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0060\OML/cmm/m/
@@ -1785,7 +1727,7 @@ cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0020\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.347 ...  0.182    0.001 mp-part.py:17(monopolar_
+l.403 ...  0.182    0.001 mp-part.py:17(monopolar_
                                                   partition)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1793,13 +1735,13 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.350 
+l.406 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (89.51706pt too wide) in paragraph at lines 346--350
+Overfull \hbox (89.51706pt too wide) in paragraph at lines 402--406
 \OT1/cmr/m/n/10.95 part.py:17(monopolar$[]\OML/cmm/m/it/10.95 artition\OT1/cmr/
 m/n/10.95 )9030\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0010\OML/cmm/m/it/10.95 
 :\OT1/cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0080\OML/cmm/m/
@@ -1814,26 +1756,26 @@ cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0030\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.357 ...06    0.434    0.434 mp-part.py:113(case_
+l.413 ...06    0.434    0.434 mp-part.py:113(case_
                                                   from_3_1)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Double subscript.
-l.357 ....434    0.434 mp-part.py:113(case_from_3_
+l.413 ....434    0.434 mp-part.py:113(case_from_3_
                                                   1)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.360 
+l.416 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (91.1065pt too wide) in paragraph at lines 356--360
+Overfull \hbox (91.1065pt too wide) in paragraph at lines 412--416
 \OT1/cmr/m/n/10.95 part.py:113(case$[]\OML/cmm/m/it/10.95 rom[][]\OT1/cmr/m/n/1
 0.95 )3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0160\OML/cmm/m/it/10.95 :\OT1
 /cmr/m/n/10.95 0000\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 4280\OML/cmm/m/it/10
@@ -1848,7 +1790,7 @@ sy/m/n/10.95 ^^@
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.367 ...12   13.509   13.509 mp-part.py:132(case_
+l.423 ...12   13.509   13.509 mp-part.py:132(case_
                                                   on_20)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1856,13 +1798,13 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.370 
+l.426 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (88.33081pt too wide) in paragraph at lines 366--370
+Overfull \hbox (88.33081pt too wide) in paragraph at lines 422--426
 \OT1/cmr/m/n/10.95 part.py:132(case$[]\OML/cmm/m/it/10.95 n[]\OT1/cmr/m/n/10.95
  0)3010\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 3310\OML/cmm/m/it/10.95 :\OT1/cm
 r/m/n/10.95 00113\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1970\OML/cmm/m/it/10.9
@@ -1874,16 +1816,16 @@ ition\OT1/cmr/m/n/10.95 )382270\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0270\OML
 y/m/n/10.95 ^^@
  []
 
-(./report.bbl [5])
+(./report.bbl)
 
-LaTeX Warning: Citation `ref1' on page 6 undefined on input line 377.
+LaTeX Warning: Citation `ref1' on page 6 undefined on input line 433.
 
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 436.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 436.
  (./report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 436.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 436.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 9F7EE71CB4DEA40B2CEEFCE70B614E81;710.
 
@@ -1896,15 +1838,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 436.
  ) 
 Here is how much of TeX's memory you used:
- 20663 strings out of 493015
- 371897 string characters out of 6133377
- 529655 words of memory out of 5000000
- 23794 multiletter control sequences out of 15000+600000
+ 20695 strings out of 493015
+ 372387 string characters out of 6133377
+ 532854 words of memory out of 5000000
+ 23822 multiletter control sequences out of 15000+600000
  18481 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,17n,54p,937b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,17n,54p,937b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (6 pages, 34308 bytes).
+Output written on report.dvi (6 pages, 35472 bytes).

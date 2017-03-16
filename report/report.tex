@@ -20,6 +20,7 @@
 \usepackage{pst-coil}
 \usepackage{tikz}
 \usepackage{tabu}
+\usepackage{multirow}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -153,7 +154,6 @@ Additionally results from the Python profiling module \inlinecode{cProfile} are 
 \label{sec:prelim}
 We follow standard notation for graph-theory. Let \textit{G} be a graph; its set of vertices is denoted \textit{V(G)} and its set of edges \textit{E(G)}. The \textit{order} of a graph is $\mid\textit{V(G)}\mid$ and represented throughout by \textit{n}. $\mid\textit{E(G)}\mid$ is denoted throughout by \textit{m}. A subgraph induced in \textit{G} by $\textit{X}\subseteq\textit{V(G)}$ is denoted \textit{G[X]}. For any set \textit{S} of verticies in \textit{G} we denote the subgraph of \textit{G} obtained by deleting all the vertices in \textit{S} and their incident edges as \textit{G \em S}. For a vertex $\textit{v}\in{V(G)}$ we use \textit{G \em v} for \textit{G \em \{v\}}. We denote a simple path on 3 vertices with \textit{$P_3$}.
 
-A problem is \textit{parameterized} if it is of the form \textit{}
 %here I would continue to jack stuff from Kanj, but I don't care I need some substance which I totally lack. Alright. Let's do this.
 
 \section{Graphs Employed}
@@ -189,18 +189,44 @@ A problem is \textit{parameterized} if it is of the form \textit{}
 
 \subsection{}
 \label{subsec:results} %duplicate be careful
-case_bowtie 0.000813608169556 k:1 False
-case_bowtie 0.00289664983749 k:2 True
-case_k3_plus_claw 0.000661911964417 k:1 True
-case_k3_plus_claw 0.000688810348511 k:2 True
-case_k5_plus_claw 0.00292824029922 k:1 True
-case_k5_plus_claw 0.00294578075409 k:2 True
-case_from_3_1 0.00161388158798 k:1 True
-case_from_3_1 0.00398640155792 k:2 True
-case_from_3_1 0.0047345495224 k:3 True
-case_on_20 0.0853665113449 k:3 False
-case_on_20 0.265883820057 k:5 True
-case_on_20 0.288087880611 k:7 True
+\begin{center}
+    \begin{tabu} to 0.8\textwidth { | X[l] X[l] X[c] X[c] | }
+        \hline
+        Graph & Time (Sec) & K & Result \\
+        [0.5ex]
+        \hline
+        \hline
+Bowtie & 0.000813608169556 & 1 & False \\
+[0.3ex]
+  & 0.00289664983749 & 2 & True \\
+[0.3ex]
+\hline
+$K_3$ and Claw & 0.000661911964417 & 1 & True \\
+[0.3ex]
+ & 0.000688810348511 & 2 & True \\
+[0.3ex]
+\hline
+$K_5$ and Claw & 0.00292824029922 & 1 & True \\
+[0.3ex]
+ & 0.00294578075409 & 2 & True \\
+[0.3ex]
+\hline
+From 3.1 & 0.00161388158798 & 1 & True \\
+[0.3ex]
+ & 0.00398640155792 & 2 & True \\
+[0.3ex]
+ & 0.0047345495224 & 3 & True \\
+[0.3ex]
+\hline
+Twenty & 0.0853665113449 & 3 & False \\
+[0.3ex]
+  & 0.265883820057 & 5 & True \\
+[0.3ex]
+ & 0.288087880611 & 7 & True \\
+[0.3ex]
+\hline
+\end{tabu}
+\end{center}
 
 \subsection{}
 \label{subsec:results} %duplicate be careful
@@ -299,21 +325,51 @@ case_on_20 0.288087880611 k:7 True
 \subsection{}
 \label{subsec:results} %duplicate be careful
 
-case_bowtie 0.00061182975769 k:3 False
-case_bowtie 0.00116783857346 k:2 False
-case_bowtie 0.00140007019043 k:5 True
-case_k3_plus_claw 0.000331211090088 k:2 True
-case_k3_plus_claw 0.000331621170044 k:3 True
-case_k3_plus_claw 0.000334539413452 k:5 True
-case_k5_plus_claw 0.000755069255829 k:2 False
-case_k5_plus_claw 0.00162389993668 k:4 True
-case_k5_plus_claw 0.00161329984665 k:6 True
-case_from_3_1 0.000818741321564 k:2 False
-case_from_3_1 0.00517585039139 k:5 True
-case_from_3_1 0.00514071941376 k:7 True
-case_on_20 0.0135761094093 k:5 False
-case_on_20 0.40817595005 k:10 False
-case_on_20 0.834017539024 k:15 True
+\begin{center}
+    \begin{tabu} to 0.8\textwidth { | X[l] X[l] X[c] X[c] | }
+        \hline
+        Graph & Time (Sec) & K & Result \\
+        [0.5ex]
+        \hline
+        \hline
+Bowtie & 0.00061182975769 & 3 & False \\
+[0.3ex]
+ & 0.00116783857346 & 2 & False \\
+ [0.3ex]
+ & 0.00140007019043 & 5 & True \\
+ [0.3ex]
+ \hline
+$K_3$ and Claw & 0.000331211090088 & 2 & True \\
+[0.3ex]
+ & 0.000331621170044 & 3 & True \\
+ [0.3ex]
+ & 0.000334539413452 & 5 & True \\
+ [0.3ex]
+ \hline
+$K_5$ and Claw & 0.000755069255829 & 2 & False \\
+[0.3ex]
+\hline
+ & 0.00162389993668 & 4 & True \\
+ [0.3ex]
+ & 0.00161329984665 & 6 & True \\
+ [0.3ex]
+ \hline
+From 3.1 & 0.000818741321564 & 2 & False \\
+[0.3ex]
+ & 0.00517585039139 & 5 & True \\
+ [0.3ex]
+ & 0.00514071941376 & 7 & True \\
+ [0.3ex]
+ \hline
+Twenty & 0.0135761094093 & 5 & False \\
+[0.3ex]
+ & 0.40817595005 & 10 & False \\
+ [0.3ex]
+ & 0.834017539024 & 15 & True \\
+ [0.3ex]
+ \hline
+\end{tabu}
+\end{center}
 
 \subsection{}
 \label{subsec:results} %duplicate be careful
