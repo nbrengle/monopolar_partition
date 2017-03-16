@@ -1,0 +1,346 @@
+False
+         528677 function calls (528676 primitive calls) in 0.377 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.377    0.377 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 binary.py:108(disjoint_union)
+        1    0.000    0.000    0.000    0.000 binary.py:19(union)
+        2    0.000    0.000    0.000    0.000 binary.py:66(add_prefix)
+        2    0.000    0.000    0.000    0.000 classic.py:184(complete_graph)
+        2    0.000    0.000    0.000    0.000 classic.py:311(empty_graph)
+     5419    0.010    0.000    0.043    0.000 convert.py:286(from_dict_of_dicts)
+     5419    0.003    0.000    0.013    0.000 convert.py:34(_prep_create_using)
+     7251    0.004    0.000    0.005    0.000 convert.py:360(<genexpr>)
+     5419    0.022    0.000    0.076    0.000 convert.py:50(to_networkx_graph)
+    12355    0.004    0.000    0.004    0.000 convert.py:95(<genexpr>)
+     7827    0.003    0.000    0.007    0.000 function.py:32(nodes_iter)
+    59065    0.029    0.000    0.029    0.000 graph.py:1022(neighbors)
+     3914    0.007    0.000    0.012    0.000 graph.py:1086(edges)
+     5435    0.005    0.000    0.006    0.000 graph.py:1139(edges_iter)
+     5419    0.007    0.000    0.010    0.000 graph.py:1403(clear)
+    10844    0.001    0.000    0.001    0.000 graph.py:1450(is_multigraph)
+        2    0.000    0.000    0.000    0.000 graph.py:1454(is_directed)
+    14149    0.054    0.000    0.117    0.000 graph.py:1548(subgraph)
+    14149    0.014    0.000    0.028    0.000 graph.py:1858(nbunch_iter)
+    35233    0.007    0.000    0.007    0.000 graph.py:1904(bunch_iter)
+    19573    0.029    0.000    0.108    0.000 graph.py:258(__init__)
+        8    0.000    0.000    0.000    0.000 graph.py:306(name)
+     5429    0.001    0.000    0.001    0.000 graph.py:310(name)
+        6    0.000    0.000    0.000    0.000 graph.py:330(__iter__)
+    11741    0.013    0.000    0.013    0.000 graph.py:345(__contains__)
+        1    0.000    0.000    0.000    0.000 graph.py:361(__len__)
+     5425    0.006    0.000    0.007    0.000 graph.py:466(add_nodes_from)
+    13248    0.005    0.000    0.006    0.000 graph.py:610(nodes_iter)
+     5421    0.007    0.000    0.010    0.000 graph.py:645(nodes)
+        2    0.000    0.000    0.000    0.000 graph.py:672(number_of_nodes)
+        1    0.000    0.000    0.000    0.000 graph.py:733(add_edge)
+     5425    0.006    0.000    0.012    0.000 graph.py:803(add_edges_from)
+     2409    0.002    0.000    0.002    0.000 ind-rec.py:124(reduction_rule_5_2)
+     2408    0.007    0.000    0.012    0.000 ind-rec.py:166(reduction_rule_5_3)
+     2408    0.011    0.000    0.019    0.000 ind-rec.py:220(branching_rule_5_1)
+     2408    0.010    0.000    0.082    0.000 ind-rec.py:289(branching_rule_5_2)
+     5418    0.007    0.000    0.262    0.000 ind-rec.py:347(reduction_rule_loop)
+      301    0.011    0.000    0.374    0.001 ind-rec.py:374(inductive_recognition)
+     7827    0.019    0.000    0.042    0.000 ind-rec.py:40(p3_free)
+        1    0.002    0.002    0.377    0.377 ind-rec.py:421(case_bowtie)
+     5419    0.017    0.000    0.118    0.000 ind-rec.py:6(cluster_size)
+     5419    0.008    0.000    0.144    0.000 ind-rec.py:67(valid_cluster_graph)
+     5419    0.012    0.000    0.241    0.000 ind-rec.py:79(reduction_rule_5_1)
+        2    0.000    0.000    0.000    0.000 relabel.py:13(relabel_nodes)
+        2    0.000    0.000    0.000    0.000 relabel.py:134(_relabel_copy)
+        8    0.000    0.000    0.000    0.000 relabel.py:141(<genexpr>)
+        8    0.000    0.000    0.000    0.000 relabel.py:144(<genexpr>)
+        8    0.000    0.000    0.000    0.000 relabel.py:145(<genexpr>)
+        2    0.000    0.000    0.000    0.000 relabel.py:151(convert_node_labels_to_integers)
+    16259    0.002    0.000    0.002    0.000 {hasattr}
+    10838    0.001    0.000    0.001    0.000 {isinstance}
+    15662    0.002    0.000    0.002    0.000 {iter}
+22626/22625    0.002    0.000    0.002    0.000 {len}
+    18067    0.002    0.000    0.002    0.000 {method 'append' of 'list' objects}
+    16257    0.002    0.000    0.002    0.000 {method 'clear' of 'dict' objects}
+    19317    0.002    0.000    0.002    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+     1883    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+    54830    0.010    0.000    0.010    0.000 {method 'items' of 'dict' objects}
+     2408    0.001    0.000    0.001    0.000 {method 'keys' of 'dict' objects}
+    29564    0.005    0.000    0.005    0.000 {method 'remove' of 'list' objects}
+    23290    0.005    0.000    0.005    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+       10    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+        2    0.000    0.000    0.000    0.000 {zip}
+
+
+False
+case_bowtie 0.000813608169556
+True
+case_bowtie 0.00289664983749
+True
+         469094 function calls in 0.329 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.329    0.329 <string>:1(<module>)
+     1202    0.011    0.000    0.022    0.000 binary.py:19(union)
+     2404    0.000    0.000    0.000    0.000 binary.py:66(add_prefix)
+     4811    0.009    0.000    0.044    0.000 convert.py:286(from_dict_of_dicts)
+     4811    0.003    0.000    0.011    0.000 convert.py:34(_prep_create_using)
+     9021    0.004    0.000    0.005    0.000 convert.py:360(<genexpr>)
+     4811    0.020    0.000    0.071    0.000 convert.py:50(to_networkx_graph)
+     9629    0.003    0.000    0.003    0.000 convert.py:95(<genexpr>)
+     6313    0.003    0.000    0.006    0.000 function.py:32(nodes_iter)
+    29780    0.015    0.000    0.015    0.000 graph.py:1022(neighbors)
+     3607    0.006    0.000    0.010    0.000 graph.py:1086(edges)
+     6911    0.005    0.000    0.006    0.000 graph.py:1139(edges_iter)
+     4811    0.006    0.000    0.009    0.000 graph.py:1403(clear)
+    14430    0.002    0.000    0.002    0.000 graph.py:1450(is_multigraph)
+    13826    0.039    0.000    0.097    0.000 graph.py:1548(subgraph)
+    13826    0.014    0.000    0.028    0.000 graph.py:1858(nbunch_iter)
+    26154    0.006    0.000    0.006    0.000 graph.py:1904(bunch_iter)
+    19840    0.028    0.000    0.103    0.000 graph.py:258(__init__)
+     2404    0.001    0.000    0.001    0.000 graph.py:306(name)
+     6013    0.001    0.000    0.001    0.000 graph.py:310(name)
+     4808    0.002    0.000    0.002    0.000 graph.py:330(__iter__)
+    12324    0.013    0.000    0.013    0.000 graph.py:345(__contains__)
+     7216    0.006    0.000    0.007    0.000 graph.py:466(add_nodes_from)
+    11124    0.004    0.000    0.005    0.000 graph.py:610(nodes_iter)
+     4811    0.006    0.000    0.009    0.000 graph.py:645(nodes)
+     7216    0.011    0.000    0.020    0.000 graph.py:803(add_edges_from)
+     2707    0.002    0.000    0.002    0.000 ind-rec.py:124(reduction_rule_5_2)
+     2704    0.005    0.000    0.008    0.000 ind-rec.py:166(reduction_rule_5_3)
+     2704    0.005    0.000    0.008    0.000 ind-rec.py:220(branching_rule_5_1)
+     2704    0.007    0.000    0.050    0.000 ind-rec.py:289(branching_rule_5_2)
+     3606    0.006    0.000    0.200    0.000 ind-rec.py:347(reduction_rule_loop)
+      301    0.012    0.000    0.328    0.001 ind-rec.py:374(inductive_recognition)
+     6313    0.014    0.000    0.029    0.000 ind-rec.py:40(p3_free)
+        1    0.001    0.001    0.329    0.329 ind-rec.py:443(case_k3_plus_claw)
+     4811    0.013    0.000    0.106    0.000 ind-rec.py:6(cluster_size)
+     4811    0.007    0.000    0.133    0.000 ind-rec.py:67(valid_cluster_graph)
+     3609    0.009    0.000    0.184    0.000 ind-rec.py:79(reduction_rule_5_1)
+    14433    0.002    0.000    0.002    0.000 {hasattr}
+     9622    0.001    0.000    0.001    0.000 {isinstance}
+    17434    0.002    0.000    0.002    0.000 {iter}
+    23756    0.002    0.000    0.002    0.000 {len}
+    10530    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+    14433    0.002    0.000    0.002    0.000 {method 'clear' of 'dict' objects}
+    14456    0.001    0.000    0.001    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+     6620    0.001    0.000    0.001    0.000 {method 'get' of 'dict' objects}
+    37288    0.006    0.000    0.006    0.000 {method 'items' of 'dict' objects}
+     1502    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+    19553    0.003    0.000    0.003    0.000 {method 'remove' of 'list' objects}
+    33080    0.006    0.000    0.006    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+True
+case_k3_plus_claw 0.000661911964417
+True
+case_k3_plus_claw 0.000688810348511
+True
+         2017852 function calls in 1.322 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.322    1.322 <string>:1(<module>)
+     1804    0.017    0.000    0.035    0.000 binary.py:19(union)
+     3608    0.001    0.000    0.001    0.000 binary.py:66(add_prefix)
+        1    0.000    0.000    0.000    0.000 classic.py:184(complete_graph)
+        1    0.000    0.000    0.000    0.000 classic.py:311(empty_graph)
+    10823    0.021    0.000    0.200    0.000 convert.py:286(from_dict_of_dicts)
+    10823    0.006    0.000    0.026    0.000 convert.py:34(_prep_create_using)
+    58927    0.020    0.000    0.025    0.000 convert.py:360(<genexpr>)
+    10823    0.050    0.000    0.273    0.000 convert.py:50(to_networkx_graph)
+    33378    0.010    0.000    0.011    0.000 convert.py:95(<genexpr>)
+    15030    0.006    0.000    0.014    0.000 function.py:32(nodes_iter)
+   413331    0.173    0.000    0.173    0.000 graph.py:1022(neighbors)
+     9017    0.016    0.000    0.029    0.000 graph.py:1086(edges)
+    15628    0.013    0.000    0.015    0.000 graph.py:1139(edges_iter)
+    10823    0.014    0.000    0.020    0.000 graph.py:1403(clear)
+    28862    0.004    0.000    0.004    0.000 graph.py:1450(is_multigraph)
+        1    0.000    0.000    0.000    0.000 graph.py:1454(is_directed)
+    31862    0.142    0.000    0.292    0.000 graph.py:1548(subgraph)
+    31862    0.034    0.000    0.067    0.000 graph.py:1858(nbunch_iter)
+    84769    0.017    0.000    0.017    0.000 graph.py:1904(bunch_iter)
+    44490    0.066    0.000    0.347    0.000 graph.py:258(__init__)
+     3608    0.001    0.000    0.002    0.000 graph.py:306(name)
+    12629    0.003    0.000    0.003    0.000 graph.py:310(name)
+     7216    0.002    0.000    0.003    0.000 graph.py:330(__iter__)
+    27655    0.032    0.000    0.032    0.000 graph.py:345(__contains__)
+    14433    0.018    0.000    0.021    0.000 graph.py:466(add_nodes_from)
+    25853    0.009    0.000    0.013    0.000 graph.py:610(nodes_iter)
+    10823    0.015    0.000    0.021    0.000 graph.py:645(nodes)
+    14433    0.082    0.000    0.135    0.000 graph.py:803(add_edges_from)
+     6014    0.005    0.000    0.005    0.000 ind-rec.py:124(reduction_rule_5_2)
+     6011    0.036    0.000    0.062    0.000 ind-rec.py:166(reduction_rule_5_3)
+     6011    0.031    0.000    0.053    0.000 ind-rec.py:220(branching_rule_5_1)
+     6011    0.020    0.000    0.321    0.000 ind-rec.py:289(branching_rule_5_2)
+     9016    0.016    0.000    0.827    0.000 ind-rec.py:347(reduction_rule_loop)
+      301    0.028    0.000    1.319    0.004 ind-rec.py:374(inductive_recognition)
+    15030    0.181    0.000    0.364    0.000 ind-rec.py:40(p3_free)
+        1    0.003    0.003    1.322    1.322 ind-rec.py:464(case_k5_plus_claw)
+    10823    0.036    0.000    0.363    0.000 ind-rec.py:6(cluster_size)
+    10823    0.020    0.000    0.562    0.000 ind-rec.py:67(valid_cluster_graph)
+     9019    0.025    0.000    0.743    0.000 ind-rec.py:79(reduction_rule_5_1)
+    32469    0.005    0.000    0.005    0.000 {hasattr}
+    21646    0.003    0.000    0.003    0.000 {isinstance}
+    37276    0.005    0.000    0.005    0.000 {iter}
+    92307    0.008    0.000    0.008    0.000 {len}
+    29467    0.004    0.000    0.004    0.000 {method 'append' of 'list' objects}
+    32469    0.004    0.000    0.004    0.000 {method 'clear' of 'dict' objects}
+    55946    0.005    0.000    0.005    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    51725    0.006    0.000    0.006    0.000 {method 'get' of 'dict' objects}
+   130773    0.027    0.000    0.027    0.000 {method 'items' of 'dict' objects}
+     4207    0.001    0.000    0.001    0.000 {method 'keys' of 'dict' objects}
+   370039    0.056    0.000    0.056    0.000 {method 'remove' of 'list' objects}
+   147940    0.027    0.000    0.027    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        6    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+True
+case_k5_plus_claw 0.00292824029922
+True
+case_k5_plus_claw 0.00294578075409
+True
+         2636229 function calls in 1.845 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.845    1.845 <string>:1(<module>)
+     1203    0.013    0.000    0.024    0.000 binary.py:19(union)
+     2406    0.000    0.000    0.000    0.000 binary.py:66(add_prefix)
+    18630    0.036    0.000    0.271    0.000 convert.py:286(from_dict_of_dicts)
+    18630    0.010    0.000    0.044    0.000 convert.py:34(_prep_create_using)
+    63100    0.030    0.000    0.038    0.000 convert.py:360(<genexpr>)
+    18630    0.085    0.000    0.400    0.000 convert.py:50(to_networkx_graph)
+    67008    0.020    0.000    0.023    0.000 convert.py:95(<genexpr>)
+    25837    0.011    0.000    0.024    0.000 function.py:32(nodes_iter)
+   392942    0.176    0.000    0.176    0.000 graph.py:1022(neighbors)
+    16226    0.028    0.000    0.052    0.000 graph.py:1086(edges)
+    24038    0.023    0.000    0.026    0.000 graph.py:1139(edges_iter)
+    18630    0.024    0.000    0.034    0.000 graph.py:1403(clear)
+    42072    0.005    0.000    0.005    0.000 graph.py:1450(is_multigraph)
+    51676    0.266    0.000    0.525    0.000 graph.py:1548(subgraph)
+    51676    0.056    0.000    0.111    0.000 graph.py:1858(nbunch_iter)
+   171540    0.033    0.000    0.033    0.000 graph.py:1904(bunch_iter)
+    71510    0.107    0.000    0.521    0.000 graph.py:258(__init__)
+     2406    0.001    0.000    0.001    0.000 graph.py:306(name)
+    19833    0.005    0.000    0.005    0.000 graph.py:310(name)
+     4812    0.002    0.000    0.002    0.000 graph.py:330(__iter__)
+    44469    0.052    0.000    0.052    0.000 graph.py:345(__contains__)
+    21037    0.035    0.000    0.040    0.000 graph.py:466(add_nodes_from)
+    44467    0.016    0.000    0.022    0.000 graph.py:610(nodes_iter)
+    18630    0.027    0.000    0.036    0.000 graph.py:645(nodes)
+    21037    0.084    0.000    0.149    0.000 graph.py:803(add_edges_from)
+    10820    0.008    0.000    0.009    0.000 ind-rec.py:124(reduction_rule_5_2)
+    10817    0.043    0.000    0.072    0.000 ind-rec.py:166(reduction_rule_5_3)
+     8411    0.043    0.000    0.071    0.000 ind-rec.py:220(branching_rule_5_1)
+     8410    0.032    0.000    0.405    0.000 ind-rec.py:289(branching_rule_5_2)
+    15018    0.030    0.000    1.256    0.000 ind-rec.py:347(reduction_rule_loop)
+      301    0.045    0.000    1.839    0.006 ind-rec.py:374(inductive_recognition)
+    25837    0.154    0.000    0.312    0.000 ind-rec.py:40(p3_free)
+        1    0.005    0.005    1.845    1.845 ind-rec.py:485(case_from_3_1)
+    18630    0.073    0.000    0.576    0.000 ind-rec.py:6(cluster_size)
+    18630    0.033    0.000    0.754    0.000 ind-rec.py:67(valid_cluster_graph)
+    17427    0.047    0.000    1.145    0.000 ind-rec.py:79(reduction_rule_5_1)
+    55890    0.008    0.000    0.008    0.000 {hasattr}
+    37260    0.004    0.000    0.004    0.000 {isinstance}
+    56486    0.008    0.000    0.008    0.000 {iter}
+   119299    0.011    0.000    0.011    0.000 {len}
+    67599    0.008    0.000    0.008    0.000 {method 'append' of 'list' objects}
+    55890    0.006    0.000    0.006    0.000 {method 'clear' of 'dict' objects}
+   115396    0.010    0.000    0.010    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    46889    0.005    0.000    0.005    0.000 {method 'get' of 'dict' objects}
+   274583    0.052    0.000    0.052    0.000 {method 'items' of 'dict' objects}
+     7207    0.002    0.000    0.002    0.000 {method 'keys' of 'dict' objects}
+   267682    0.042    0.000    0.042    0.000 {method 'remove' of 'list' objects}
+   165288    0.031    0.000    0.031    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+False
+case_from_3_1 0.00161388158798
+True
+case_from_3_1 0.00398640155792
+True
+case_from_3_1 0.0047345495224
+True
+         179986081 function calls in 117.746 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  117.746  117.746 <string>:1(<module>)
+    88500    0.844    0.000    1.835    0.000 binary.py:19(union)
+   177000    0.030    0.000    0.030    0.000 binary.py:66(add_prefix)
+   579930    1.217    0.000   19.638    0.000 convert.py:286(from_dict_of_dicts)
+   579930    0.320    0.000    1.466    0.000 convert.py:34(_prep_create_using)
+  5742330    2.318    0.000    2.950    0.000 convert.py:360(<genexpr>)
+   579930    3.408    0.000   25.320    0.000 convert.py:50(to_networkx_graph)
+  4435888    1.276    0.000    1.568    0.000 convert.py:95(<genexpr>)
+   822630    0.368    0.000    0.809    0.000 function.py:32(nodes_iter)
+ 39686929   16.593    0.000   16.593    0.000 graph.py:1022(neighbors)
+   491130    0.943    0.000    2.008    0.000 graph.py:1086(edges)
+   862546    1.089    0.000    1.248    0.000 graph.py:1139(edges_iter)
+   579930    0.782    0.000    1.146    0.000 graph.py:1403(clear)
+  1513860    0.196    0.000    0.196    0.000 graph.py:1450(is_multigraph)
+  1733460   17.921    0.000   29.882    0.000 graph.py:1548(subgraph)
+  1733460    2.070    0.000    4.192    0.000 graph.py:1858(nbunch_iter)
+ 12154393    2.086    0.000    2.086    0.000 graph.py:1904(bunch_iter)
+  2401891    3.771    0.000   29.585    0.000 graph.py:258(__init__)
+   177000    0.068    0.000    0.089    0.000 graph.py:306(name)
+   668430    0.183    0.000    0.183    0.000 graph.py:310(name)
+   354000    0.118    0.000    0.161    0.000 graph.py:330(__iter__)
+  1490760    2.008    0.000    2.008    0.000 graph.py:345(__contains__)
+   756931    2.534    0.000    2.941    0.000 graph.py:466(add_nodes_from)
+  1402560    0.534    0.000    0.732    0.000 graph.py:610(nodes_iter)
+   579930    0.974    0.000    1.265    0.000 graph.py:645(nodes)
+   756931    8.389    0.000   14.252    0.000 graph.py:803(add_edges_from)
+   333916    1.076    0.000    1.796    0.000 ind-rec.py:124(reduction_rule_5_2)
+   333912    1.514    0.000    2.336    0.000 ind-rec.py:166(reduction_rule_5_3)
+   333912    1.768    0.000    2.805    0.000 ind-rec.py:220(branching_rule_5_1)
+   331200    1.224    0.000   34.610    0.000 ind-rec.py:289(branching_rule_5_2)
+   491426    1.110    0.000   72.938    0.000 ind-rec.py:347(reduction_rule_loop)
+      301    2.008    0.007  117.582    0.391 ind-rec.py:374(inductive_recognition)
+   822630   17.871    0.000   35.732    0.000 ind-rec.py:40(p3_free)
+        1    0.164    0.164  117.746  117.746 ind-rec.py:506(case_on_20)
+   579930    3.718    0.000   33.562    0.000 ind-rec.py:6(cluster_size)
+   579930    1.431    0.000   51.005    0.000 ind-rec.py:67(valid_cluster_graph)
+   491430    1.509    0.000   67.697    0.000 ind-rec.py:79(reduction_rule_5_1)
+  1739790    0.269    0.000    0.269    0.000 {hasattr}
+  1159860    0.150    0.000    0.150    0.000 {isinstance}
+  1999260    0.280    0.000    0.280    0.000 {iter}
+  7567031    0.629    0.000    0.629    0.000 {len}
+  3251513    0.368    0.000    0.368    0.000 {method 'append' of 'list' objects}
+  1739790    0.203    0.000    0.203    0.000 {method 'clear' of 'dict' objects}
+  8380366    0.683    0.000    0.683    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  5339430    0.589    0.000    0.589    0.000 {method 'get' of 'dict' objects}
+ 19833881    3.957    0.000    3.957    0.000 {method 'items' of 'dict' objects}
+   242700    0.074    0.000    0.074    0.000 {method 'keys' of 'dict' objects}
+ 31002829    4.782    0.000    4.782    0.000 {method 'remove' of 'list' objects}
+ 13080751    2.329    0.000    2.329    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {range}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
+False
+case_on_20 0.0853665113449
+True
+case_on_20 0.265883820057
+True
+case_on_20 0.288087880611
