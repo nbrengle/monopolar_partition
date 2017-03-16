@@ -4,27 +4,43 @@ import networkx as nx
 import time
 
 def cluster_size(input_graph):
+    DEBUG = True
     '''
     This relies on the well known fact that
     "Every maximal independent set in a cluster graph chooses a single vertex
     from each cluster, so the size of such a set
     always equals the number of clusters" -- Wikipedia
     '''
+    if DEBUG == True:
+        print "Called cluster_size"
     #calculate maximal IS
     #Initialize I to an empty set.
-    G = input_graph
+    G = Graph(input_graph)
     I = []
+    if DEBUG == True:
+        print G.nodes()
+    V = list(G.nodes())
     #While V is not empty:
-    #Choose a node v in V;
-    for v in G.nodes():
+    while V != []:
+        #Choose a node v in V;
+        v = V[0]
         #Add v to the set I;
         I.append(v)
-        G.remove_node(v)#Remove from V the node v and all its neighbours.
+        #Remove from V the node v and all its neighbors.
+        for neighbor in G.neighbors(v):
+            if neighbor in V:
+                V.remove(neighbor)
+        V.remove(v)
     #Return I.
+    DEBUG = True
+    if DEBUG == True:
+        print "I" + str(I)
     return len(I)
 
 def p3_free(input_graph):
     DEBUG = True
+    if DEBUG == True:
+        print "Called p3_free"
     G = input_graph
     for u in nx.nodes_iter(G):
         u_neighbors = G.neighbors(u)
@@ -49,6 +65,10 @@ def p3_free(input_graph):
     return True
 
 def valid_cluster_graph(input_graph, k):
+    DEBUG = True
+    if DEBUG == True:
+        print "Called valid_cluster_graph"
+
     G = input_graph
 
     if not p3_free(G) or not cluster_size(G) <= k:
@@ -87,10 +107,11 @@ def reduction_rule_5_1(input_graph, constraint, k):
         print "BC_star: " + str(BC_star)
         print "BCP: " + str(BCP)
 
-    reject_switch = 0
     G = input_graph
     G_acp = G.subgraph(ACP)
     if not valid_cluster_graph(G_acp, k):
+        if DEBUG == True:
+            print "ACP: is an invalid cluster graph"
         return False
 
     if G.subgraph(BCP).edges() != []:
@@ -292,14 +313,18 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
         print "BC_star: " + str(BC_star)
         print "BCP: " + str(BCP)
 
-    #if u has only 1 edge, it's likely a singleton cluster
-    #this... might not work
+    G_a_prime = G.subgraph(A_prime)
+
     for u in AC_star:
-        u_prime_neighbors = G.subgraph(A_prime).neighbors(u)
+        u_prime_neighbors = G_a_prime.neighbors(u)
+        u_prime_neighborhood = u_prime_neighbors.append(u)
         if DEBUG == True:
             print "u: " + str(u)
             print u_prime_neighbors
-        if len(u_prime_neighbors) > 1:
+
+        u_cluster = G_a_prime.subgraph(u_prime_neighborhood)
+
+        if p3_free(u_cluster):
             AC_star_no_u = list(AC_star)
             AC_star_no_u.remove(u)
             ACP_u = list(ACP)
@@ -365,9 +390,11 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
     end_game = False
 
     for branch in Q:
+        constraint = list(branch)
         if DEBUG == True:
             print "branch: " + str(branch)
-        reduction_loop = reduction_rule_loop(G, branch, k)
+            print str(Q)
+        reduction_loop = reduction_rule_loop(G, constraint, k)
         if not reduction_loop:
             continue
         else:
@@ -376,12 +403,17 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
             if b_rule_1 != False:
                 for new_branch in b_rule_1:
                     Q.append(new_branch)
-            b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
-            if b_rule_2 != False:
-                for new_branch in b_rule_2:
-                    Q.append(new_branch)
-            A = nx.union(G.subgraph(constraint[0]),G.subgraph(constraint[2]))
-            end_game = valid_cluster_graph(A, k)
+            else:
+                b_rule_2 = branching_rule_5_2(G,constraint,A_prime)
+                if b_rule_2 != False:
+                    for new_branch in b_rule_2:
+                        Q.append(new_branch)
+                else:
+                    A = nx.union(G.subgraph(constraint[0]),G.subgraph(constraint[2]))
+                    if DEBUG == True:
+                        print "calling engame: "
+                        print nx.union(G.subgraph(constraint[0]),G.subgraph(constraint[2]))
+                    end_game = valid_cluster_graph(A, k)
             continue
     #every branch is rejected
     #could make this more explicit by calling out an empty Q
