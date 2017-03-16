@@ -4,7 +4,7 @@ import networkx as nx
 import time
 
 def cluster_size(input_graph):
-    DEBUG = True
+    DEBUG = False
     '''
     This relies on the well known fact that
     "Every maximal independent set in a cluster graph chooses a single vertex
@@ -32,13 +32,13 @@ def cluster_size(input_graph):
                 V.remove(neighbor)
         V.remove(v)
     #Return I.
-    DEBUG = True
+    DEBUG = False
     if DEBUG == True:
         print "I" + str(I)
     return len(I)
 
 def p3_free(input_graph):
-    DEBUG = True
+    DEBUG = False
     if DEBUG == True:
         print "Called p3_free"
     G = input_graph
@@ -65,7 +65,7 @@ def p3_free(input_graph):
     return True
 
 def valid_cluster_graph(input_graph, k):
-    DEBUG = True
+    DEBUG = False
     if DEBUG == True:
         print "Called valid_cluster_graph"
 
@@ -77,7 +77,7 @@ def valid_cluster_graph(input_graph, k):
         return True
 
 def reduction_rule_5_1(input_graph, constraint, k):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -122,7 +122,7 @@ def reduction_rule_5_1(input_graph, constraint, k):
     return True
 
 def reduction_rule_5_2(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -164,7 +164,7 @@ def reduction_rule_5_2(input_graph, constraint):
     return False
 
 def reduction_rule_5_3(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -218,7 +218,7 @@ def reduction_rule_5_3(input_graph, constraint):
     return False
 
 def branching_rule_5_1(input_graph, constraint):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -287,7 +287,7 @@ def branching_rule_5_1(input_graph, constraint):
     return False
 
 def branching_rule_5_2(input_graph, constraint, A_prime):
-    DEBUG = True
+    DEBUG = False
     '''
     Constraint should be of the form: (AC_star, ACP, BC_star, BCP)
 
@@ -345,7 +345,7 @@ def branching_rule_5_2(input_graph, constraint, A_prime):
     return False
 
 def reduction_rule_loop(G, branch, k):
-    DEBUG = True
+    DEBUG = False
     constraint = branch
     goto = True
     while goto == True:
@@ -372,7 +372,7 @@ def reduction_rule_loop(G, branch, k):
     return False
 
 def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
-    DEBUG = True
+    DEBUG = False
 
     if len(monopolar_partition) != 2:
         raise ValueError("monopolar_partition must be of the form [A,B]")
@@ -416,7 +416,6 @@ def inductive_recognition(input_graph,vertex,monopolar_partition,parameter):
                     end_game = valid_cluster_graph(A, k)
             continue
     #every branch is rejected
-    #could make this more explicit by calling out an empty Q
     return end_game
 
 def case_bowtie(desired_runs,repetitions):
@@ -432,7 +431,7 @@ def case_bowtie(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            print inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3) #rm-print
+            inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -452,7 +451,7 @@ def case_k3_plus_claw(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            print inductive_recognition(G,v_G,mp_G,k_G) #rm-print
+            inductive_recognition(G,v_G,mp_G,k_G) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -472,7 +471,7 @@ def case_k5_plus_claw(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            print inductive_recognition(k5,v_k5,mp_k5,k_k5) #rm-print
+            inductive_recognition(k5,v_k5,mp_k5,k_k5) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -492,7 +491,7 @@ def case_from_3_1(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            print inductive_recognition(G,v,mp,k) #rm-print
+            inductive_recognition(G,v,mp,k) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -515,7 +514,7 @@ def case_on_20(desired_runs,repetitions):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            print inductive_recognition(G,v,mp,k) #rm-print
+            inductive_recognition(G,v,mp,k) #rm-print
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
@@ -525,11 +524,11 @@ def case_on_20(desired_runs,repetitions):
 
 def main():
     #cProfile.run('case_bowtie()')
-    #print "case_bowtie " + str(case_bowtie(1,1))
-    print "case_k3_plus_claw " + str(case_k3_plus_claw(1,1))
-    #print "case_k5_plus_claw " + str(case_k5_plus_claw(1,1))
-    #print "case_from_3_1 " + str(case_from_3_1(1,1))
-    #print "case_on_20 " + str(case_on_20(1,1))
+    print "case_bowtie " + str(case_bowtie(100,3))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3))
+    print "case_from_3_1 " + str(case_from_3_1(100,3))
+    print "case_on_20 " + str(case_on_20(100,3))
 
 if __name__ == '__main__':
     main()
