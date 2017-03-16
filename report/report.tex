@@ -45,7 +45,7 @@
 
 \newsavebox{\algbox}
 \newsavebox{\captionbox}
-\newenvironment{algorthm}[2]%
+\newenvironment{algorithm}[2]%
     {
         \setlength{\algboxwidth}{\columnwidth}
         \addtolength{\algboxwidth}{-\columnsep}
@@ -113,7 +113,7 @@
 \psset{unit=1pt}
 
 \date{16 March 2017}
-\title{Put your title here}
+\title{Benchmarking Inductive Monopolar Recognition}
 
 \author{{\sc Nathaniel Brengle}\thanks{Address of Author 1. Email: {\tt nathaniel.brengle@gmail.com}}}
 
@@ -123,7 +123,7 @@
 \maketitle
 
 \begin{abstract}
-Summarize your work in 1-2 paragraphs.
+Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{Inductive Monopolar Recognition} and a compare its performance to a general \textsc{$\Pi_A,$$\Pi_B$-Recognition} branching algorithm also described by Kanj \textit{et al.}. The two algorithms have the same runtime, $2^{\mathcal{O}(k)}n^{\mathcal{O}(1)}$. Given that the two algorithms each solve the probem of \textsc{Monopolar Recognition} in the same runtime, a benchmark comparison of the two algorithms is a pertinent investigation of their practicality. 
 
 \end{abstract}
 
@@ -149,58 +149,6 @@ Introduce the terminologies you use, and review the necessary background.
 \section{Section 1}
 \label{subsec:structural}
 The body of your paper should be structured in sections, where the material in each section has a common theme. For example, if your paper studies different aspects of a problem (\eg, complexity/\NP-hardness, approximation, exact algorithms), then the results pertaining to each aspect can be discussed under a separate section. Also, if you obtain structural results, or develop techniques, that are later used in different parts of the paper, then you may want to put them in a separate section (section 1) at the beginning of your paper.
-
-
-We prove the following:
-
-\begin{theorem}
-$\Pol \neq \NP$.
-\end{theorem}
-
-\begin{proof}
-
-\end{proof}
-
-\begin{algorthm}{An algorithm to print out ``Hello World'' indefinitely.}{alg:hello}
-\algtitle{``Hello World''}
-
-
-\begin{codeblock}
-\step Output ``Hello World'';
-
-\step Go to step 1;
-
-\end{codeblock}
-\end{algorthm}
-
-
-
-
-\begin{figure}[htbp]\label{fig:admissible}
-\begin{center}
-\begin{tikzpicture}
-[vertex/.style={fill,circle,inner sep = 1.5pt}]
-
-\node (x) at (7, 1) [vertex]{};
-\node (a) at (4,-1) [vertex] {};
-\node (b) at (5.6,-1) [vertex]{};
-\node (c) at (8,-1.5) [vertex] {};
-\node (d) at (6,-3) [vertex] {};
-
-
-\draw[line width=1] (a) -- (x) -- (c) -- (d) -- (a);
-
-\draw[black, line width=1] (x) -- (d) node[midway, anchor=west] {$e$};
-\draw[black, line width=1] (x) -- (b) ;
-\draw[black, line width=1] (b) -- (d) ;
-\draw[red, line width=1] (b) -- (a) node[midway, anchor=south west] {$e'$};
-\end{tikzpicture}
-
-\end{center}
-\caption{Illustration of ....}
-\end{figure}
-
-
 
 \section{Concluding remarks}
 \label{sec:conclusion}

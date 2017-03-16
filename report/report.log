@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  15 MAR 2017 01:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  15 MAR 2017 22:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,28 +788,27 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 123.
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
- []
+LaTeX Warning: Citation `ref1' on page 1 undefined on input line 126.
 
-(./report.bbl)
+(./report.bbl [1
 
-LaTeX Warning: Citation `ref1' on page 1 undefined on input line 211.
+])
 
-[1
+LaTeX Warning: Citation `ref1' on page 2 undefined on input line 159.
 
-] [2] (./report.aux)
+[2] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16133 strings out of 493015
- 303286 string characters out of 6133377
- 423308 words of memory out of 5000000
- 19317 multiletter control sequences out of 15000+600000
- 14972 words of font info for 57 fonts, out of 8000000 for 9000
+ 16057 strings out of 493015
+ 301708 string characters out of 6133377
+ 420318 words of memory out of 5000000
+ 19242 multiletter control sequences out of 15000+600000
+ 16365 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,11n,60p,665b,622s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,11n,54p,665b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (2 pages, 14036 bytes).
+Output written on report.dvi (2 pages, 9568 bytes).
