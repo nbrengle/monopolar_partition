@@ -15,7 +15,6 @@ def forbidden_graphs(input_graph):
     return G.edges()
 
 def monopolar_partition(input_graph, k):
-    # This is not trying all possible As as the root node...
     DEBUG = False
     #initialization
     G = input_graph
@@ -88,6 +87,7 @@ def case_k3_plus_claw(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    monopolar_partition(G,k_G)
     return min(average_times)
 
 def case_k5_plus_claw(desired_runs,repetitions,k):
@@ -95,7 +95,6 @@ def case_k5_plus_claw(desired_runs,repetitions,k):
     k5.add_nodes_from([5,6,7])
     k5.add_edges_from([(4,5),(4,6),(4,7)])
     k_k5 = k
-
 
     average_times = []
     for x in range(0, repetitions):
@@ -107,6 +106,7 @@ def case_k5_plus_claw(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    monopolar_partition(k5,k_k5)
     return min(average_times)
 
 def case_from_3_1(desired_runs,repetitions,k):
@@ -125,6 +125,7 @@ def case_from_3_1(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    monopolar_partition(G,k)
     return min(average_times)
 
 def case_on_20(desired_runs,repetitions,k):
@@ -145,19 +146,30 @@ def case_on_20(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print monopolar_partition(G,k)
     return min(average_times)
 
 def main():
     cProfile.run('case_bowtie(100,3,1)')
-    print "case_bowtie " + str(case_bowtie(100,3,1))
+    print "case_bowtie " + str(case_bowtie(100,3,2))
+    print "case_bowtie " + str(case_bowtie(100,3,3))
+    print "case_bowtie " + str(case_bowtie(100,3,5))
     cProfile.run('case_k3_plus_claw(100,3,1)')
-    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,1))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,2))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,3))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,5))
     cProfile.run('case_k5_plus_claw(100,3,1)')
-    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,1))
-    cProfile.run('case_from_3_1(100,3,1)')
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,2))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,4))
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,6))
+    cProfile.run('case_from_3_1(100,3,2)')
     print "case_from_3_1 " + str(case_from_3_1(100,3,2))
-    cProfile.run('case_on_20(100,3,1)')
-    print "case_on_20 " + str(case_on_20(100,3,6))
+    print "case_from_3_1 " + str(case_from_3_1(100,3,5))
+    print "case_from_3_1 " + str(case_from_3_1(100,3,7))
+    cProfile.run('case_on_20(100,3,6)')
+    print "case_on_20 " + str(case_on_20(100,3,5))
+    print "case_on_20 " + str(case_on_20(100,3,10))
+    print "case_on_20 " + str(case_on_20(100,3,15))
 
 
 if __name__ == '__main__':

@@ -431,12 +431,13 @@ def case_bowtie(desired_runs,repetitions,k):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3) #rm-print
+            inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3)
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print inductive_recognition(tri3,v_tri3,mp_tri3,k_tri3)
     return min(average_times)
 
 def case_k3_plus_claw(desired_runs,repetitions,k):
@@ -451,12 +452,13 @@ def case_k3_plus_claw(desired_runs,repetitions,k):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(G,v_G,mp_G,k_G) #rm-print
+            inductive_recognition(G,v_G,mp_G,k_G)
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print inductive_recognition(G,v_G,mp_G,k_G)
     return min(average_times)
 
 def case_k5_plus_claw(desired_runs,repetitions,k):
@@ -471,12 +473,13 @@ def case_k5_plus_claw(desired_runs,repetitions,k):
     for x in range(0, repetitions):
         start_time = time.time()
         for n in range(0, desired_runs):
-            inductive_recognition(k5,v_k5,mp_k5,k_k5) #rm-print
+            inductive_recognition(k5,v_k5,mp_k5,k_k5)
         elapsed_time = time.time() - start_time
 
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print inductive_recognition(k5,v_k5,mp_k5,k_k5)
     return min(average_times)
 
 def case_from_3_1(desired_runs,repetitions,k):
@@ -497,6 +500,7 @@ def case_from_3_1(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print inductive_recognition(G,v,mp,k)
     return min(average_times)
 
 def case_on_20(desired_runs,repetitions,k):
@@ -520,19 +524,27 @@ def case_on_20(desired_runs,repetitions,k):
         average_time = elapsed_time / desired_runs
         average_times.append(average_time)
 
+    print inductive_recognition(G,v,mp,k)
     return min(average_times)
 
 def main():
     cProfile.run('case_bowtie(100,3,1)')
     print "case_bowtie " + str(case_bowtie(100,3,1))
+    print "case_bowtie " + str(case_bowtie(100,3,2))
     cProfile.run('case_k3_plus_claw(100,3,1)')
     print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,1))
+    print "case_k3_plus_claw " + str(case_k3_plus_claw(100,3,2))
     cProfile.run('case_k5_plus_claw(100,3,1)')
     print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,1))
-    cProfile.run('case_from_3_1(100,3,1)')
+    print "case_k5_plus_claw " + str(case_k5_plus_claw(100,3,2))
+    cProfile.run('case_from_3_1(100,3,2)')
+    print "case_from_3_1 " + str(case_from_3_1(100,3,1))
     print "case_from_3_1 " + str(case_from_3_1(100,3,2))
-    cProfile.run('case_on_20(100,3,1)')
-    print "case_on_20 " + str(case_on_20(100,3,6))
+    print "case_from_3_1 " + str(case_from_3_1(100,3,3))
+    cProfile.run('case_on_20(100,3,6)')
+    print "case_on_20 " + str(case_on_20(100,3,3))
+    print "case_on_20 " + str(case_on_20(100,3,5))
+    print "case_on_20 " + str(case_on_20(100,3,7))
 
 if __name__ == '__main__':
     main()
