@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,133 +971,91 @@ LaTeX Warning: Citation `ref1' on page 1 undefined on input line 128.
 
 [1
 
-]
-No file report.lot.
+] (./report.lot)
 \tf@lot=\write5
 \openout5 = `report.lot'.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
+ [2]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `1' on page 3 undefined on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 195.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+(Font)              using `OT1/cmr/bx/n' instead on input line 207.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 240.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 240.
+(hyperref)                removing `\Pi' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 240.
+(hyperref)                removing `subscript' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 240.
+(hyperref)                removing `\Pi' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 240.
+(hyperref)                removing `subscript' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 240.
+(hyperref)                removing `math shift' on input line 253.
+
+
+Overfull \hbox (9.92694pt too wide) in paragraph at lines 305--305
+[]\OT1/cmr/bx/sc/12 cProfile Re-sults for In-duc-tive Monopo-lar Recog-ni-tion 
+and $\OT1/cmr/m/n/12 ^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$\OT1/cmr/bx/
+sc/12 -Recognition
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 240.
+(hyperref)                removing `math shift' on input line 305.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 240.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+(hyperref)                removing `\Pi' on input line 305.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 416.
+(hyperref)                removing `subscript' on input line 305.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 416.
+(hyperref)                removing `\Pi' on input line 305.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 416.
+(hyperref)                removing `subscript' on input line 305.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 416.
+(hyperref)                removing `math shift' on input line 305.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 416.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Citation `ref3' on page 3 undefined on input line 309.
 
 (./report.bbl)
 
-LaTeX Warning: Citation `ref1' on page 2 undefined on input line 510.
+LaTeX Warning: Citation `ref1' on page 3 undefined on input line 539.
 
-[2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 513.
- [3] [4] [5] [6] [7] [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 513.
+[3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 542.
+ [4] [5] [6] [7] [8] [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 542.
  (./report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 513.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 513.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 542.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 542.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: AC58AC4F24C9D59C776CFE9288623512;799.
+(rerunfilecheck)             Checksum: 2E49B052C9649DFA62D843C86537BB09;733.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1105,15 +1063,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 513.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 542.
  ) 
 Here is how much of TeX's memory you used:
- 20700 strings out of 493015
- 372452 string characters out of 6133377
- 591400 words of memory out of 5000000
- 23826 multiletter control sequences out of 15000+600000
+ 20715 strings out of 493015
+ 372634 string characters out of 6133377
+ 592962 words of memory out of 5000000
+ 23839 multiletter control sequences out of 15000+600000
  17535 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,19n,54p,937b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,19n,54p,1133b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (8 pages, 43208 bytes).
+Output written on report.dvi (9 pages, 57096 bytes).

@@ -125,7 +125,7 @@
 \maketitle
 
 \begin{abstract}
-Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{Inductive Monopolar Recognition} and a compare its performance to a general \textsc{$\Pi_A,$$\Pi_B$-Recognition} branching algorithm also described by Kanj \textit{et al.}. The two algorithms have the same runtime, $2^{\Oh(k)}n^{\Oh(1)}$. Given that the two algorithms each solve the probem of \textsc{Monopolar Recognition} in the same runtime, a benchmark comparison of the two algorithms is a pertinent investigation of their practicality.
+Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{Inductive Monopolar Recognition} and a compare its performance to a general \textsc{$\Pi_A,\Pi_B$-Recognition} branching algorithm also described by Kanj \textit{et al.}. The two algorithms have the same runtime, $2^{\Oh(k)}n^{\Oh(1)}$. Given that the two algorithms each solve the probem of \textsc{Monopolar Recognition} in the same runtime, a benchmark comparison of the two algorithms is a pertinent investigation of their practicality.
 
 \end{abstract}
 
@@ -150,7 +150,7 @@ A set of five graphs of orders ranging from six to 20 were used as benchmarks fo
 
 Additionally results from the Python profiling module \inlinecode{cProfile} are included for the execution on one graph-parameter combination per graph to demonstrate the relative time consumed on a per caller basis. The \inlinecode{cProfile} time results have only hundredths-of-a-second resolution making them undescriptive for single executions of the algorithms. The results obtained are instead for a full set of 300 executions per graph. Rather than average these values, we include them raw as their primary benefit is for the demonstration of the relative computational intensity of the different steps rather than substatively indicative of the performance of the algorithm as a whole. The \inlinecode{cProfile} results have been cleaned, removing system callers from the call list as the profiling data is illustrative rather than substantive. The raw results are available with the source code.
 
-%\listoftables
+\listoftables
 
 \section{Preliminaries}
 \label{sec:prelim}
@@ -160,32 +160,44 @@ We follow standard notation for graph-theory. Let \textit{G} be a graph; its set
 
 \section{Graphs Employed}
 \label{subsec:graphs}
-The 5 graphs as described in \ref{fig:graphs} were used as the source data to benchmark the algorithms. Rather than rely on 
-\begin{table}[h]\label{fig:graphs}
+The 5 graphs as described in \ref{table:graphs} were used as the source data to benchmark the algorithms. Rather than rely on a number scheme to describe the graphs, descriptive \"nicknames\" were employed for ease of reference. In \ref{table:graphs} Only $\mid\textit{V(G)}\mid$ is specified as each edge is an integer number. The full set of edges is included in \textbf{Edges}, described as pairs of vertices; only undirected graphs are used, "reversible" edges are implied and represented in \inlinecode{NetworkX}\'s actual data structure. The \textbf{Monopolar Partition} column indicates the sets of vertices $\textit{A}\in\textit{V(G)}$ and $\textit{B}\in\textit{V(G)}$ that were used as the valid Monopolar Parition as input to \textsc{Inductive Monopolar Recognition}. \textbf{Vertex} is the vertex $\textit{v}\in{V(G)}$ used as input to \textsc{Inductive Monopolar Recognition}. \textbf{Monopolar Partition} is then a valid Monopolar Partition on \textit{G \em v} where \textit{G} is the graph indicated by its nickname and constructed according to the other columns in \ref{table:graphs}.
+
+\inlinecode{Bowtie} is composed of two triangles connect by a common edge between one point in each triangle. These triangles are clusters. This graph was used because of its property that it cannot decompose into a single cluster with the removal of one vertex. Meaning that a valid monopolar parition of this graph necessarily has at minimum two clusters.
+
+\inlinecode{$K_3$ and Claw} is composed of a complete graph on three vertices with a so-called \inlinecode{claw-graph} connected to one vertex. All cluster graphs are \inlinecode{claw-free}: they do not admit a \inlinecode{claw-graph}. This graph was chosen because contrary to \inlinecode{Bowtie}, \inlinecode{$K_3$ and Claw} does have a cluster graph of size = 1.
+
+\inlinecode{$K_5$ and Claw} is composed of a complete graph on five vertices with a \inlinecode{claw-graph} connected to one vertex. This graph was used to demonstrate the effect of scaling the number of vertices and edges while still anticipating the same overall correctness as \inlinecode{$K_3$ and Claw}.
+
+\inlinecode{From 3.1} is an analogous construction to an example graph drawn by Kanj \textit{et al} \ref{1} which they employ to show a Monopolar Partition. We use it as a benchmark because it is of similar size to \inlinecode{$K_5$ and Claw} but of a less-coherent shape and therefore less deterministic behavior.
+
+\inlinecode{Twenty} is a near-random graph on 20 vertices used to benchmark because of its relative size. Rather than relying on a true-random graph, the necessity of a pre-existing valid monopolar partition for \textsc{Inductive Monopolar Recognition} merited a more controlled experiment.
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[c] X[c] X[c] X[c] | }
 \hline
-Nick-Name & $\mid\textit{V(G)}\mid$ & Edges & Monopolar Partition & Vertex \\
+Nickname & $\mid\textit{V(G)}\mid$ & Edges & Monopolar Partition & Vertex \\
 [0.5ex]
 \hline
 \hline
-Bowtie & 6 & (1, 2), (2, 3), (3, 1), (3, 4), (4, 5), (5, 6), (6, 4) & [1, 2, 5, 6], [3] & 4 \\
+Bowtie & 6 & (1, 2), (2, 3), (3, 1), (3, 4), (4, 5), (5, 6), (6, 4) & A:[1, 2, 5, 6], B:[3] & 4 \\
 [0.3ex]
 \hline
-$K_3$ and Claw & 6 & (1, 2), (2, 3), (3, 4), (3, 5), (3, 6), (1, 3) & [1, 2], [4, 5, 6] & 3 \\
+$K_3$ and Claw & 6 & (1, 2), (2, 3), (3, 4), (3, 5), (3, 6), (1, 3) & A:[1, 2], B:[4, 5, 6] & 3 \\
 [0.3ex]
 \hline
-$K_5$ and Claw & 8 & (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5), (5, 6), (5, 7), (5, 8) & [0, 1, 2, 3], [5, 6, 7] & 4 \\
+$K_5$ and Claw & 8 & (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5), (5, 6), (5, 7), (5, 8) & A:[0, 1, 2, 3], B:[5, 6, 7] & 4 \\
 [0.3ex]
 \hline
-From 3.1 & 10 & (1, 2), (2, 3), (2, 4), (2, 5), (3, 5), (3, 4), (4, 6), (6, 7), (7, 10), (7, 9), (7, 8), (8, 9), (9, 10) & [2, 3, 5, 6,9, 10], [1, 4, 8] & 7 \\
+From 3.1 & 10 & (1, 2), (2, 3), (2, 4), (2, 5), (3, 5), (3, 4), (4, 6), (6, 7), (7, 10), (7, 9), (7, 8), (8, 9), (9, 10) & A:[2, 3, 5, 6,9, 10], B:[1, 4, 8] & 7 \\
 [0.3ex]
 \hline
-Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), (4, 5), (5, 10), (6, 12), (7, 8), (8, 9), (8, 13), (9, 13), (9, 14), (10, 14), (11, 5), (11, 15), (10, 15), (10, 11), (5, 15), (14, 18), (14, 19), (15, 19), (15, 20), (17, 18), (12, 17), (12, 18), (19, 20) & [1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20], [4, 6, 7, 15, 16] & 14 \\
+Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), (4, 5), (5, 10), (6, 12), (7, 8), (8, 9), (8, 13), (9, 13), (9, 14), (10, 14), (11, 5), (11, 15), (10, 15), (10, 11), (5, 15), (14, 18), (14, 19), (15, 19), (15, 20), (17, 18), (12, 17), (12, 18), (19, 20) & A:[1, 2, 3, 5, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20], B:[4, 6, 7, 15, 16] & 14 \\
 [0.3ex]
 \hline
 \end{tabu}
 \caption{Graphs used to benchmark the algorithms}
+\label{table:graphs}
 \end{center}
 \end{table}
 
@@ -195,7 +207,7 @@ Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), 
 \subsection{Benchmarks for \textsc{Inductive Monopolar Recognition}}
 \label{subsec:irresults} %duplicate be careful
 
-\begin{table}[h]\label{fig:irresults}
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
 \hline
@@ -234,11 +246,14 @@ Twenty & 0.0853665113449 & 3 & False \\
 \hline
 \end{tabu}
 \caption{Benchmarks for \textsc{Inductive Monopolar Recognition}}
+\label{table:irresults}
 \end{center}
 \end{table}
 
-\subsection{Benchmarks for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}\label{subsec:mpresults}
-\begin{table}[h]\label{fig:mpresults}
+\subsection{Benchmarks for \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}\label{subsec:mpresults}
+
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
 \hline
@@ -283,12 +298,19 @@ Twenty & 0.0135761094093 & 5 & False \\
  \hline
 \end{tabu}
 \end{center}
-\caption{Benchmarks for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}
+\caption{Benchmarks for \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}
+\label{fig:mpresults}
 \end{table}
 
-\subsection{cProfile Results for \textsc{Inductive Monopolar Recognition}}
-\label{subsec:ircpresults} %duplicate be careful
-\begin{table}[h]
+\subsection{cProfile Results for \textsc{Inductive Monopolar Recognition} and \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}
+\label{subsec:profiles}
+For each of Tables: \ref{table:ircpbowtie}, \ref{table:ircpk3}, \ref{table:ircpk5}, \ref{table:ircpfrom3}, \ref{table:ircptwenty}, \ref{table:mpcpbowtie}, \ref{table:mpcpk3}, \ref{table:mpcpk5}, \ref{table:mpcpfrom3}, \ref{table:mpcptwenty}: per the Python 2.7.13 documentation: \inlinecode{ncalls} is the number of calls, \inlinecode{tottime} is the total time spent in the given function, excluding time made in calls to sub-functions. \inlinecode{percall} is the quotient of tottime divided by ncalls. \inlinecode{cumtime}
+is the cumulative time spent in this and all subfunctions from invocation till exit.
+The second column labelled \inlinecode{percall} is the quotient of cumtime divided by primitive calls and \inlinecode{function} is the name of the function called.\cite{ref3}.
+
+Recall that per Results and Techniques \ref{subsec:results}, these data are for a full run of 300 executions and provided more for illustration of the relative computational intensity of the substeps rather than for in-depth analyses of the efficacy of the algorithm.
+
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -309,11 +331,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{Bowtie : 528677 function calls (528676 primitive calls) in 0.377 seconds}
+\caption{\textsc{Inductive Monopolar Recognition} on Graph Bowtie}
+\label{table:ircpbowtie}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -334,11 +357,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{$K_3$ and Claw : 469094 function calls in 0.329 seconds}
+\caption{\textsc{Inductive Monopolar Recognition} on Graph $K_3$ and Claw}
+\label{table:ircpk3}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -359,11 +383,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{$K_5$ and Claw : 2017852 function calls in 1.322 seconds}
+\caption{\textsc{Inductive Monopolar Recognition} on Graph $K_5$ and Claw}
+\label{table:ircpk5}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -384,11 +409,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{From 3.1 : 2636229 function calls in 1.845 seconds}
+\caption{\textsc{Inductive Monopolar Recognition} on Graph From 3.1 }
+\label{table:ircpfrom3}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -409,14 +435,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{Twenty : 179986081 function calls in 117.746 seconds}
+\caption{\textsc{Inductive Monopolar Recognition} on Graph Twenty}
+\label{table:ircptwenty}
 \end{center}
 \end{table}
 
-\subsection{cProfile Results for \textsc{$\Pi_A,$$\Pi_B$-Recognition} on Monopolar Graphs}
-\label{subsec:mpcpresults} %duplicate be careful
-
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -429,11 +453,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{Bowtie : 287776 function calls (287775 primitive calls) in 0.142 seconds}
+\caption{\textsc{$\Pi_A,\Pi_B$-Recognition} on Graph Bowtie}
+\label{table:mpcpbowtie}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -446,11 +471,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{$K_3$ and Claw : 268543 function calls in 0.146 seconds}
+\caption{\textsc{$\Pi_A,\Pi_B$-Recognition} on Graph $K_3$ and Claw}
+\label{table:mpcpk3}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -463,11 +489,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{$K_5$ and Claw : 390487 function calls in 0.185 seconds}
+\caption{\textsc{$\Pi_A,\Pi_B$-Recognition} on Graph $K_5$ and Claw}
+\label{table:mpcpk5}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -480,11 +507,12 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{From 3.1 : 895859 function calls in 0.434 seconds}
+\caption{\textsc{$\Pi_A,\Pi_B$-Recognition} on Graph From 3.1}
+\label{table:mpcpfrom3}
 \end{center}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[c] X[c] X[c] X[c] X[c] X[c] | }
 \hline
@@ -497,7 +525,8 @@ ncalls & tottime & percall & cumtime & percall & function \\
 [0.3ex]
 \hline
 \end{tabu}
-\caption{Twenty : 24745973 function calls in 13.509 seconds}
+\caption{\textsc{$\Pi_A,\Pi_B$-Recognition} on Graph Twenty}
+\label{table:mpcptwenty}
 \end{center}
 \end{table}
 
