@@ -135,10 +135,7 @@ Following Kanj \textit{et al.} \cite{ref1} we implement and benchmark \textsc{In
 
 \section{Introduction}
 \label{sec:intro}
-
-\subsection{Motivation and related work}
-\label{subsec:motive}
-Motivate your work, and review the related work in the literature.
+\textsc{Inductive Monopolar Recognition} is a relatively new algorithm developed by Kanj \textit{et al.} \cite{ref1}. It is a FPT algorithm for identifying graphs with a valid monopolar partition, which is defined as a graph the decomposes into two sets \textit{A,B} such that \textit{A} is a cluster graph (which is here defined as a disjoint union of cliques) and \textit{B} is an independent set \ie an edgeless graph with an arbitrary number of vertices. Kanj \textit{et al.} \cite{ref1} also describe a general process for determining \textsc{$\Pi_A,\Pi_B$-Recognition}. Monopolar Partition is an instance of the general \textsc{$\Pi_A,\Pi_B$-Recognition} problem which is defined as any recognition problem involving the decomposition of a graph into two sets ($\Pi_A$,$\Pi_B$). Each of $\Pi_A$ and $\Pi_B$ are subgraphs with a hereditary property, ie. a finite set of forbiden subgraphs. In this paper, we have taken a (FPT) branching, parameterized algorithm for \textsc{$\Pi_A,\Pi_B$-Recognition} and applied it to the same set of test graphs used to benchmark \textsc{Inductive Monopolar Recognition}, allowing us to compare the performance of the two algorithms. 
 
 \subsection{Results and techniques}
 \label{subsec:results}
@@ -204,14 +201,24 @@ Twenty & 20 & (1, 6), (1, 4), (2, 7), (3, 8), (3, 9), (3, 4), (3, 13), (4, 14), 
 \section{Execution Results}
 \label{subsec:structural}
 
-\subsection{Benchmarks for \textsc{Inductive Monopolar Recognition}}
-\label{subsec:irresults} %duplicate be careful
+\subsection{Benchmarks for \textsc{Inductive Monopolar Recognition} and \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}
+\label{subsec:executiondata}
+
+Consider Tables \ref{table:irresults} and \ref{table:mpresults}. The results seem quite consistent with the stated runtime of the algorithms: $2^{\Oh(k)}n^{\Oh(1)}$. Early fail out, visible in rows that return a result of \inlinecode{False}, indicate that negative determinations are as much as an order of magnitude faster than affirmative results which is consistent with the expectation that affirmation may require exploring more branches of the search tree.
+
+Looking more closely at the results for \textsc{Inductive Monopolar Recognition} in \ref{table:irresults} we note some interesting phenomena. In the case of \inlinecode{Bowtie} we see that with a \textit{k} of two, the performance is an order of magnitude worse. This is a result of the selected vertex and initial partition, see Table \ref{table:graphs}. In this case, branching rule 5.2 causes a full re-approriation of the cluster initially described by edge (5,6).
+
+\inlinecode{$K_3$ and Claw} and \inlinecode{$K_3$ and Claw} have consistent runtimes even with an increase in \textit{k}. This is because of early success as they each admit a monopolar partition with exactly one cluster.
+
+\inlinecode{From 3.1} and \inlinecode{Twenty} have results much more consistent with expectations. In \inlinecode{From 3.1} we see performance changing by approximately a factor of two as \textit{k} increases. \inlinecode{Twenty} appears to have early succes aroung \textit{k}=5 and its size significantly impacts the runtime.
+
+Looking at \ref{table:mpresults} we see that \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs appears to be about twice as fast as \textsc{Inductive Monopolar Recognition} until the value of \textit{k} increases substantively where upon it performs more slowly by a factors of 2 to 8. This is consitent as the parameter \textit{k} must be notably larger in \textsc{$\Pi_A,\Pi_B$-Recognition} as it is $\mid\textit{A}\mid$ rather than the maximum number of clusters in \textit{A}.
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabu} to 0.9\textwidth { | X[l] X[l] X[c] X[c] | }
 \hline
-Graph & Time (Sec) & K & Result \\
+Graph & Time (Sec) & k & Result \\
 [0.5ex]
 \hline
 \hline
@@ -249,9 +256,6 @@ Twenty & 0.0853665113449 & 3 & False \\
 \label{table:irresults}
 \end{center}
 \end{table}
-
-\subsection{Benchmarks for \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}\label{subsec:mpresults}
-
 
 \begin{table}[ht]
 \begin{center}
@@ -299,7 +303,7 @@ Twenty & 0.0135761094093 & 5 & False \\
 \end{tabu}
 \end{center}
 \caption{Benchmarks for \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}
-\label{fig:mpresults}
+\label{table:mpresults}
 \end{table}
 
 \subsection{cProfile Results for \textsc{Inductive Monopolar Recognition} and \textsc{$\Pi_A,\Pi_B$-Recognition} on Monopolar Graphs}
@@ -532,11 +536,9 @@ ncalls & tottime & percall & cumtime & percall & function \\
 
 \section{Concluding remarks}
 \label{sec:conclusion}
-Summarize in a short paragraph the work you did. Discuss what future work and open questions ensue from your work.
+Our implementation and testing was in fairly limited scope. The use of truly random graphs (assuming they admit a valid monopolar partition) could potentially go a long way toward exploring the possibilities of these algorithms.
 
 \bibliographystyle{plain}
 \bibliography{ref}
-See the format of the attached bibliography file for referencing~\cite{ref1}.
-
 
 \end{document}

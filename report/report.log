@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.5.22)  16 MAR 2017 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -969,6 +969,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
 
 LaTeX Warning: Citation `ref1' on page 1 undefined on input line 128.
 
+
+LaTeX Warning: Citation `ref1' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation `ref1' on page 1 undefined on input line 138.
+
 [1
 
 ] (./report.lot)
@@ -976,41 +982,41 @@ LaTeX Warning: Citation `ref1' on page 1 undefined on input line 128.
 \openout5 = `report.lot'.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 157.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
  [2]
 
-LaTeX Warning: Reference `1' on page 3 undefined on input line 171.
+LaTeX Warning: Reference `1' on page 3 undefined on input line 168.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 207.
+(Font)              using `OT1/cmr/bx/n' instead on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 253.
+(hyperref)                removing `\Pi' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 253.
+(hyperref)                removing `subscript' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 253.
+(hyperref)                removing `\Pi' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 253.
+(hyperref)                removing `subscript' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 204.
 
-
-Overfull \hbox (9.92694pt too wide) in paragraph at lines 305--305
+[3]
+Overfull \hbox (9.92694pt too wide) in paragraph at lines 309--309
 []\OT1/cmr/bx/sc/12 cProfile Re-sults for In-duc-tive Monopo-lar Recog-ni-tion 
 and $\OT1/cmr/m/n/12 ^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$\OT1/cmr/bx/
 sc/12 -Recognition
@@ -1018,60 +1024,65 @@ sc/12 -Recognition
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 305.
+(hyperref)                removing `math shift' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 305.
+(hyperref)                removing `\Pi' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 305.
+(hyperref)                removing `subscript' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Pi' on input line 305.
+(hyperref)                removing `\Pi' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 305.
+(hyperref)                removing `subscript' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 305.
+(hyperref)                removing `math shift' on input line 309.
 
 
-LaTeX Warning: Citation `ref3' on page 3 undefined on input line 309.
+LaTeX Warning: Citation `ref3' on page 4 undefined on input line 313.
 
-(./report.bbl)
-
-LaTeX Warning: Citation `ref1' on page 3 undefined on input line 539.
-
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 542.
- [4] [5] [6] [7] [8] [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 542.
+(./report.bbl) [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 544.
+ [5] [6] [7] [8] [9] [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 544.
  (./report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 542.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 542.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 2E49B052C9649DFA62D843C86537BB09;733.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 544.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 544.
 
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: C642660C34E493EF511962912B1D4B1A;673
+(rerunfilecheck)             After:  92D5BA16362875C9A48FE55BB06A0D28;597.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 542.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 544.
  ) 
 Here is how much of TeX's memory you used:
- 20715 strings out of 493015
- 372634 string characters out of 6133377
- 592962 words of memory out of 5000000
- 23839 multiletter control sequences out of 15000+600000
+ 20713 strings out of 493015
+ 372606 string characters out of 6133377
+ 590837 words of memory out of 5000000
+ 23837 multiletter control sequences out of 15000+600000
  17535 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,19n,54p,1133b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,19n,54p,1205b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (9 pages, 57096 bytes).
+Output written on report.dvi (10 pages, 61996 bytes).

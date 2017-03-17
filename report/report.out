@@ -1,10 +1,8 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Motivation and related work}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Results and techniques}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Preliminaries}{}% 4
-\BOOKMARK [1][-]{section.3}{Graphs Employed}{}% 5
-\BOOKMARK [1][-]{section.4}{Execution Results}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{Benchmarks for Inductive Monopolar Recognition}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{Benchmarks for A,B-Recognition on Monopolar Graphs}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.3}{cProfile Results for Inductive Monopolar Recognition and A,B-Recognition on Monopolar Graphs}{section.4}% 9
-\BOOKMARK [1][-]{section.5}{Concluding remarks}{}% 10
+\BOOKMARK [2][-]{subsection.1.1}{Results and techniques}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Preliminaries}{}% 3
+\BOOKMARK [1][-]{section.3}{Graphs Employed}{}% 4
+\BOOKMARK [1][-]{section.4}{Execution Results}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Benchmarks for Inductive Monopolar Recognition and A,B-Recognition on Monopolar Graphs}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{cProfile Results for Inductive Monopolar Recognition and A,B-Recognition on Monopolar Graphs}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Concluding remarks}{}% 8
